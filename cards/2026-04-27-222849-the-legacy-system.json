@@ -1,0 +1,31 @@
+{
+  "name": "The Legacy System",
+  "role_tagline": "Irreplaceable Technical Debt",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "role": "Strongman",
+  "atk": 2,
+  "def": 10,
+  "image_sign_text": "STILL RUNNING. DO NOT TOUCH.",
+  "effect": "Persist indefinitely by being too costly to remove. This card is considered mission-critical.",
+  "clauses": [
+    {
+      "name": "INSTITUTIONAL MEMORY PROTECTION",
+      "rule": "If the only person who understands this system is unavailable: This card cannot be modified."
+    },
+    {
+      "name": "MIGRATION OVERRIDE",
+      "rule": "Each time a migration is proposed: The proposal is deferred to next quarter."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "If this card survives three consecutive strategy cycles: It is reclassified as a platform asset."
+    }
+  ],
+  "witness_quote": "We can't touch that. It just works.",
+  "translation_layer": {
+    "observation": "Old software still running.",
+    "skeptical_question": "Does anyone have the documentation?"
+  }
+}
