@@ -1,0 +1,29 @@
+{
+  "name": "The Wrap",
+  "role_tagline": "Confident Closure",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "other",
+  "sub_tent_detail": "Production Lot",
+  "image_sign_text": "THAT'S A WRAP.",
+  "effect": "Conclude production without documenting what was used or where it went. This card is considered complete.",
+  "clauses": [
+    {
+      "name": "COMPLETION CLAUSE",
+      "rule": "If no one asks for the asset list: The production is considered orderly."
+    },
+    {
+      "name": "DISCOVERY EFFECT",
+      "rule": "When assets are later requested: Each asset is discovered in a different location by a different person."
+    },
+    {
+      "name": "FORGETFULNESS OVERRIDE",
+      "rule": "If the shoot is more than thirty days old: Everyone agrees there was definitely a list."
+    }
+  ],
+  "witness_quote": "Someone has the list, right?",
+  "translation_layer": {
+    "observation": "No list was made.",
+    "skeptical_question": "Did anyone write anything down?"
+  }
+}
