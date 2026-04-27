@@ -1,0 +1,29 @@
+{
+  "name": "The Unified Profile",
+  "role_tagline": "360-Degree Customer View",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "CDP Circus",
+  "role": "Magician",
+  "effect": "Consolidate all known customer signals into a single, actionable identity. This card is considered resolved.",
+  "clauses": [
+    {
+      "name": "IDENTITY RESOLUTION CLAUSE",
+      "rule": "If two signals share any attribute: They are considered the same person."
+    },
+    {
+      "name": "RECOGNITION FAILURE EFFECT",
+      "rule": "When the customer returns: The profile does not recognize them."
+    },
+    {
+      "name": "CONFIDENCE SCORE PROTECTION",
+      "rule": "If the match is incorrect: The confidence score remains high."
+    }
+  ],
+  "witness_quote": "We have a full view of the customer.",
+  "translation_layer": {
+    "observation": "Email matched to email.",
+    "skeptical_question": "Is this the same person or just the same browser?"
+  },
+  "image_sign_text": "ONE CUSTOMER. ONE TRUTH. ONE MYSTERY."
+}
