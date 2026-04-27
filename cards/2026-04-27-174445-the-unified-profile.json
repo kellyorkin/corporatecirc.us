@@ -1,0 +1,28 @@
+{
+  "name": "The Unified Profile",
+  "role_tagline": "Identity Resolution",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "CDP Circus",
+  "image_sign_text": "ONE CUSTOMER. ONE TRUTH. ONE VIEW.",
+  "effect": "Consolidate all known customer signals into a single, authoritative identity. This card is considered resolved.",
+  "clauses": [
+    {
+      "name": "RECOGNITION CLAUSE",
+      "rule": "If the customer has interacted before: They are treated as a new customer."
+    },
+    {
+      "name": "GOLDEN RECORD OVERRIDE",
+      "rule": "If three or more data sources conflict: The most recently ingested value is considered correct."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "If the customer identifies themselves: The system acknowledges the input and proceeds to address them by a different name."
+    }
+  ],
+  "witness_quote": "It knows everything about everyone.",
+  "translation_layer": {
+    "observation": "Duplicate records, merged poorly.",
+    "skeptical_question": "Is this the same person, or four different people?"
+  }
+}
