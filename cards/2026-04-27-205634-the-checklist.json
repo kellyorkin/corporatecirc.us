@@ -1,0 +1,28 @@
+{
+  "name": "The Checklist",
+  "role_tagline": "Governance Artifact",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "image_sign_text": "NOTHING GETS THROUGH WITHOUT A TICK.",
+  "effect": "Enforce compliance through a living list of requirements. This card is considered thorough.",
+  "clauses": [
+    {
+      "name": "ACCRETION CLAUSE",
+      "rule": "Each time an incident occurs: One item is added to the checklist and never removed."
+    },
+    {
+      "name": "COMPLETION PROTECTION",
+      "rule": "If all boxes are ticked: A new column is added to the checklist."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "When asked why an item exists: No one in the room can remember."
+    }
+  ],
+  "witness_quote": "We added that after the thing.",
+  "translation_layer": {
+    "observation": "Scar tissue, documented.",
+    "skeptical_question": "Has anyone read the whole thing?"
+  }
+}
