@@ -1,0 +1,31 @@
+{
+  "name": "The Scorecard",
+  "role_tagline": "Actionable Performance Visibility",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "Analytics Arcade",
+  "role": "Sleight of Hand",
+  "atk": 2,
+  "def": 9,
+  "image_sign_text": "INSIGHTS. DELIVERED.",
+  "effect": "Surface platform performance metrics across all active channels. This card is considered informative.",
+  "clauses": [
+    {
+      "name": "VISIBILITY CLAUSE",
+      "rule": "If a metric appears on the scorecard: It is considered measured."
+    },
+    {
+      "name": "BENCHMARK OVERRIDE",
+      "rule": "If a score declines: Adjust the benchmark so the score is considered healthy."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "When a decision is required: No clause on this card maps to one."
+    }
+  ],
+  "witness_quote": "It's all green. Great meeting everyone.",
+  "translation_layer": {
+    "observation": "Numbers. No context.",
+    "skeptical_question": "What would a bad score look like?"
+  }
+}
