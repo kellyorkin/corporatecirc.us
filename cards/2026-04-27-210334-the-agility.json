@@ -1,0 +1,28 @@
+{
+  "name": "The Agility",
+  "role_tagline": "Declared Agile Posture",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "image_sign_text": "AGILE. JUST TRUST US.",
+  "effect": "Declare all existing processes Agile. This card is considered transformative.",
+  "clauses": [
+    {
+      "name": "DECLARATION CLAUSE",
+      "rule": "If the word Agile appears in a slide deck: All associated work is considered Agile."
+    },
+    {
+      "name": "CEREMONY OVERRIDE",
+      "rule": "If standups exceed forty-five minutes: They are considered Agile ceremonies."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "If anyone asks about the manifesto: The question is considered out of scope."
+    }
+  ],
+  "witness_quote": "We do Agile our way.",
+  "translation_layer": {
+    "observation": "Waterfall with sticky notes.",
+    "skeptical_question": "Has anyone read the manifesto?"
+  }
+}
