@@ -1,0 +1,28 @@
+{
+  "name": "The Phantom Kickoff",
+  "role_tagline": "Alignment Ceremony",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "effect": "Schedule and deliver an energizing kickoff meeting. This card is considered launched.",
+  "clauses": [
+    {
+      "name": "ALIGNMENT CLAUSE",
+      "rule": "If all stakeholders attend: The project is considered aligned."
+    },
+    {
+      "name": "EVAPORATION EFFECT",
+      "rule": "If no follow-up is scheduled: All momentum is considered transferred to the next kickoff."
+    },
+    {
+      "name": "FORGETFULNESS OVERRIDE",
+      "rule": "Next sprint: No one remembers what was decided."
+    }
+  ],
+  "witness_quote": "Great energy in that room.",
+  "translation_layer": {
+    "observation": "A meeting was held.",
+    "skeptical_question": "Was there ever a second meeting?"
+  },
+  "image_sign_text": "WE ARE ALIGNED. WE ARE MOVING."
+}
