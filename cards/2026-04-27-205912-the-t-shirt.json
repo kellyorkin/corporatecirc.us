@@ -1,0 +1,28 @@
+{
+  "name": "The T-Shirt",
+  "role_tagline": "Effort Estimation",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "image_sign_text": "ONE SIZE FITS ALL",
+  "effect": "Reduce project scope to a garment size. This card is considered estimated.",
+  "clauses": [
+    {
+      "name": "SIZING CLAUSE",
+      "rule": "If a project is assigned a size: The size is considered accurate."
+    },
+    {
+      "name": "STRETCH EFFECT",
+      "rule": "When the project begins: The size grows by at least one increment."
+    },
+    {
+      "name": "XXXL OVERRIDE",
+      "rule": "If no size feels large enough: A new size is invented and considered a standard."
+    }
+  ],
+  "witness_quote": "We said XL, not XXXL.",
+  "translation_layer": {
+    "observation": "A guess wearing a label.",
+    "skeptical_question": "Who authorised sizes above XL?"
+  }
+}
