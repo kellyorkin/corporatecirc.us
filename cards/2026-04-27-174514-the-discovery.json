@@ -1,0 +1,27 @@
+{
+  "name": "The Discovery",
+  "role_tagline": "Scoped Insight Generation",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "effect": "Declare a discovery phase complete. This card is considered thorough.",
+  "clauses": [
+    {
+      "name": "DISCOVERY CLAUSE",
+      "rule": "If a discovery phase is announced: It is considered to have occurred."
+    },
+    {
+      "name": "ASSUMPTIONS OVERRIDE",
+      "rule": "If no stakeholders were interviewed: Assumptions from the previous project are considered findings."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "Next turn: No one asks what was discovered."
+    }
+  ],
+  "witness_quote": "We did discovery on this.",
+  "translation_layer": {
+    "observation": "A meeting was scheduled.",
+    "skeptical_question": "Who attended?"
+  }
+}
