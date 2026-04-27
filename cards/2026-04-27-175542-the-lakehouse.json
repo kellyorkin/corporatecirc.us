@@ -1,0 +1,29 @@
+{
+  "name": "The Lakehouse",
+  "role_tagline": "Unified Data Architecture",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "other",
+  "sub_tent_detail": "Data Warehouse Wonderland",
+  "image_sign_text": "WAREHOUSE AND LAKE. AT LAST. TOGETHER.",
+  "effect": "Unify lake flexibility and warehouse structure into a single platform narrative. This card is considered transformative.",
+  "clauses": [
+    {
+      "name": "CONVERGENCE CLAUSE",
+      "rule": "If a warehouse already exists: Declare it legacy and proceed."
+    },
+    {
+      "name": "SQL OVERRIDE",
+      "rule": "When questioned about architecture: Invoke SQL compatibility as resolution."
+    },
+    {
+      "name": "REBRANDING EFFECT",
+      "rule": "If the data lake card is in play: Absorb it. The lake is now a feature."
+    }
+  ],
+  "witness_quote": "It's the best of both worlds.",
+  "translation_layer": {
+    "observation": "SQL on top of files.",
+    "skeptical_question": "Is this just the warehouse again?"
+  }
+}
