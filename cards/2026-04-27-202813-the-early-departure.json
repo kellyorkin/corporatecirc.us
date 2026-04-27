@@ -1,0 +1,27 @@
+{
+  "name": "The Early Departure",
+  "role_tagline": "Strategic Disengagement",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "effect": "Declare the day concluded at an arbitrary point. This card is considered decisive.",
+  "clauses": [
+    {
+      "name": "DEPARTURE CLAUSE",
+      "rule": "When a minor inconvenience is encountered: The remainder of the day is cancelled."
+    },
+    {
+      "name": "VISIBILITY OVERRIDE",
+      "rule": "For the remainder of the week: This card is considered off-grid and cannot be actioned."
+    },
+    {
+      "name": "REAPPEARANCE EFFECT",
+      "rule": "On Monday morning: This card returns fully refreshed and unaware of outstanding items."
+    }
+  ],
+  "witness_quote": "Has anyone heard from them since Tuesday?",
+  "translation_layer": {
+    "observation": "Person left. Did not return.",
+    "skeptical_question": "Was anyone waiting on a decision?"
+  }
+}
