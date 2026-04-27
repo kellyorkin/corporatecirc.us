@@ -1,0 +1,33 @@
+{
+  "name": "The Trade Show",
+  "role_tagline": "Visible Market Presence",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "other",
+  "sub_tent_detail": "Exposition Grounds",
+  "role": "Strongman",
+  "role_detail": null,
+  "atk": 7,
+  "def": 3,
+  "image_sign_text": "INNOVATION STARTS HERE.",
+  "effect": "Convene an industry at significant expense to narrate the future in a convention center. This card is considered thought-leading.",
+  "clauses": [
+    {
+      "name": "BOOTH PRESENCE CLAUSE",
+      "rule": "If a vendor occupies more than 400 square feet of floor space: Their platform is considered enterprise-grade."
+    },
+    {
+      "name": "KEYNOTE OVERRIDE",
+      "rule": "When a keynote is delivered: All product limitations are suspended for the duration of the slide deck."
+    },
+    {
+      "name": "BADGE SCAN EFFECT",
+      "rule": "If contact information is collected: A pipeline is considered generated."
+    }
+  ],
+  "witness_quote": "Great energy on the floor this year.",
+  "translation_layer": {
+    "observation": "Lanyards. Carpet. Demos.",
+    "skeptical_question": "Did any of this close?"
+  }
+}
