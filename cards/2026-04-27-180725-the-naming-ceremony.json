@@ -1,0 +1,29 @@
+{
+  "name": "The Naming Ceremony",
+  "role_tagline": "Nomenclature Alignment",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "sub_tent_detail": null,
+  "image_sign_text": "WHAT SHALL WE CALL IT?",
+  "effect": "Convene stakeholders to assign a name to the proof of concept. This card is considered aligned.",
+  "clauses": [
+    {
+      "name": "CONSENSUS CLAUSE",
+      "rule": "If all stakeholders agree on a name: The PoC is considered production-ready."
+    },
+    {
+      "name": "ACRONYM EFFECT",
+      "rule": "If the name is abbreviated: The abbreviation is considered self-explanatory."
+    },
+    {
+      "name": "FORGETFULNESS OVERRIDE",
+      "rule": "Next quarter: The name is replaced without ceremony."
+    }
+  ],
+  "witness_quote": "Can we just call it a platform?",
+  "translation_layer": {
+    "observation": "Meeting about a name.",
+    "skeptical_question": "Has anyone tested it yet?"
+  }
+}
