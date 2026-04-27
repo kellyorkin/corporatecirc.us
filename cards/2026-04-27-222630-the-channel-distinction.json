@@ -1,0 +1,31 @@
+{
+  "name": "The Channel Distinction",
+  "role_tagline": "Precision Vocabulary Theater",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "CDP Circus",
+  "role": "Sleight of Hand",
+  "atk": 4,
+  "def": 6,
+  "image_sign_text": "OMNI. NOT CROSS. THERE IS A DIFFERENCE.",
+  "effect": "Reframe an existing channel strategy using upgraded terminology. This card is considered unified.",
+  "clauses": [
+    {
+      "name": "NOMENCLATURE OVERRIDE",
+      "rule": "If the word cross-channel appears in any document: Replace it with omnichannel and resubmit for approval."
+    },
+    {
+      "name": "DEFINITION PROTECTION",
+      "rule": "If anyone requests a working definition of omnichannel: Redirect to a whitepaper authored by this card's vendor."
+    },
+    {
+      "name": "PARITY CLAUSE",
+      "rule": "If the customer experience does not change after the terminology upgrade: The card remains in play."
+    }
+  ],
+  "witness_quote": "It's not the same thing, actually.",
+  "translation_layer": {
+    "observation": "Two words. Same emails.",
+    "skeptical_question": "Did the customer notice?"
+  }
+}
