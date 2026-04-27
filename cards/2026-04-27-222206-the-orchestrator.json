@@ -1,0 +1,31 @@
+{
+  "name": "The Orchestrator",
+  "role_tagline": "Decisioned Segmentation",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "CDP Circus",
+  "role": "Juggler",
+  "atk": 6,
+  "def": 5,
+  "effect": "Segment audiences into meaningful cohorts and orchestrate personalized journeys through automated decisioning. This card is considered intelligent.",
+  "clauses": [
+    {
+      "name": "SEGMENTATION CLAUSE",
+      "rule": "If an audience exists: It is divided into no fewer than twelve segments, seven of which will never receive a message."
+    },
+    {
+      "name": "DECISIONING EFFECT",
+      "rule": "When a decision is required: A rule written in Q2 of the prior fiscal year is applied."
+    },
+    {
+      "name": "ORCHESTRATION OVERRIDE",
+      "rule": "If all segments are active simultaneously: One stakeholder adds a thirteenth segment mid-flight and the decisioning engine is considered rearchitected."
+    }
+  ],
+  "witness_quote": "It decides which journey they're on.",
+  "translation_layer": {
+    "observation": "IF-THEN rules. Many of them.",
+    "skeptical_question": "Who owns the segment definitions?"
+  },
+  "image_sign_text": "RIGHT MESSAGE. RIGHT PERSON. RIGHT NOW."
+}
