@@ -1,0 +1,28 @@
+{
+  "name": "The Masterpiece",
+  "role_tagline": "Elegant Underutilization",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "image_sign_text": "YEARS IN THE MAKING.",
+  "effect": "Deploy an architecturally sophisticated solution to a problem the audience has already worked around. This card is considered visionary.",
+  "clauses": [
+    {
+      "name": "ELEGANCE CLAUSE",
+      "rule": "If the design is praised in a meeting: Adoption is not required for the quarter."
+    },
+    {
+      "name": "WORKAROUND OVERRIDE",
+      "rule": "If a simpler solution already exists: This card remains in play and is considered complementary."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "After two quarters: The design document is considered legacy."
+    }
+  ],
+  "witness_quote": "Beautiful. We'll use it eventually.",
+  "translation_layer": {
+    "observation": "Nobody logged in.",
+    "skeptical_question": "Was anyone asked what they needed?"
+  }
+}
