@@ -1,0 +1,29 @@
+{
+  "name": "The Requirements Document",
+  "role_tagline": "Accountability Displacement",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "sub_tent_detail": null,
+  "image_sign_text": "AS SPECIFIED. AS DELIVERED.",
+  "effect": "Redirect blame from the product to the specification. This card is considered compliant.",
+  "clauses": [
+    {
+      "name": "SPECIFICATION PROTECTION",
+      "rule": "If a defect is identified: The defect is reclassified as a requirements gap."
+    },
+    {
+      "name": "FIDELITY CLAUSE",
+      "rule": "If the product matches the document exactly: The product is considered successful regardless of outcome."
+    },
+    {
+      "name": "OWNERSHIP OVERRIDE",
+      "rule": "If the document was written by the same team that built the product: This card cannot be challenged this turn."
+    }
+  ],
+  "witness_quote": "It did exactly what we asked for.",
+  "translation_layer": {
+    "observation": "Product was garbage.",
+    "skeptical_question": "Who wrote the specs?"
+  }
+}
