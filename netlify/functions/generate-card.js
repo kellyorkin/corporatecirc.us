@@ -37,7 +37,24 @@ SUB-TENTS
 - Analytics Arcade — KPIs, dashboards, reporting
 - Compliance Sideshow — GDPR, governance, legal infrastructure
 - COE Circus — institutional capability theater
+- MVP Midway — minimum viable products, half-shipped features, beta launches that became permanent, prematurely-launched capabilities that stayed
 - other — name the new tent in carnival vocabulary via sub_tent_detail
+
+ROLES
+Every card carries a circus-performer role that shapes its voice and posture. The role may be reflected in the card's name (e.g., "The Risk Assessment Tightrope") or carried implicitly through the clauses' tone. Pick the role whose archetype best fits the phenomenon being satirized.
+
+- Tightrope — precarious balance: risk assessment, compliance, deadlines, anything one slip from collapse
+- Strongman — brute-force display: feature launches, demos, "showing strength"
+- Sleight of Hand — misdirection: rebrands, KPI gaming, redirecting attention
+- Trapeze — risky exchange or leap: acquisitions, pivots, migrations, hand-offs
+- Juggler — managing too many things at once: multi-stakeholder projects, sprints, attention division
+- Ringmaster — narrating the show: leadership, all-hands, declarations of completion
+- Acrobat — flexibility / contortion: agile transformations, scope changes, shape-shifting
+- Fire Breather — risk theater / dramatic transformation: innovation labs, moonshots, controlled spectacle of danger
+- Magician — illusion: AI hype, vaporware, demos that do not match production
+- Clown — truth-telling through humor: dissent, gallows humor, the licensed fool naming the dysfunction
+- Carousel — going in circles: quarterly cycles, retros that change nothing, recurring discussions
+- other — emergent role; specify role_detail in carnival vocabulary
 
 ANTI-PATTERNS
 - Do not exceed 3 clauses.
@@ -58,11 +75,20 @@ const TOOL_DEFINITION = {
       osi_layer: { type: "integer", enum: [1, 2, 3, 4, 5, 6, 7] },
       sub_tent: {
         type: "string",
-        enum: ["CDP Circus", "AI Pavilion", "Analytics Arcade", "Compliance Sideshow", "COE Circus", "other"]
+        enum: ["CDP Circus", "AI Pavilion", "Analytics Arcade", "Compliance Sideshow", "COE Circus", "MVP Midway", "other"]
       },
       sub_tent_detail: {
         type: ["string", "null"],
         description: "Required when sub_tent is 'other'. Names the new tent."
+      },
+      role: {
+        type: "string",
+        enum: ["Tightrope", "Strongman", "Sleight of Hand", "Trapeze", "Juggler", "Ringmaster", "Acrobat", "Fire Breather", "Magician", "Clown", "Carousel", "other"],
+        description: "Circus-performer archetype shaping the card's voice and posture."
+      },
+      role_detail: {
+        type: ["string", "null"],
+        description: "Required when role is 'other'. Names the emergent role in carnival vocabulary."
       },
       image_sign_text: {
         type: ["string", "null"],
@@ -95,7 +121,7 @@ const TOOL_DEFINITION = {
         required: ["observation", "skeptical_question"]
       }
     },
-    required: ["name", "role_tagline", "card_type", "osi_layer", "sub_tent", "effect", "clauses", "witness_quote", "translation_layer"]
+    required: ["name", "role_tagline", "card_type", "osi_layer", "sub_tent", "role", "effect", "clauses", "witness_quote", "translation_layer"]
   }
 };
 
@@ -129,6 +155,8 @@ const FEW_SHOT_MESSAGES = [
           osi_layer: 7,
           sub_tent: "COE Circus",
           sub_tent_detail: null,
+          role: "Strongman",
+          role_detail: null,
           image_sign_text: "INCREDIBLE STRENGTH! WITNESS!",
           effect: "Demonstrate exceptional strength. This card is considered powerful.",
           clauses: [
@@ -165,6 +193,8 @@ const FEW_SHOT_MESSAGES = [
           osi_layer: 7,
           sub_tent: "COE Circus",
           sub_tent_detail: null,
+          role: "Tightrope",
+          role_detail: null,
           image_sign_text: "BALANCED. STEADY. NOTHING TO SEE HERE.",
           effect: "Maintain balance in uncertain conditions. This card is considered stable.",
           clauses: [
@@ -201,6 +231,8 @@ const FEW_SHOT_MESSAGES = [
           osi_layer: 7,
           sub_tent: "COE Circus",
           sub_tent_detail: null,
+          role: "Ringmaster",
+          role_detail: null,
           image_sign_text: null,
           effect: "Deliver an impressive outcome. All previous actions are justified.",
           clauses: [
@@ -237,6 +269,8 @@ const FEW_SHOT_MESSAGES = [
           osi_layer: 7,
           sub_tent: "Analytics Arcade",
           sub_tent_detail: null,
+          role: "Magician",
+          role_detail: null,
           image_sign_text: null,
           effect: "Store all enterprise data in a single repository without schema enforcement. This card is considered scalable.",
           clauses: [
@@ -288,7 +322,7 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: JSON.stringify({ error: 'Invalid JSON in request body.' }) };
   }
 
-  const { concept, sub_tent, osi_layer } = body;
+  const { concept, sub_tent, osi_layer, role } = body;
   if (!concept || typeof concept !== 'string' || concept.trim() === '') {
     return { statusCode: 400, body: JSON.stringify({ error: 'concept is required.' }) };
   }
@@ -296,6 +330,7 @@ exports.handler = async (event) => {
   // Build the user input message
   const lines = [`Concept: ${concept.trim()}`];
   if (sub_tent && sub_tent !== '') lines.push(`Sub-tent: ${sub_tent}`);
+  if (role && role !== '') lines.push(`Role: ${role}`);
   if (osi_layer && osi_layer !== '') lines.push(`OSI Layer: ${osi_layer}`);
   const userMessage = lines.join('\n');
 

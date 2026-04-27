@@ -280,19 +280,25 @@
       <option>Analytics Arcade</option>
       <option>Compliance Sideshow</option>
       <option>COE Circus</option>
+      <option>MVP Midway</option>
       <option>other</option>
     </select>
 
-    <label for="osi_layer">OSI Layer (optional)</label>
-    <select id="osi_layer" name="osi_layer">
+    <label for="role">Role (optional)</label>
+    <select id="role" name="role">
       <option value="">— let the model decide —</option>
-      <option value="7">Layer 7 — Application</option>
-      <option value="6">Layer 6 — Presentation</option>
-      <option value="5">Layer 5 — Session</option>
-      <option value="4">Layer 4 — Transport</option>
-      <option value="3">Layer 3 — Network</option>
-      <option value="2">Layer 2 — Data Link</option>
-      <option value="1">Layer 1 — Physical</option>
+      <option>Tightrope</option>
+      <option>Strongman</option>
+      <option>Sleight of Hand</option>
+      <option>Trapeze</option>
+      <option>Juggler</option>
+      <option>Ringmaster</option>
+      <option>Acrobat</option>
+      <option>Fire Breather</option>
+      <option>Magician</option>
+      <option>Clown</option>
+      <option>Carousel</option>
+      <option>other</option>
     </select>
 
     <button type="submit" id="submit-btn">Generate Card</button>
@@ -358,6 +364,12 @@
         ? `${escapeHtml(card.sub_tent)}: ${escapeHtml(card.sub_tent_detail)}`
         : escapeHtml(card.sub_tent);
 
+      const roleDisplay = card.role
+        ? (card.role === 'other' && card.role_detail
+            ? `${escapeHtml(card.role)}: ${escapeHtml(card.role_detail)}`
+            : escapeHtml(card.role))
+        : '';
+
       const imageSignNote = card.image_sign_text
         ? `<div class="image-sign-note"><strong>Image sign text:</strong> ${escapeHtml(card.image_sign_text)}</div>`
         : '';
@@ -394,6 +406,7 @@
           <div class="card-meta">
             <span>OSI Layer ${escapeHtml(card.osi_layer)}</span>
             <span>${subTentDisplay}</span>
+            ${roleDisplay ? `<span>Role: ${roleDisplay}</span>` : ''}
           </div>
         </div>
 
