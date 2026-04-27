@@ -1,0 +1,31 @@
+{
+  "name": "The AI-First Mandate",
+  "role_tagline": "Strategic Transformation",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "AI Pavilion",
+  "role": "Ringmaster",
+  "atk": 9,
+  "def": 3,
+  "image_sign_text": "AI FIRST. ALWAYS. EFFECTIVE IMMEDIATELY.",
+  "effect": "Declare the organization AI-first. All existing roadmaps are retroactively considered AI initiatives. This card is considered transformative.",
+  "clauses": [
+    {
+      "name": "REBRANDING CLAUSE",
+      "rule": "When this card is played: All current projects gain the prefix 'AI-Powered' at no additional cost."
+    },
+    {
+      "name": "ACCOUNTABILITY OVERRIDE",
+      "rule": "If outcomes are questioned: Redirect to the boldness of the vision."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "Next quarter: No one can locate the AI strategy document."
+    }
+  ],
+  "witness_quote": "Leadership is fully aligned on this.",
+  "translation_layer": {
+    "observation": "Memo sent. Slide updated.",
+    "skeptical_question": "Which system, specifically, is the AI?"
+  }
+}
