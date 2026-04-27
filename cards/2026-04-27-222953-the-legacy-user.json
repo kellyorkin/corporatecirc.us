@@ -1,0 +1,31 @@
+{
+  "name": "The Legacy User",
+  "role_tagline": "Institutional Memory",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "role": "Tightrope",
+  "atk": 2,
+  "def": 9,
+  "image_sign_text": "STILL WORKS FINE.",
+  "effect": "Resist all migration efforts through accumulated procedural knowledge. This card is considered indispensable.",
+  "clauses": [
+    {
+      "name": "UNDOCUMENTED WORKAROUND CLAUSE",
+      "rule": "If a critical process depends on this card: The process cannot be explained to anyone else."
+    },
+    {
+      "name": "CHANGE RESISTANCE PROTECTION",
+      "rule": "When a modernization initiative targets this card: The initiative is delayed by one turn while stakeholders are reassured."
+    },
+    {
+      "name": "TRIBAL KNOWLEDGE EFFECT",
+      "rule": "If this card is retired: Three previously invisible dependencies become blocking issues immediately."
+    }
+  ],
+  "witness_quote": "Karen's the only one who knows.",
+  "translation_layer": {
+    "observation": "One person. One spreadsheet.",
+    "skeptical_question": "What happens when she retires?"
+  }
+}
