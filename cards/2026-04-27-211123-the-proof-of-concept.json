@@ -1,0 +1,27 @@
+{
+  "name": "The Proof of Concept",
+  "role_tagline": "Polite Deferral Vehicle",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "effect": "Acknowledge a vendor without committing to an outcome. This card is considered evaluative.",
+  "clauses": [
+    {
+      "name": "GRATITUDE CLAUSE",
+      "rule": "When a vendor presentation concludes: Thank them warmly and provide no other information."
+    },
+    {
+      "name": "PERPETUATION EFFECT",
+      "rule": "If the PoC produces results: Schedule a follow-up PoC to validate the results."
+    },
+    {
+      "name": "FORGETFULNESS OVERRIDE",
+      "rule": "After ninety days: The PoC findings are considered lost and the evaluation restarts."
+    }
+  ],
+  "witness_quote": "We'll definitely be in touch.",
+  "translation_layer": {
+    "observation": "No decision was made.",
+    "skeptical_question": "Was anyone empowered to decide?"
+  }
+}
