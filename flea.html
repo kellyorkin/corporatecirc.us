@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Product Flea Circus — Card Generator</title>
+  <style>
+    :root {
+      --paper: #f5ecd6;
+      --ink: #2a1f17;
+      --burgundy: #6b1f1f;
+      --gold: #b89653;
+      --shadow: rgba(20, 14, 8, 0.4);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, "Book Antiqua", serif;
+      background: #1a1410;
+      color: var(--ink);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2em 1em 4em;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      color: var(--paper);
+      margin-bottom: 2em;
+    }
+
+    header h1 {
+      font-size: 2em;
+      letter-spacing: 0.04em;
+      margin: 0 0 0.2em;
+      color: var(--gold);
+    }
+
+    header p {
+      font-style: italic;
+      opacity: 0.85;
+      margin: 0;
+    }
+
+    form {
+      background: var(--paper);
+      border: 2px solid var(--gold);
+      border-radius: 6px;
+      padding: 1.5em;
+      box-shadow: 0 4px 16px var(--shadow);
+      display: grid;
+      gap: 0.8em;
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 0.9em;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+    }
+
+    input, select, button, textarea {
+      padding: 0.6em 0.8em;
+      font-family: inherit;
+      font-size: 1em;
+      border: 1px solid var(--ink);
+      background: white;
+      color: var(--ink);
+      border-radius: 3px;
+    }
+
+    button {
+      margin-top: 0.5em;
+      background: var(--burgundy);
+      color: var(--paper);
+      cursor: pointer;
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      padding: 0.8em;
+      transition: background 0.15s;
+    }
+
+    button:hover { background: #5a1818; }
+    button:disabled { opacity: 0.6; cursor: wait; }
+
+    #output { margin-top: 2em; }
+
+    .card {
+      background: var(--paper);
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      padding: 1.5em;
+      box-shadow: 0 4px 16px var(--shadow);
+      position: relative;
+    }
+
+    .card-header {
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 0.6em;
+      margin-bottom: 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1em;
+    }
+
+    .card-name {
+      font-size: 1.4em;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .card-tagline {
+      font-style: italic;
+      color: var(--burgundy);
+      margin: 0.2em 0 0;
+      font-size: 0.95em;
+    }
+
+    .card-type-badge {
+      background: var(--burgundy);
+      color: var(--paper);
+      padding: 0.3em 0.6em;
+      font-size: 0.7em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .card-effect, .card-clause { margin-bottom: 0.7em; }
+
+    .card-section-label {
+      font-weight: bold;
+      letter-spacing: 0.06em;
+      color: var(--burgundy);
+      font-size: 0.85em;
+      text-transform: uppercase;
+    }
+
+    .card-clause-name {
+      font-weight: bold;
+      font-size: 0.85em;
+      letter-spacing: 0.06em;
+      color: var(--burgundy);
+    }
+
+    .card-witness {
+      background: white;
+      border: 1px solid var(--ink);
+      padding: 0.6em 0.8em;
+      margin: 1em 0;
+      font-style: italic;
+      border-radius: 3px;
+    }
+
+    .card-translation {
+      border-top: 1px dashed var(--ink);
+      padding-top: 0.6em;
+      margin-top: 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1em;
+      font-size: 0.9em;
+    }
+
+    .card-translation-label {
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      font-size: 0.75em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+    }
+
+    .card-translation-text { flex: 1; }
+    .card-translation-question { font-style: italic; opacity: 0.8; }
+
+    .card-meta {
+      font-size: 0.75em;
+      opacity: 0.6;
+      margin-top: 1em;
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
+    }
+
+    .image-sign-note {
+      background: #fffbe6;
+      border-left: 3px solid var(--gold);
+      padding: 0.5em 0.8em;
+      font-size: 0.85em;
+      margin-top: 1em;
+    }
+
+    details {
+      margin-top: 1em;
+      color: var(--paper);
+      font-size: 0.85em;
+    }
+
+    summary { cursor: pointer; opacity: 0.7; }
+
+    pre {
+      background: #0e0a07;
+      color: #d4c4a0;
+      padding: 1em;
+      border-radius: 3px;
+      overflow-x: auto;
+      font-size: 0.8em;
+    }
+
+    .error {
+      background: #6b1f1f;
+      color: var(--paper);
+      padding: 1em;
+      border-radius: 3px;
+      margin-top: 2em;
+    }
+
+    .loading {
+      color: var(--paper);
+      text-align: center;
+      padding: 2em;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The Product Flea Circus</h1>
+    <p>A Manufactured Exhibit card generator</p>
+  </header>
+
+  <form id="card-form">
+    <label for="concept">Concept *</label>
+    <input
+      type="text"
+      id="concept"
+      name="concept"
+      required
+      placeholder="e.g., Customer 360, Reverse ETL, Predictive Send Time"
+    >
+
+    <label for="sub_tent">Sub-tent (optional)</label>
+    <select id="sub_tent" name="sub_tent">
+      <option value="">— let the model decide —</option>
+      <option>CDP Circus</option>
+      <option>AI Pavilion</option>
+      <option>Analytics Arcade</option>
+      <option>Compliance Sideshow</option>
+      <option>COE Circus</option>
+      <option>other</option>
+    </select>
+
+    <label for="osi_layer">OSI Layer (optional)</label>
+    <select id="osi_layer" name="osi_layer">
+      <option value="">— let the model decide —</option>
+      <option value="7">Layer 7 — Application</option>
+      <option value="6">Layer 6 — Presentation</option>
+      <option value="5">Layer 5 — Session</option>
+      <option value="4">Layer 4 — Transport</option>
+      <option value="3">Layer 3 — Network</option>
+      <option value="2">Layer 2 — Data Link</option>
+      <option value="1">Layer 1 — Physical</option>
+    </select>
+
+    <button type="submit" id="submit-btn">Generate Card</button>
+  </form>
+
+  <div id="output"></div>
+
+  <script>
+    const form = document.getElementById('card-form');
+    const output = document.getElementById('output');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form));
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Summoning…';
+      output.innerHTML = '<div class="loading">The Ringmaster is consulting the lower layers…</div>';
+
+      try {
+        const res = await fetch('/.netlify/functions/generate-card', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const json = await res.json();
+
+        if (!res.ok) {
+          output.innerHTML = `<div class="error"><strong>Error:</strong> ${escapeHtml(json.error || res.statusText)}</div>`;
+          return;
+        }
+
+        renderCard(json.card);
+      } catch (err) {
+        output.innerHTML = `<div class="error"><strong>Error:</strong> ${escapeHtml(err.message)}</div>`;
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Generate Card';
+      }
+    });
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, ch => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      })[ch]);
+    }
+
+    function renderCard(card) {
+      if (!card) {
+        output.innerHTML = '<div class="error">No card returned.</div>';
+        return;
+      }
+
+      const clausesHtml = (card.clauses || []).map(c => `
+        <div class="card-clause">
+          <div class="card-clause-name">${escapeHtml(c.name)}</div>
+          <div>${escapeHtml(c.rule)}</div>
+        </div>
+      `).join('');
+
+      const subTentDisplay = card.sub_tent === 'other' && card.sub_tent_detail
+        ? `${escapeHtml(card.sub_tent)}: ${escapeHtml(card.sub_tent_detail)}`
+        : escapeHtml(card.sub_tent);
+
+      const imageSignNote = card.image_sign_text
+        ? `<div class="image-sign-note"><strong>Image sign text:</strong> ${escapeHtml(card.image_sign_text)}</div>`
+        : '';
+
+      output.innerHTML = `
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-name">${escapeHtml(card.name)}</h2>
+              <p class="card-tagline">— ${escapeHtml(card.role_tagline)} —</p>
+            </div>
+            <div class="card-type-badge">${escapeHtml(card.card_type)}</div>
+          </div>
+
+          <div class="card-effect">
+            <div class="card-section-label">Effect</div>
+            <div>${escapeHtml(card.effect)}</div>
+          </div>
+
+          ${clausesHtml}
+
+          <div class="card-witness">"${escapeHtml(card.witness_quote)}"</div>
+
+          <div class="card-translation">
+            <div>
+              <div class="card-translation-label">🔍 Translation Layer</div>
+              <div class="card-translation-text">${escapeHtml(card.translation_layer.observation)}</div>
+            </div>
+            <div class="card-translation-question">${escapeHtml(card.translation_layer.skeptical_question)}</div>
+          </div>
+
+          ${imageSignNote}
+
+          <div class="card-meta">
+            <span>OSI Layer ${escapeHtml(card.osi_layer)}</span>
+            <span>${subTentDisplay}</span>
+          </div>
+        </div>
+
+        <details>
+          <summary>View raw JSON</summary>
+          <pre>${escapeHtml(JSON.stringify(card, null, 2))}</pre>
+        </details>
+      `;
+    }
+  </script>
+</body>
+</html>

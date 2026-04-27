@@ -1,0 +1,19 @@
+# Netlify configuration for the Product Flea Circus card generator.
+# This tells Netlify where the site files and functions live, so deploys work without manual setup.
+
+[build]
+  # Where the static site (index.html and friends) is served from.
+  # If you're dropping these files at the repo root, "." is correct.
+  # If you put them in a subfolder (e.g., "flea-circus/"), change this to "flea-circus".
+  publish = "."
+
+  # Where Netlify looks for serverless functions.
+  functions = "netlify/functions"
+
+# Optional: pretty URL for the function.
+# Without this, the endpoint is /.netlify/functions/generate-card
+# With this, it's also reachable at /api/generate-card.
+[[redirects]]
+  from = "/api/generate-card"
+  to = "/.netlify/functions/generate-card"
+  status = 200
