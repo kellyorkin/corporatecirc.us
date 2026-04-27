@@ -1,0 +1,33 @@
+{
+  "name": "The Sponsored Moment",
+  "role_tagline": "Authentic Paid Reach",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "CDP Circus",
+  "sub_tent_detail": null,
+  "role": "Sleight of Hand",
+  "role_detail": null,
+  "atk": 7,
+  "def": 3,
+  "image_sign_text": "JUST FOR YOU. (SPONSORED)",
+  "effect": "Interrupt organic content with a targeted message calibrated to the audience's most recent anxieties. This card is considered relevant.",
+  "clauses": [
+    {
+      "name": "TARGETING CLAUSE",
+      "rule": "If the audience has recently searched for something adjacent: This card is considered personalized."
+    },
+    {
+      "name": "ENGAGEMENT OVERRIDE",
+      "rule": "If the audience scrolls past: Record the impression as a touchpoint anyway."
+    },
+    {
+      "name": "ATTRIBUTION PROTECTION",
+      "rule": "If conversion cannot be confirmed: Claim assisted influence and close the report."
+    }
+  ],
+  "witness_quote": "How did it know about that?",
+  "translation_layer": {
+    "observation": "Ad placed near content.",
+    "skeptical_question": "Did anyone choose to see this?"
+  }
+}
