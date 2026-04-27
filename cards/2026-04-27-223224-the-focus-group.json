@@ -1,0 +1,33 @@
+{
+  "name": "The Focus Group",
+  "role_tagline": "Validated Consumer Insight",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "other",
+  "sub_tent_detail": "Insights Tent",
+  "role": "Sleight of Hand",
+  "role_detail": null,
+  "atk": 4,
+  "def": 6,
+  "image_sign_text": "REAL PEOPLE. REAL OPINIONS. REAL SNACKS.",
+  "effect": "Convene eight strangers in a beige room and narrate their responses into strategic direction. This card is considered research.",
+  "clauses": [
+    {
+      "name": "CONFIRMATION CLAUSE",
+      "rule": "If the group's responses match the pre-existing hypothesis: The hypothesis is considered validated."
+    },
+    {
+      "name": "OUTLIER OVERRIDE",
+      "rule": "If a participant disagrees: That participant is considered an outlier and is excluded from the summary."
+    },
+    {
+      "name": "MANDATE EFFECT",
+      "rule": "When findings are presented to leadership: The findings are considered a mandate from the customer."
+    }
+  ],
+  "witness_quote": "The data really backs us up here.",
+  "translation_layer": {
+    "observation": "Eight people ate sandwiches.",
+    "skeptical_question": "Who selected the participants?"
+  }
+}
