@@ -1,0 +1,28 @@
+{
+  "name": "The Pivot",
+  "role_tagline": "Adaptive Methodology",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "image_sign_text": "FAILURE IS A FEATURE",
+  "effect": "Reclassify a failure mode as a methodology component. This card is considered intentional.",
+  "clauses": [
+    {
+      "name": "RECLASSIFICATION CLAUSE",
+      "rule": "If an outcome deviates from plan: The deviation is retroactively designated a learning loop."
+    },
+    {
+      "name": "DOCUMENTATION OVERRIDE",
+      "rule": "If the failure is documented: The documentation is considered a framework artifact."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "Next turn: The original plan is considered a draft."
+    }
+  ],
+  "witness_quote": "That was always the approach.",
+  "translation_layer": {
+    "observation": "Something went wrong.",
+    "skeptical_question": "Was this ever the plan?"
+  }
+}
