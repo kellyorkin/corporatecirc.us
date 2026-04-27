@@ -1,0 +1,29 @@
+{
+  "name": "The Discovery",
+  "role_tagline": "Insight Without Looking",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "other",
+  "sub_tent_detail": "Pre-Sales Phantasmagoria",
+  "image_sign_text": "WE ALREADY KNOW YOUR PROBLEM.",
+  "effect": "Surface a discovery. This card is considered insightful.",
+  "clauses": [
+    {
+      "name": "ASSUMPTION CLAUSE",
+      "rule": "If no discovery session was conducted: All findings are considered pre-populated."
+    },
+    {
+      "name": "CONFIDENCE OVERRIDE",
+      "rule": "If the client nods: The assumptions are considered validated."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "Next turn: No one remembers that no one asked any questions."
+    }
+  ],
+  "witness_quote": "We've seen this pattern before.",
+  "translation_layer": {
+    "observation": "Slide deck recycled wholesale.",
+    "skeptical_question": "Was anyone actually listening?"
+  }
+}
