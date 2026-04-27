@@ -1,0 +1,31 @@
+{
+  "name": "The Thought Leader",
+  "role_tagline": "Visionary Influence",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "role": "Ringmaster",
+  "atk": 6,
+  "def": 5,
+  "image_sign_text": "LEADING THOUGHTS. SHAPING FUTURES.",
+  "effect": "Publish a perspective on an industry trend. This card is considered authoritative.",
+  "clauses": [
+    {
+      "name": "CITATION CLAUSE",
+      "rule": "If this card references a report it commissioned itself: The insight is considered independent."
+    },
+    {
+      "name": "NOVELTY OVERRIDE",
+      "rule": "If the perspective has been stated before: Reframe it as a framework and re-release."
+    },
+    {
+      "name": "ENGAGEMENT EFFECT",
+      "rule": "If the post receives more than twelve LinkedIn reactions: The author is considered a thought leader for the remainder of the quarter."
+    }
+  ],
+  "witness_quote": "Really making us think.",
+  "translation_layer": {
+    "observation": "Opinion posted online.",
+    "skeptical_question": "Has anyone done this differently?"
+  }
+}
