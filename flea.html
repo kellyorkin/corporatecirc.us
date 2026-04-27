@@ -88,6 +88,31 @@
     button:hover { background: #5a1818; }
     button:disabled { opacity: 0.6; cursor: wait; }
 
+    .save-btn {
+      display: block;
+      width: 100%;
+      margin-top: 1em;
+      padding: 0.7em;
+      background: var(--paper);
+      color: var(--burgundy);
+      border: 2px solid var(--burgundy);
+      border-radius: 3px;
+      font-family: inherit;
+      font-size: 0.9em;
+      font-weight: bold;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .save-btn:hover { background: var(--burgundy); color: var(--paper); }
+    .save-btn:disabled { cursor: default; opacity: 0.85; }
+    .save-btn.saved {
+      background: var(--gold);
+      color: var(--ink);
+      border-color: var(--gold);
+    }
+
     #output { margin-top: 2em; }
 
     .card {
@@ -234,7 +259,7 @@
 <body>
   <header>
     <h1>The Product Flea Circus</h1>
-    <p>A Manufactured Exhibit card generator</p>
+    <p>The product is a lightweight, highly distributed micro-interaction platform designed to enable persistent, high-frequency engagement across host environments. <em>It itches.</em></p>
   </header>
 
   <form id="card-form">
@@ -372,11 +397,50 @@
           </div>
         </div>
 
+        <button class="save-btn" id="save-btn" type="button">Save to deck</button>
+
         <details>
           <summary>View raw JSON</summary>
           <pre>${escapeHtml(JSON.stringify(card, null, 2))}</pre>
         </details>
       `;
+
+      const saveBtn = document.getElementById('save-btn');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', () => saveCard(card));
+      }
+    }
+
+    async function saveCard(card) {
+      const btn = document.getElementById('save-btn');
+      if (!btn) return;
+      btn.disabled = true;
+      btn.textContent = 'Saving…';
+      btn.classList.remove('saved');
+
+      try {
+        const res = await fetch('/.netlify/functions/save-card', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ card })
+        });
+        const json = await res.json().catch(() => ({}));
+
+        if (!res.ok) {
+          btn.disabled = false;
+          btn.textContent = 'Save failed — try again';
+          btn.title = json.error || res.statusText;
+          return;
+        }
+
+        btn.classList.add('saved');
+        btn.textContent = 'Saved to deck';
+        btn.title = json.path ? `Committed to ${json.path}` : 'Saved.';
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Save failed — try again';
+        btn.title = err.message;
+      }
     }
   </script>
 </body>
