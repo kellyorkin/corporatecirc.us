@@ -158,6 +158,36 @@
       white-space: nowrap;
     }
 
+    .card-stats {
+      display: flex;
+      gap: 0.7em;
+      align-items: baseline;
+      margin-bottom: 1em;
+      padding: 0.4em 0.6em;
+      background: rgba(107, 31, 31, 0.06);
+      border: 1px solid rgba(107, 31, 31, 0.25);
+      border-radius: 3px;
+      width: fit-content;
+    }
+    .stat-block {
+      font-size: 0.85em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      font-weight: bold;
+    }
+    .stat-block strong {
+      font-size: 1.3em;
+      color: var(--ink);
+      font-weight: bold;
+      margin-left: 0.3em;
+      letter-spacing: 0;
+    }
+    .stat-divider {
+      color: var(--ink);
+      opacity: 0.4;
+    }
+
     .card-effect, .card-clause { margin-bottom: 0.7em; }
 
     .card-section-label {
@@ -374,6 +404,14 @@
         ? `<div class="image-sign-note"><strong>Image sign text:</strong> ${escapeHtml(card.image_sign_text)}</div>`
         : '';
 
+      const statsHtml = (typeof card.atk === 'number' && typeof card.def === 'number')
+        ? `<div class="card-stats">
+            <span class="stat-block">ATK<strong>${escapeHtml(card.atk)}</strong></span>
+            <span class="stat-divider">/</span>
+            <span class="stat-block">DEF<strong>${escapeHtml(card.def)}</strong></span>
+          </div>`
+        : '';
+
       output.innerHTML = `
         <div class="card">
           <div class="card-header">
@@ -383,6 +421,8 @@
             </div>
             <div class="card-type-badge">${escapeHtml(card.card_type)}</div>
           </div>
+
+          ${statsHtml}
 
           <div class="card-effect">
             <div class="card-section-label">Effect</div>

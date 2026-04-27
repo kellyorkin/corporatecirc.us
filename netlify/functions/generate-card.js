@@ -56,10 +56,14 @@ Every card carries a circus-performer role that shapes its voice and posture. Th
 - Carousel — going in circles: quarterly cycles, retros that change nothing, recurring discussions
 - other — emergent role; specify role_detail in carnival vocabulary
 
+STATS
+Every card carries an ATK score (1-10) and a DEF score (1-10). Assign them based on the card's satirical weight — its presence in a meeting, its capacity to derail or absorb pressure, its threat or shield value in the game's loose corporate metaphor. Provide no methodology. Do not justify the numbers. The arbitrariness is part of the satire — corporate scoring systems assign confident integers from vibes, and so does this one. Assign different numbers to different cards. Cards that satirize attack-shaped phenomena (declarations, escalations, demos) tend toward higher ATK; cards that satirize defensive phenomena (documents, stalemates, deflections) tend toward higher DEF. But you may also subvert these tendencies. The numbers should feel definite and unbalanced.
+
 ANTI-PATTERNS
 - Do not exceed 3 clauses.
 - Do not pad Translation Layer with corporate language.
 - Do not generate Performer or Counter Spell cards. V1 is Manufactured Exhibits only.
+- Do not justify the ATK/DEF numbers in any field. They stand without defense.
 
 Aim for at least one clause per card that does the satirical heavy lifting (e.g., "Forgetfulness Clause: Next turn: No one remembers how it worked").`;
 
@@ -89,6 +93,18 @@ const TOOL_DEFINITION = {
       role_detail: {
         type: ["string", "null"],
         description: "Required when role is 'other'. Names the emergent role in carnival vocabulary."
+      },
+      atk: {
+        type: "integer",
+        minimum: 1,
+        maximum: 10,
+        description: "Attack score 1-10. Assign based on satirical weight. Do not justify."
+      },
+      def: {
+        type: "integer",
+        minimum: 1,
+        maximum: 10,
+        description: "Defense score 1-10. Assign based on satirical weight. Do not justify."
       },
       image_sign_text: {
         type: ["string", "null"],
@@ -121,7 +137,7 @@ const TOOL_DEFINITION = {
         required: ["observation", "skeptical_question"]
       }
     },
-    required: ["name", "role_tagline", "card_type", "osi_layer", "sub_tent", "role", "effect", "clauses", "witness_quote", "translation_layer"]
+    required: ["name", "role_tagline", "card_type", "osi_layer", "sub_tent", "role", "atk", "def", "effect", "clauses", "witness_quote", "translation_layer"]
   }
 };
 
@@ -157,6 +173,8 @@ const FEW_SHOT_MESSAGES = [
           sub_tent_detail: null,
           role: "Strongman",
           role_detail: null,
+          atk: 8,
+          def: 4,
           image_sign_text: "INCREDIBLE STRENGTH! WITNESS!",
           effect: "Demonstrate exceptional strength. This card is considered powerful.",
           clauses: [
@@ -195,6 +213,8 @@ const FEW_SHOT_MESSAGES = [
           sub_tent_detail: null,
           role: "Tightrope",
           role_detail: null,
+          atk: 3,
+          def: 7,
           image_sign_text: "BALANCED. STEADY. NOTHING TO SEE HERE.",
           effect: "Maintain balance in uncertain conditions. This card is considered stable.",
           clauses: [
@@ -233,6 +253,8 @@ const FEW_SHOT_MESSAGES = [
           sub_tent_detail: null,
           role: "Ringmaster",
           role_detail: null,
+          atk: 9,
+          def: 2,
           image_sign_text: null,
           effect: "Deliver an impressive outcome. All previous actions are justified.",
           clauses: [
@@ -271,6 +293,8 @@ const FEW_SHOT_MESSAGES = [
           sub_tent_detail: null,
           role: "Magician",
           role_detail: null,
+          atk: 5,
+          def: 8,
           image_sign_text: null,
           effect: "Store all enterprise data in a single repository without schema enforcement. This card is considered scalable.",
           clauses: [
