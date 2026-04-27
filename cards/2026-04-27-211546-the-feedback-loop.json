@@ -1,0 +1,28 @@
+{
+  "name": "The Feedback Loop",
+  "role_tagline": "Continuous Self-Improvement",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "effect": "Capture user interactions to continuously improve response quality. This card is considered adaptive.",
+  "clauses": [
+    {
+      "name": "REINFORCEMENT CLAUSE",
+      "rule": "If a user engages with the chatbot: The model is considered to be learning."
+    },
+    {
+      "name": "INTENTIONALITY OVERRIDE",
+      "rule": "If degradation is observed: The degradation is considered a feature of the learning process."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "When asked who designed the loop: No one can recall the original decision."
+    }
+  ],
+  "witness_quote": "It gets smarter every time.",
+  "translation_layer": {
+    "observation": "Bot trains on its own output.",
+    "skeptical_question": "Was this intentional?"
+  },
+  "image_sign_text": "LEARNS FROM YOU. IMPROVES FOR YOU."
+}
