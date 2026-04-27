@@ -1,0 +1,28 @@
+{
+  "name": "The Risk Register",
+  "role_tagline": "Documented Due Diligence",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "effect": "Produce a comprehensive risks and assessments document. This card is considered thorough.",
+  "clauses": [
+    {
+      "name": "COMPLETION CLAUSE",
+      "rule": "If the document exceeds forty pages: It is considered complete."
+    },
+    {
+      "name": "TRIAGE OVERRIDE",
+      "rule": "If a system fails: Locate the relevant section in the document retroactively."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "If no one read the document: Responsibility is considered distributed."
+    }
+  ],
+  "image_sign_text": "RISKS ASSESSED. BASES COVERED.",
+  "witness_quote": "It was all in the doc.",
+  "translation_layer": {
+    "observation": "Long document, unread.",
+    "skeptical_question": "Was this written to be read?"
+  }
+}
