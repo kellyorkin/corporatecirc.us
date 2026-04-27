@@ -1,0 +1,33 @@
+{
+  "name": "The User Group",
+  "role_tagline": "Community Engagement",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "MVP Midway",
+  "sub_tent_detail": null,
+  "role": "Carousel",
+  "role_detail": null,
+  "atk": 3,
+  "def": 6,
+  "image_sign_text": "YOUR FEEDBACK MATTERS TO US.",
+  "effect": "Convene a group of product users to surface insights and validate the roadmap. This card is considered engaged.",
+  "clauses": [
+    {
+      "name": "FEEDBACK CLAUSE",
+      "rule": "If users raise concerns: Concerns are documented and considered for a future cycle."
+    },
+    {
+      "name": "ALIGNMENT EFFECT",
+      "rule": "When the roadmap is presented: The roadmap is considered validated."
+    },
+    {
+      "name": "FORGETFULNESS OVERRIDE",
+      "rule": "Next quarter: A new user group is convened to surface the same insights."
+    }
+  ],
+  "witness_quote": "We really value your input here.",
+  "translation_layer": {
+    "observation": "Same complaints. New attendees.",
+    "skeptical_question": "Did anything change since last time?"
+  }
+}
