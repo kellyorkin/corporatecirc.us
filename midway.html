@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Midway — Corporate Circus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E8C96A;
+      --gold-dim:    #8B6914;
+      --cream:       #F5EDD6;
+      --parchment:   #E8D5A3;
+      --dark:        #080604;
+
+      /* Sodium-lamp amber — the register of the Midway */
+      --amber:       #D4850A;
+      --amber-hi:    #E8A020;
+      --amber-lo:    #8B5A06;
+      --amber-glow:  rgba(212,133,10,0.15);
+      --amber-dim:   rgba(212,133,10,0.35);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--dark);
+      color: var(--cream);
+      font-family: 'IM Fell English', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Midway-specific background — denser, more chaotic than the other pages */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          60deg,
+          transparent, transparent 30px,
+          rgba(212,133,10,0.03) 30px,
+          rgba(212,133,10,0.03) 31px
+        ),
+        repeating-linear-gradient(
+          -60deg,
+          transparent, transparent 30px,
+          rgba(212,133,10,0.03) 30px,
+          rgba(212,133,10,0.03) 31px
+        );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb {
+      padding: 20px 0 0;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--amber-lo);
+      text-transform: uppercase;
+    }
+    .breadcrumb a { color: var(--amber-lo); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--amber); }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* ── Lights — denser, more chaotic on the Midway ── */
+    .lights {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 0;
+    }
+    .bulb {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--amber-hi);
+      box-shadow: 0 0 6px 2px rgba(232,160,32,0.55);
+      animation: flicker 2s ease-in-out infinite;
+    }
+    .bulb:nth-child(3n)   { animation-delay: 0.3s; background: var(--gold-light); box-shadow: 0 0 5px 2px rgba(232,201,106,0.4); }
+    .bulb:nth-child(5n)   { animation-delay: 0.7s; }
+    .bulb:nth-child(7n)   { animation-delay: 1.1s; background: var(--gold-light); box-shadow: 0 0 5px 2px rgba(232,201,106,0.4); }
+    .bulb:nth-child(11n)  { animation-delay: 1.6s; }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      30%       { opacity: 0.5; }
+      35%       { opacity: 1; }
+      70%       { opacity: 0.75; }
+      75%       { opacity: 1; }
+    }
+
+    /* ── Banner ── */
+    .banner {
+      text-align: center;
+      padding: 44px 20px 28px;
+    }
+    .banner-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--amber);
+      text-transform: uppercase;
+      border: 1px solid var(--amber-lo);
+      display: inline-block;
+      padding: 4px 16px;
+      margin-bottom: 22px;
+    }
+    .banner-icon {
+      font-size: 58px;
+      display: block;
+      margin-bottom: 14px;
+      filter: drop-shadow(0 0 18px rgba(212,133,10,0.6));
+      animation: sway 5s ease-in-out infinite;
+    }
+    @keyframes sway {
+      0%, 100% { transform: rotate(-3deg) scale(1); }
+      50%       { transform: rotate(3deg) scale(1.04); }
+    }
+    .banner h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(28px, 6vw, 54px);
+      font-weight: 900;
+      color: var(--amber-hi);
+      text-shadow:
+        0 0 40px rgba(212,133,10,0.5),
+        0 0 80px rgba(212,133,10,0.2),
+        2px 2px 0 rgba(0,0,0,0.9);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .banner-sub {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--amber-lo);
+      text-transform: uppercase;
+      max-width: 620px;
+      margin: 0 auto;
+      line-height: 2;
+    }
+
+    /* ── Rope ── */
+    .rope {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 32px 0;
+    }
+    .rope-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--amber-lo), transparent); }
+    .rope-knot { color: var(--amber); font-size: 14px; }
+
+    /* ── Barker intro ── */
+    .barker {
+      background: linear-gradient(160deg, rgba(212,133,10,0.12), rgba(8,6,4,0.8));
+      border: 1px solid var(--amber-dim);
+      border-top: 3px solid var(--amber);
+      padding: 28px 36px;
+      text-align: center;
+      margin-bottom: 48px;
+      position: relative;
+    }
+    .barker::before, .barker::after {
+      content: '✦';
+      position: absolute;
+      color: var(--amber-lo);
+      font-size: 10px;
+    }
+    .barker::before { top: 10px; left: 14px; }
+    .barker::after  { bottom: 10px; right: 14px; }
+    .barker p {
+      font-size: 16px;
+      line-height: 1.95;
+      color: var(--parchment);
+      font-style: italic;
+    }
+    .barker .decree {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--amber-lo);
+      margin-top: 16px;
+    }
+
+    /* ── Tent section ── */
+    .tent-section {
+      margin-bottom: 56px;
+    }
+
+    .tent-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 6px;
+    }
+    .tent-icon {
+      font-size: 24px;
+      line-height: 1;
+      filter: drop-shadow(0 0 6px rgba(212,133,10,0.4));
+    }
+    .tent-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(16px, 3vw, 22px);
+      color: var(--amber-hi);
+      letter-spacing: 0.04em;
+    }
+    .tent-desc {
+      font-style: italic;
+      font-size: 14px;
+      color: var(--amber-lo);
+      margin-bottom: 20px;
+      padding-left: 42px;
+      line-height: 1.7;
+    }
+
+    /* ── Card container ── */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      min-height: 120px;
+    }
+
+    /* ── Empty stall ── */
+    .empty-stall {
+      grid-column: 1 / -1;
+      border: 1px dashed rgba(212,133,10,0.2);
+      padding: 32px 24px;
+      text-align: center;
+      background: rgba(212,133,10,0.02);
+    }
+    .empty-stall .stall-icon {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 10px;
+      opacity: 0.3;
+    }
+    .empty-stall p {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber-lo);
+      opacity: 0.6;
+      line-height: 2;
+    }
+
+    /* ── Generated card display ── */
+    .midway-card {
+      background: #F5ECD6;
+      border: 1px solid rgba(42,31,23,0.25);
+      border-top: 3px solid var(--amber);
+      padding: 18px 16px 14px;
+      color: #2a1f17;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .midway-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212,133,10,0.2);
+    }
+
+    .mc-badge {
+      position: absolute;
+      top: -1px; right: 10px;
+      font-family: 'Cinzel', serif;
+      font-size: 7px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      background: #6B1A0F;
+      color: #F5ECD6;
+    }
+
+    .mc-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 13px;
+      color: #2a1f17;
+      margin-bottom: 2px;
+      padding-right: 60px;
+      line-height: 1.25;
+    }
+    .mc-tagline {
+      font-style: italic;
+      font-size: 11px;
+      color: #8B3A00;
+      margin-bottom: 8px;
+    }
+    .mc-stats {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      color: #6B1A0F;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+    .mc-effect {
+      font-size: 12px;
+      line-height: 1.6;
+      color: #2a1f17;
+      margin-bottom: 8px;
+    }
+    .mc-clause-name {
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8B3A00;
+      margin-top: 6px;
+      margin-bottom: 2px;
+    }
+    .mc-witness {
+      font-style: italic;
+      font-size: 11px;
+      color: #2a1f17;
+      border-left: 2px solid rgba(212,133,10,0.4);
+      padding-left: 8px;
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+    .mc-translation {
+      border-top: 1px dashed rgba(42,31,23,0.2);
+      padding-top: 8px;
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 11px;
+    }
+    .mc-translation-obs { flex: 1; color: #2a1f17; }
+    .mc-translation-q { font-style: italic; color: rgba(42,31,23,0.6); text-align: right; font-size: 10px; }
+    .mc-sign {
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber-lo);
+      margin-top: 8px;
+      text-align: center;
+    }
+    .mc-meta {
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.45;
+      margin-top: 6px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      color: #2a1f17;
+    }
+
+    /* ── Emergent section ── */
+    .emergent-note {
+      background: rgba(212,133,10,0.05);
+      border: 1px dashed rgba(212,133,10,0.25);
+      padding: 12px 18px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--amber-lo);
+      line-height: 1.7;
+    }
+
+    /* ── Notice ── */
+    .notice {
+      border: 1px solid rgba(212,133,10,0.15);
+      background: rgba(212,133,10,0.04);
+      padding: 20px 24px;
+      margin: 48px 0 0;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--amber-lo);
+      text-align: center;
+      line-height: 2;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 40px 0 0;
+      border-top: 1px solid rgba(212,133,10,0.12);
+      margin-top: 60px;
+    }
+    footer p {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--amber-lo);
+      text-transform: uppercase;
+      line-height: 2.4;
+    }
+    footer a { color: var(--amber-lo); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--amber); }
+
+    @media (max-width: 600px) {
+      .barker { padding: 20px 16px; }
+      .tent-desc { padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="breadcrumb">
+    <a href="/">← Corporatecirc.us</a>
+    <span>›</span>
+    The Midway
+  </div>
+
+  <div class="lights">
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+  </div>
+
+  <div class="banner">
+    <div class="banner-label">Now Showing · The Midway</div>
+    <span class="banner-icon">🎡</span>
+    <h1>The Midway</h1>
+    <div class="banner-sub">
+      Variety acts and minor monsters<br/>
+      The strip between the bigger tents<br/>
+      Where the Feature Creepshow stalls cluster
+    </div>
+  </div>
+
+  <div class="rope">
+    <div class="rope-line"></div>
+    <div class="rope-knot">✦</div><div class="rope-knot">✦</div><div class="rope-knot">✦</div>
+    <div class="rope-line"></div>
+  </div>
+
+  <div class="barker">
+    <p>Every card generated in the Feature Creepshow finds its way here eventually.<br/>
+    Each phenomenon is sorted by its tent assignment and displayed for the crowd.<br/>
+    The Midway does not curate. The Midway does not editorialize.<br/>
+    The Midway simply shows what has been summoned.</p>
+    <div class="decree">All phenomena documented · All exhibits on display · Admission free · Dignity optional</div>
+  </div>
+
+  <!-- ── CDP Circus ── -->
+  <div class="tent-section">
+    <div class="tent-header">
+      <span class="tent-icon">📡</span>
+      <div class="tent-name">CDP Circus</div>
+    </div>
+    <div class="tent-desc">
+      Customer data, unified profiles, and the persistent illusion of the single source of truth.
+      Identity resolution performed nightly. The customer is considered known.
+    </div>
+    <div class="card-container" id="cdp-circus">
+      <div class="empty-stall">
+        <span class="stall-icon">📡</span>
+        <p>This stall has not opened yet.<br/>No CDP exhibits currently summoned.<br/>The profile is considered complete.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rope"><div class="rope-line"></div><div class="rope-knot">◆</div><div class="rope-line"></div></div>
+
+  <!-- ── AI Pavilion ── -->
+  <div class="tent-section">
+    <div class="tent-header">
+      <span class="tent-icon">🤖</span>
+      <div class="tent-name">AI Pavilion</div>
+    </div>
+    <div class="tent-desc">
+      The future, demonstrated live. Capabilities considered production-ready.
+      Hallucinations are a learning moment. The model is always improving. We think.
+    </div>
+    <div class="card-container" id="ai-pavilion">
+      <div class="empty-stall">
+        <span class="stall-icon">🤖</span>
+        <p>This stall has not opened yet.<br/>No AI exhibits currently summoned.<br/>The model is still training on the concept.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rope"><div class="rope-line"></div><div class="rope-knot">◆</div><div class="rope-line"></div></div>
+
+  <!-- ── Analytics Arcade ── -->
+  <div class="tent-section">
+    <div class="tent-header">
+      <span class="tent-icon">📊</span>
+      <div class="tent-name">Analytics Arcade</div>
+    </div>
+    <div class="tent-desc">
+      Dashboards, metrics, and the KPIs nobody remembers requesting.
+      The data supports the direction. The direction is supported by the data.
+    </div>
+    <div class="card-container" id="analytics-arcade">
+      <div class="empty-stall">
+        <span class="stall-icon">📊</span>
+        <p>This stall has not opened yet.<br/>No analytics exhibits currently summoned.<br/>The numbers are being finalized.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rope"><div class="rope-line"></div><div class="rope-knot">◆</div><div class="rope-line"></div></div>
+
+  <!-- ── Compliance Sideshow ── -->
+  <div class="tent-section">
+    <div class="tent-header">
+      <span class="tent-icon">📋</span>
+      <div class="tent-name">Compliance Sideshow</div>
+    </div>
+    <div class="tent-desc">
+      Consent, governance, and the forms with fourteen required fields.
+      Two of them are contradictory. Compliance is considered achieved.
+    </div>
+    <div class="card-container" id="compliance-sideshow">
+      <div class="empty-stall">
+        <span class="stall-icon">📋</span>
+        <p>This stall has not opened yet.<br/>No compliance exhibits currently summoned.<br/>The audit is pending review.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rope"><div class="rope-line"></div><div class="rope-knot">◆</div><div class="rope-line"></div></div>
+
+  <!-- ── COE Circus ── -->
+  <div class="tent-section">
+    <div class="tent-header">
+      <span class="tent-icon">🏛️</span>
+      <div class="tent-name">COE Circus</div>
+    </div>
+    <div class="tent-desc">
+      Centers of Excellence, best practices, and the governance body that governs the governance body.
+      Standards have been established. Adoption is considered underway.
+    </div>
+    <div class="card-container" id="coe-circus">
+      <div class="empty-stall">
+        <span class="stall-icon">🏛️</span>
+        <p>This stall has not opened yet.<br/>No COE exhibits currently summoned.<br/>A working group has been formed to address this.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rope"><div class="rope-line"></div><div class="rope-knot">◆</div><div class="rope-line"></div></div>
+
+  <!-- ── MVP Midway ── -->
+  <div class="tent-section">
+    <div class="tent-header">
+      <span class="tent-icon">🚀</span>
+      <div class="tent-name">MVP Midway</div>
+    </div>
+    <div class="tent-desc">
+      Minimum viable everything. Ship it, learn from it, explain later.
+      The MVP is considered complete. The backlog disagrees.
+    </div>
+    <div class="card-container" id="mvp-midway">
+      <div class="empty-stall">
+        <span class="stall-icon">🚀</span>
+        <p>This stall has not opened yet.<br/>No MVP exhibits currently summoned.<br/>The feature is considered in scope. For now.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rope"><div class="rope-line"></div><div class="rope-knot">◆</div><div class="rope-line"></div></div>
+
+  <!-- ── Emergent Tents ── -->
+  <div class="tent-section">
+    <div class="tent-header">
+      <span class="tent-icon">🎪</span>
+      <div class="tent-name">Emergent Tents</div>
+    </div>
+    <div class="tent-desc">
+      Sub-tents the Ringmaster invented on the fly. Not on the map. Not in the programme.
+      Present nonetheless.
+    </div>
+    <div class="emergent-note">
+      These exhibits arrived without a designated home. The Ringmaster assigned them a tent that did not previously exist.
+      The tent is now on the map. It has been here the whole time.
+    </div>
+    <div class="card-container" id="emergent-tents">
+      <div class="empty-stall">
+        <span class="stall-icon">🎪</span>
+        <p>No emergent exhibits yet summoned.<br/>The Ringmaster is still deciding.<br/>The tent exists. The cards will follow.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notice">
+    Cards are generated in the Feature Creepshow and find their way here.<br/>
+    The Midway is not curated. The Midway is not edited.<br/>
+    The Midway is simply what has been observed and documented.<br/><br/>
+    <em>Step right up. The phenomenon has already occurred.<br/>
+    We are merely displaying it for the crowd.</em>
+  </div>
+
+  <footer>
+    <div class="lights" style="margin-bottom:24px; gap:8px;">
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    </div>
+    <p>
+      <a href="/">← Back to The Corporate Circus</a><br/>
+      <a href="/flea">→ Generate a Card in the Feature Creepshow</a><br/>
+      A Subsidiary of <a href="https://indifferencer.com">Indifferencer, Inc.™</a><br/>
+      All phenomena documented · All outcomes delivered regardless of intent<br/>
+      © Indifferencer, Inc.™ · Step right up · The phenomenon has already occurred
+    </p>
+  </footer>
+
+</div>
+
+<!--
+  RENDER SCRIPT HOOK
+  Cowork will build the pipeline that reads from the GitHub cards folder
+  and populates each section by its ID:
+    #cdp-circus
+    #ai-pavilion
+    #analytics-arcade
+    #compliance-sideshow
+    #coe-circus
+    #mvp-midway
+    #emergent-tents
+
+  When a section receives cards, the .empty-stall should be removed
+  and cards appended as .midway-card elements.
+
+  Card HTML structure for reference:
+  <div class="midway-card">
+    <div class="mc-badge">Manufactured Exhibit</div>
+    <div class="mc-name">Card Name</div>
+    <div class="mc-tagline">— Role Tagline —</div>
+    <div class="mc-stats">ATK 7 / DEF 3</div>
+    <div class="mc-effect">Effect text</div>
+    <div class="mc-clause-name">CLAUSE NAME</div>
+    <div>Clause rule text</div>
+    <div class="mc-witness">"Witness quote"</div>
+    <div class="mc-translation">
+      <div class="mc-translation-obs">Observation</div>
+      <div class="mc-translation-q">Skeptical question?</div>
+    </div>
+    <div class="mc-sign">IMAGE SIGN TEXT</div>
+    <div class="mc-meta">
+      <span>OSI Layer 7</span>
+      <span>Sub-tent</span>
+      <span>Role: Magician</span>
+    </div>
+  </div>
+-->
+</body>
+</html>
