@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Product Globe of Death™ — Corporate Circus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:       #C9A84C;
+      --gold-light: #E8C96A;
+      --gold-dim:   #8B6914;
+      --cream:      #F5EDD6;
+      --parchment:  #E8D5A3;
+      --dark:       #0D0806;
+      --red-deep:   #6B1A0F;
+      --red-stripe: #8B2215;
+      --flame-hi:   #E8540A;
+      --flame-lo:   #C9320A;
+      --spell-blue: #2A5A8B;
+      --phase-bg:   rgba(201,168,76,0.05);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--dark);
+      color: var(--cream);
+      font-family: 'IM Fell English', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 40px,
+        rgba(107,26,15,0.04) 40px,
+        rgba(107,26,15,0.04) 80px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb {
+      padding: 20px 0 0;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+    }
+    .breadcrumb a { color: var(--gold-dim); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* ── Lights ── */
+    .lights {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0 0;
+    }
+    .bulb {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--flame-hi);
+      box-shadow: 0 0 6px 2px rgba(232,84,10,0.5);
+      animation: flicker 2.5s ease-in-out infinite;
+    }
+    .bulb:nth-child(2n) { animation-delay: 0.4s; background: var(--gold-light); box-shadow: 0 0 6px 2px rgba(232,201,106,0.5); }
+    .bulb:nth-child(3n) { animation-delay: 0.8s; }
+    .bulb:nth-child(4n) { animation-delay: 1.2s; background: var(--gold-light); box-shadow: 0 0 6px 2px rgba(232,201,106,0.5); }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      45%       { opacity: 0.6; }
+      50%       { opacity: 1; }
+      85%       { opacity: 0.8; }
+    }
+
+    /* ── Banner ── */
+    .banner {
+      text-align: center;
+      padding: 48px 20px 28px;
+    }
+    .banner-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--flame-hi);
+      text-transform: uppercase;
+      border: 1px solid var(--flame-lo);
+      display: inline-block;
+      padding: 4px 16px;
+      margin-bottom: 24px;
+    }
+    .banner-icon {
+      font-size: 56px;
+      display: block;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 0 16px rgba(232,84,10,0.5));
+      animation: spin-slow 12s linear infinite;
+    }
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .banner h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(24px, 5vw, 46px);
+      font-weight: 900;
+      color: var(--gold-light);
+      text-shadow: 0 0 30px rgba(232,84,10,0.3), 2px 2px 0 rgba(0,0,0,0.8);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .banner-tm {
+      font-size: 0.5em;
+      vertical-align: super;
+      color: var(--gold-dim);
+    }
+    .banner-sub {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── Rope ── */
+    .rope {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .rope-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); }
+    .rope-knot { color: var(--flame-hi); font-size: 14px; }
+
+    /* ── Warning box ── */
+    .warning {
+      background: linear-gradient(135deg, rgba(200,50,10,0.15), rgba(13,8,6,0.8));
+      border: 1px solid rgba(232,84,10,0.3);
+      border-left: 4px solid var(--flame-hi);
+      padding: 24px 32px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .warning p {
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--parchment);
+      font-style: italic;
+    }
+    .warning p + p { margin-top: 12px; }
+    .warning .tagline {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--flame-hi);
+      margin-top: 16px;
+    }
+
+    /* ── Section heading ── */
+    .section-heading {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 17px;
+      color: var(--gold);
+      text-align: center;
+      margin: 48px 0 6px;
+      letter-spacing: 0.08em;
+    }
+    .section-sub {
+      text-align: center;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold-dim);
+      margin-bottom: 28px;
+    }
+
+    /* ── Phase card ── */
+    .phase {
+      border: 1px solid rgba(201,168,76,0.15);
+      border-left: 4px solid var(--flame-hi);
+      background: var(--phase-bg);
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .phase:hover { border-color: rgba(201,168,76,0.35); }
+
+    .phase-number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 32px;
+      color: rgba(201,168,76,0.12);
+      line-height: 1;
+      user-select: none;
+    }
+
+    .phase-title {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 15px;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .phase-label {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--flame-hi);
+      margin-bottom: 12px;
+    }
+    .phase-effect {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--parchment);
+      margin-bottom: 12px;
+    }
+    .phase-flavor {
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold-dim);
+      border-top: 1px solid rgba(201,168,76,0.12);
+      padding-top: 10px;
+      line-height: 1.6;
+    }
+
+    /* Half phase */
+    .phase.half { border-left-color: var(--gold-dim); }
+    .phase.half .phase-label { color: var(--gold-dim); }
+
+    /* ── Monster roles ── */
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+    .role-card {
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 18px 16px;
+      background: rgba(13,8,6,0.5);
+      transition: border-color 0.2s;
+    }
+    .role-card:hover { border-color: rgba(201,168,76,0.35); }
+    .role-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 12px;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .role-phase {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--flame-hi);
+      margin-bottom: 10px;
+    }
+    .role-text {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--parchment);
+    }
+    .role-flavor {
+      font-style: italic;
+      font-size: 12px;
+      color: var(--gold-dim);
+      margin-top: 8px;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding-top: 8px;
+    }
+
+    /* ── Tools table ── */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .tool-card {
+      border: 1px solid rgba(42,90,139,0.3);
+      border-left: 3px solid var(--spell-blue);
+      background: rgba(42,90,139,0.06);
+      padding: 16px 18px;
+      transition: border-color 0.2s;
+    }
+    .tool-card:hover { border-color: rgba(42,90,139,0.5); }
+    .tool-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 12px;
+      color: #7AB3D4;
+      margin-bottom: 4px;
+    }
+    .tool-type {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #4A8FBF;
+      margin-bottom: 10px;
+    }
+    .tool-effect {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--parchment);
+    }
+    .tool-flavor {
+      font-style: italic;
+      font-size: 12px;
+      color: var(--gold-dim);
+      margin-top: 8px;
+      border-top: 1px solid rgba(42,90,139,0.2);
+      padding-top: 8px;
+    }
+
+    /* ── Tire swing ── */
+    .tire-swing {
+      text-align: center;
+      padding: 40px 24px;
+      margin: 40px 0;
+      border: 1px solid rgba(201,168,76,0.15);
+      background: rgba(201,168,76,0.03);
+      position: relative;
+    }
+    .tire-swing::before {
+      content: '|';
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--gold-dim);
+      font-size: 20px;
+      letter-spacing: -4px;
+    }
+    .tire-swing .swing-icon {
+      font-size: 40px;
+      display: block;
+      margin-bottom: 16px;
+      animation: swing 3s ease-in-out infinite;
+      transform-origin: top center;
+    }
+    @keyframes swing {
+      0%, 100% { transform: rotate(-8deg); }
+      50%       { transform: rotate(8deg); }
+    }
+    .tire-swing p {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      line-height: 2;
+    }
+
+    /* ── Notice ── */
+    .notice {
+      border: 1px solid rgba(201,168,76,0.15);
+      background: rgba(201,168,76,0.04);
+      padding: 20px 24px;
+      margin: 48px 0 0;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--gold-dim);
+      text-align: center;
+      line-height: 2;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 40px 0 0;
+      border-top: 1px solid rgba(201,168,76,0.12);
+      margin-top: 60px;
+    }
+    footer p {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      line-height: 2.4;
+    }
+    footer a { color: var(--gold-dim); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .warning { padding: 20px 16px; }
+      .phase   { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="breadcrumb">
+    <a href="/">Corporatecirc.us</a>
+    <span>›</span>
+    The Product Globe of Death™
+  </div>
+
+  <div class="lights">
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+  </div>
+
+  <div class="banner">
+    <div class="banner-label">In Development · The Prattlings</div>
+    <span class="banner-icon">🌐</span>
+    <h1>The Product Globe of Death<span class="banner-tm">™</span></h1>
+    <div class="banner-sub">
+      Seven phases · Death-defying centrifugal force · Flaming lifecycles<br/>
+      The riders cannot leave until the final act is over
+    </div>
+  </div>
+
+  <div class="rope">
+    <div class="rope-line"></div>
+    <div class="rope-knot">🔥</div><div class="rope-knot">🔥</div><div class="rope-knot">🔥</div>
+    <div class="rope-line"></div>
+  </div>
+
+  <div class="warning">
+    <p>A linked series of phases that advance automatically, turn by turn, regardless of whether anyone is managing them.</p>
+    <p>Each phase has specific monsters that activate it, specific monsters that can close it, and specific damage it deals to everyone in the room. The activating monster and closing monster are not the same monster. They were never in the same meeting.</p>
+    <div class="tagline">The phases advance whether you are ready or not · The tire swing was always the answer · Nobody asked</div>
+  </div>
+
+  <!-- ── Phases ── -->
+  <div class="section-heading">The Seven Phases</div>
+  <div class="section-sub">Waterfall is the substrate. The Lifecycle runs on top of it. Phases cannot be skipped.</div>
+
+  <div class="phase">
+    <div class="phase-number">1</div>
+    <div class="phase-title">Discovery</div>
+    <div class="phase-label">Sales Monster Only · All Other BU Monsters Cannot Be Summoned</div>
+    <div class="phase-effect">Sales monster only. All other BU monsters cannot be summoned during this phase. When this phase ends: Sales monster is permanently removed from this project. Cannot return for the rest of the duel.<br/><br/>
+    All promises made during Discovery are binding. No record of them exists.</div>
+    <div class="phase-flavor">"Everyone aligned. Sales confirmed the timeline. Sales is now in another meeting."</div>
+  </div>
+
+  <div class="phase half">
+    <div class="phase-number">1.5</div>
+    <div class="phase-title">Requirements Gathering · Vision Scope</div>
+    <div class="phase-label">All BU Monsters Active · Both Players Lose 200 Bandwidth</div>
+    <div class="phase-effect">Each BU monster contributes one Vision Counter. All Vision Counters are added to the Scope. The Scope now contains all visions simultaneously. The Scope is not a scope. It is a wish list with a border around it.<br/><br/>
+    Stakeholders learn the budget was decided before this meeting during this meeting.</div>
+    <div class="phase-flavor">"The scope is comprehensive. The scope encompasses everything. The scope will need to be refined."</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-number">2</div>
+    <div class="phase-title">Design &amp; Specs</div>
+    <div class="phase-label">Confidence Counters Active · Confidence Counters Do Not Affect Outcomes</div>
+    <div class="phase-effect">Vision Scope is reviewed. Vision Scope is given glasses. Vision Scope is now a Specification Document. The Specification Document references the budget. The budget is not binding. The Specification Document is not binding. Both are confident.<br/><br/>
+    Once per turn: add one Confidence Counter. Confidence Counters do not affect outcomes.</div>
+    <div class="phase-flavor">"The specs are detailed. The specs are complete. The specs describe a slightly different project than the one being built."</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-number">3</div>
+    <div class="phase-title">Proof of Concept</div>
+    <div class="phase-label">Tech Monster Must Remain · Cannot Attack · Cannot Defend · Roll Integration Die</div>
+    <div class="phase-effect">Tech monster must remain on field. Cannot attack. Cannot defend. Is building something nobody has purchased yet.<br/><br/>
+    Once per turn: reveal one Integration Counter. Roll a die:<br/>
+    1–2: Native integration confirmed<br/>
+    3–4: API exists but is undocumented<br/>
+    5: Webhook. Just a webhook.<br/>
+    6: "We can export to CSV."<br/><br/>
+    When PoC Phase ends: all Integration Counters are removed regardless of resolution status. The PoC is complete. The purchase has not occurred.</div>
+    <div class="phase-flavor">"It works in the demo environment. The demo environment was built specifically to make it work."<br/><br/>"The integration is bidirectional. You export. You import. That's two directions."</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-number">4</div>
+    <div class="phase-title">Implementation</div>
+    <div class="phase-label">Solution Deployed · CS &amp; Support Begin Accumulating Trauma Counters</div>
+    <div class="phase-effect">Solution is deployed. Solution is deployed to the tree. The customer is not a tree.<br/><br/>
+    CS &amp; Support monsters begin accumulating Trauma Counters. One per turn. Trauma Counters cannot be removed.<br/><br/>
+    Once per turn: a BU monster that was not at Discovery may ask what was promised. No answer is available.</div>
+    <div class="phase-flavor">"It's live. Nobody is using it yet. That is a separate phase."</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-number">5</div>
+    <div class="phase-title">Onboarding</div>
+    <div class="phase-label">New Monster Team · Was Not At Discovery · Inherits Everything Without Context</div>
+    <div class="phase-effect">New monster team. Was not at Discovery. Inherits all decisions made during Discovery without context, explanation, or the person who made them.<br/><br/>
+    All use cases from Discovery are revealed. Once per turn: declare one use case a blocker. That use case cannot be addressed without a new Discovery phase.<br/><br/>
+    CS &amp; Support monsters share one piece of undocumented institutional knowledge. Both lose 100 ATK from the effort.</div>
+    <div class="phase-flavor">"The documentation exists. The documentation describes a different product than the one that was implemented."</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-number">6</div>
+    <div class="phase-title">Optimisation &amp; Expansion</div>
+    <div class="phase-label">Workarounds Become Load-Bearing · Cannot Be Removed</div>
+    <div class="phase-effect">Once per turn: optimise one BU's workflow. Randomly select one other BU's workflow. That workflow is now broken.<br/><br/>
+    Workarounds built during this phase become load-bearing. They cannot be removed without triggering a Pivot Table.<br/><br/>
+    Business rules created to accommodate one BU now constitute the infrastructure of another BU that did not request them.</div>
+    <div class="phase-flavor">"It's not technical debt. It's a solution that has been optimised beyond its original intent."</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-number">7</div>
+    <div class="phase-title">Handoff</div>
+    <div class="phase-label">Flip A Coin · Either Way: Trauma Counters Transfer To End User</div>
+    <div class="phase-effect">Flip a coin:<br/>
+    Heads: Handoff is fully documented. Documentation is thorough, accurate, and immediately ignored by all receiving parties.<br/>
+    Tails: Handoff is not documented. The End User is simply alone now.<br/><br/>
+    Either way: all CS &amp; Support Trauma Counters are transferred to the End User.</div>
+    <div class="phase-flavor">"What the customer really needed."</div>
+  </div>
+
+  <div class="tire-swing">
+    <span class="swing-icon">🛞</span>
+    <p>The tire swing was always the answer<br/>Nobody asked</p>
+  </div>
+
+  <div class="rope">
+    <div class="rope-line"></div>
+    <div class="rope-knot">◆</div>
+    <div class="rope-line"></div>
+  </div>
+
+  <!-- ── Monster Roles ── -->
+  <div class="section-heading">Lifecycle Monster Roles</div>
+  <div class="section-sub">Some activate phases. Some close them. None of them are the same monster. None of them were in the same meeting.</div>
+
+  <div class="roles-grid">
+
+    <div class="role-card">
+      <div class="role-name">Sales Monster</div>
+      <div class="role-phase">Discovery Only</div>
+      <div class="role-text">Activates Discovery. Makes all promises. Leaves permanently at end of Phase 1. Unreachable thereafter. Not maliciously. There is simply another Discovery.</div>
+    </div>
+
+    <div class="role-card">
+      <div class="role-name">Tech Monster</div>
+      <div class="role-phase">PoC → Implementation</div>
+      <div class="role-text">Inherits all Sales promises. Cannot attack during PoC. Executes the Integration die roll. Deploys to the tree.</div>
+    </div>
+
+    <div class="role-card">
+      <div class="role-name">CS &amp; Support</div>
+      <div class="role-phase">Onboarding → Handoff</div>
+      <div class="role-text">Combined card. Accumulates Trauma Counters from Phase 4 onward. Trauma Counters cannot be removed. Shares institutional knowledge at cost of 100 ATK per share. Weeps in the same washroom.</div>
+    </div>
+
+    <div class="role-card">
+      <div class="role-name">Project Spooner</div>
+      <div class="role-phase">Any Phase</div>
+      <div class="role-text">Present at every phase. Contributes nothing to any of them. Cannot be removed without scheduling a meeting to discuss removing him. Has been on the field since Phase 1. Nobody invited him specifically.</div>
+      <div class="role-flavor">"Why is Spooner here?"</div>
+    </div>
+
+    <div class="role-card">
+      <div class="role-name">Strategy &amp; Other</div>
+      <div class="role-phase">Any Phase</div>
+      <div class="role-text">Produces one Insight Counter and one Direction Counter per turn. Neither Counter can be spent to do anything. Both players acknowledge the Counters are valuable. The work continues to be elsewhere.</div>
+    </div>
+
+  </div>
+
+  <div class="rope">
+    <div class="rope-line"></div>
+    <div class="rope-knot">◆</div>
+    <div class="rope-line"></div>
+  </div>
+
+  <!-- ── Lifecycle Tools ── -->
+  <div class="section-heading">Lifecycle Tools</div>
+  <div class="section-sub">Register-neutral. Deployable during any phase. Some appear helpful. None of them are helping.</div>
+
+  <div class="tools-grid">
+
+    <div class="tool-card">
+      <div class="tool-name">Pivot Table</div>
+      <div class="tool-type">Trap Card · Any Phase</div>
+      <div class="tool-effect">Declare a new strategic direction. All existing cards, problems, and counters remain on the field. Only the declared direction changes. Cannot destroy anything. Transfers remaining work to the opponent.</div>
+      <div class="tool-flavor">"The data was always pointing this direction. We just needed to rotate it."</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-name">Gantt Chart</div>
+      <div class="tool-type">Spell Card · Any Phase</div>
+      <div class="tool-effect">Place Timeline Counters on all active phases. Each counter represents a date everyone agreed to and nobody believes. While Gantt Chart is on the field: all players must refer to current phase as "on track."</div>
+      <div class="tool-flavor">"The chart is not the plan. The chart is a picture of a plan that was already wrong when it was drawn."</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-name">Kanban Board</div>
+      <div class="tool-type">Continuous Spell · Any Phase</div>
+      <div class="tool-effect">Once per turn: move one card from To Do to In Progress without advancing its actual effect. Cards in the Done column retain all unresolved effects.</div>
+      <div class="tool-flavor">"The board is current. The board reflects the work. The work does not reflect the board."</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-name">We Can Export to CSV</div>
+      <div class="tool-type">Quick-Play Spell · PoC</div>
+      <div class="tool-effect">Activate in response to any integration requirement. That requirement is considered resolved. All remaining work is transferred to the opponent.</div>
+      <div class="tool-flavor">"The integration is bidirectional. You export. You import. That's two directions."</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-name">Vision Scope</div>
+      <div class="tool-type">Spell Card · Requirements</div>
+      <div class="tool-effect">Collect all BU Vision Counters into one document. That document is now the Scope. The Scope contains everything. Once per turn: add one requirement. The scope cannot be closed while requirements can still be added.</div>
+      <div class="tool-flavor">"The scope is comprehensive. It encompasses everything. It will need to be refined."</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-name">Strategy &amp; Other</div>
+      <div class="tool-type">Continuous Spell · Any Phase</div>
+      <div class="tool-effect">Once per turn: produce one Insight Counter and one Direction Counter. Neither Counter can be spent to do anything. Both players acknowledge the Counters are valuable.</div>
+      <div class="tool-flavor">"The data supports the direction. The direction is supported by the data. The work continues to be elsewhere."</div>
+    </div>
+
+  </div>
+
+  <div class="notice">
+    The phases advance whether you are ready or not.<br/>
+    The activating monster and the closing monster are not the same monster.<br/>
+    They were never in the same meeting.<br/><br/>
+    <em>Waterfall is the default game state.<br/>
+    The tire swing was always the answer. Nobody asked.</em>
+  </div>
+
+  <footer>
+    <div class="lights" style="margin-bottom:24px;">
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    </div>
+    <p>
+      <a href="/">← Back to The Corporate Circus</a><br/>
+      A Subsidiary of <a href="https://indifferencer.com">Indifferencer, Inc.™</a><br/>
+      All phenomena documented · All outcomes delivered regardless of intent<br/>
+      © Indifferencer, Inc.™ · The phases cannot be skipped · The tire swing was always the answer
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
