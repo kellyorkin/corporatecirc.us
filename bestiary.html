@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Business Bestiary — Corporate Circus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E8C96A;
+      --gold-dim:    #8B6914;
+      --cream:       #F5EDD6;
+      --parchment:   #E8D5A3;
+      --dark:        #0D0806;
+      --bestiary:    #2C3E50;
+      --bestiary-hi: #4A6278;
+      --red-stripe:  #8B2215;
+      --boss:        #6B0F0F;
+      --fusion:      #3A1A5A;
+      --immortal:    #1A3A2A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--dark);
+      color: var(--cream);
+      font-family: 'IM Fell English', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 40px,
+        rgba(44,62,80,0.06) 40px,
+        rgba(44,62,80,0.06) 80px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb {
+      padding: 20px 0 0;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+    }
+    .breadcrumb a { color: var(--gold-dim); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* ── Lights ── */
+    .lights {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0 0;
+    }
+    .bulb {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--bestiary-hi);
+      box-shadow: 0 0 6px 2px rgba(74,98,120,0.6);
+      animation: flicker 2.5s ease-in-out infinite;
+    }
+    .bulb:nth-child(2n) { animation-delay: 0.4s; background: var(--gold-light); box-shadow: 0 0 6px 2px rgba(232,201,106,0.5); }
+    .bulb:nth-child(3n) { animation-delay: 0.8s; }
+    .bulb:nth-child(4n) { animation-delay: 1.2s; background: var(--gold-light); box-shadow: 0 0 6px 2px rgba(232,201,106,0.5); }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      45%       { opacity: 0.6; }
+      50%       { opacity: 1; }
+      85%       { opacity: 0.85; }
+    }
+
+    /* ── Banner ── */
+    .banner {
+      text-align: center;
+      padding: 48px 20px 28px;
+    }
+    .banner-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--bestiary-hi);
+      text-transform: uppercase;
+      border: 1px solid var(--bestiary-hi);
+      display: inline-block;
+      padding: 4px 16px;
+      margin-bottom: 24px;
+    }
+    .banner-icon {
+      font-size: 56px;
+      display: block;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 0 16px rgba(44,62,80,0.8));
+      animation: breathe 4s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 16px rgba(44,62,80,0.8)); }
+      50%       { transform: scale(1.06); filter: drop-shadow(0 0 24px rgba(74,98,120,0.9)); }
+    }
+    .banner h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(24px, 5vw, 46px);
+      font-weight: 900;
+      color: var(--gold-light);
+      text-shadow: 0 0 30px rgba(44,62,80,0.6), 2px 2px 0 rgba(0,0,0,0.8);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .banner-sub {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── Rope ── */
+    .rope {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .rope-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); }
+    .rope-knot { color: var(--gold); font-size: 14px; }
+
+    /* ── Intro ── */
+    .intro {
+      background: linear-gradient(135deg, rgba(44,62,80,0.3), rgba(13,8,6,0.7));
+      border: 1px solid rgba(74,98,120,0.3);
+      padding: 28px 36px;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .intro::before, .intro::after {
+      content: '◆';
+      position: absolute;
+      color: var(--gold-dim);
+      font-size: 10px;
+    }
+    .intro::before { top: 10px; left: 14px; }
+    .intro::after  { bottom: 10px; right: 14px; }
+    .intro p {
+      font-size: 16px;
+      line-height: 1.9;
+      color: var(--parchment);
+      font-style: italic;
+    }
+
+    /* ── Carousel ── */
+    .carousel-wrap {
+      position: relative;
+      margin: 0 0 16px;
+    }
+
+    .carousel-track {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ── Card ── */
+    .beast-card {
+      min-width: 100%;
+      padding: 4px;
+    }
+
+    .card-inner {
+      border: 1px solid rgba(74,98,120,0.4);
+      border-top: 4px solid var(--bestiary-hi);
+      background: linear-gradient(160deg, rgba(44,62,80,0.2), rgba(13,8,6,0.85));
+      padding: 32px 40px 28px;
+      position: relative;
+      min-height: 340px;
+    }
+    .card-inner.boss   { border-top-color: #C0392B; background: linear-gradient(160deg, rgba(107,15,15,0.3), rgba(13,8,6,0.85)); }
+    .card-inner.fusion { border-top-color: #8E44AD; background: linear-gradient(160deg, rgba(58,26,90,0.3), rgba(13,8,6,0.85)); }
+    .card-inner.immortal-card { border-top-color: #27AE60; background: linear-gradient(160deg, rgba(26,58,42,0.3), rgba(13,8,6,0.85)); }
+
+    .card-type-badge {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      color: var(--cream);
+      background: var(--bestiary);
+    }
+    .boss   .card-type-badge { background: #C0392B; }
+    .fusion .card-type-badge { background: #8E44AD; }
+    .immortal-card .card-type-badge { background: #27AE60; }
+
+    .card-counter {
+      position: absolute;
+      top: 16px;
+      left: 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--gold-dim);
+    }
+
+    .card-emoji {
+      font-size: 36px;
+      display: block;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 0 8px rgba(201,168,76,0.3));
+    }
+
+    .card-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(16px, 3vw, 22px);
+      color: var(--gold-light);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .card-type {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--bestiary-hi);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .boss   .card-type { color: #E74C3C; }
+    .fusion .card-type { color: #9B59B6; }
+    .immortal-card .card-type { color: #2ECC71; }
+
+    .card-stats {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: inline-block;
+      background: rgba(201,168,76,0.08);
+      padding: 3px 12px;
+      border: 1px solid rgba(201,168,76,0.2);
+    }
+
+    .card-effect {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--parchment);
+      margin-bottom: 14px;
+    }
+
+    .card-flavor {
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold-dim);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding-top: 12px;
+      line-height: 1.6;
+    }
+
+    /* ── Dots ── */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 8px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--bestiary);
+      border: 1px solid var(--bestiary-hi);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .dot.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      transform: scale(1.3);
+    }
+
+    /* ── Progress bar ── */
+    .progress-bar {
+      height: 2px;
+      background: rgba(74,98,120,0.3);
+      margin: 0 0 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--gold-dim);
+      width: 0%;
+      transition: width linear;
+    }
+
+    /* ── Pause notice ── */
+    .pause-notice {
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: rgba(139,105,20,0.5);
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    /* ── Section heading ── */
+    .section-heading {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 17px;
+      color: var(--gold);
+      text-align: center;
+      margin: 48px 0 6px;
+      letter-spacing: 0.08em;
+    }
+    .section-sub {
+      text-align: center;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold-dim);
+      margin-bottom: 28px;
+    }
+
+    /* ── Rarity ── */
+    .rarity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .rarity-card {
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 16px;
+      text-align: center;
+      background: rgba(13,8,6,0.5);
+    }
+    .rarity-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 12px;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+    .rarity-desc {
+      font-size: 12px;
+      font-style: italic;
+      color: var(--gold-dim);
+      line-height: 1.5;
+    }
+
+    /* ── Notice ── */
+    .notice {
+      border: 1px solid rgba(201,168,76,0.15);
+      background: rgba(201,168,76,0.04);
+      padding: 20px 24px;
+      margin: 48px 0 0;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--gold-dim);
+      text-align: center;
+      line-height: 2;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 40px 0 0;
+      border-top: 1px solid rgba(201,168,76,0.12);
+      margin-top: 60px;
+    }
+    footer p {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      line-height: 2.4;
+    }
+    footer a { color: var(--gold-dim); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .card-inner { padding: 24px 20px 20px; min-height: auto; }
+      .intro { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="breadcrumb">
+    <a href="/">Corporatecirc.us</a>
+    <span>›</span>
+    The Business Bestiary
+  </div>
+
+  <div class="lights">
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+  </div>
+
+  <div class="banner">
+    <div class="banner-label">Now Showing · The Business Bestiary</div>
+    <span class="banner-icon">🐉</span>
+    <h1>The Business Bestiary</h1>
+    <div class="banner-sub">
+      Mythological creatures of the modern enterprise<br/>
+      Dragons · Hydras · Liches · Things that cannot be decommissioned
+    </div>
+  </div>
+
+  <div class="rope">
+    <div class="rope-line"></div>
+    <div class="rope-knot">◆</div><div class="rope-knot">◆</div><div class="rope-knot">◆</div>
+    <div class="rope-line"></div>
+  </div>
+
+  <div class="intro">
+    <p>They were here before the current framework.<br/>
+    They will be here after the next one.<br/>
+    Documentation has been attempted. Documentation has not helped.</p>
+  </div>
+
+  <!-- ── Carousel ── -->
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+  <div class="carousel-wrap">
+    <div class="carousel-track">
+      <div class="carousel-inner" id="carouselInner">
+
+        <!-- 1 -->
+        <div class="beast-card">
+          <div class="card-inner boss">
+            <div class="card-counter">1 / 18</div>
+            <div class="card-type-badge">Boss Monster</div>
+            <span class="card-emoji">👑</span>
+            <div class="card-name">Executive Decision Dragon</div>
+            <div class="card-type">Dragon / Effect — Boss Monster</div>
+            <div class="card-stats">ATK 3500 / DEF 3000</div>
+            <div class="card-effect">Once per duel: override all effects on the field. Declare one outcome at random — it becomes reality. Cannot be negated. Cannot be questioned. Cannot be attributed to any specific decision made by any specific person.</div>
+            <div class="card-flavor">"The outcome was always correct." — Indifferencer, Inc.™</div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">2 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">🐉</span>
+            <div class="card-name">Certification Coin Kirin</div>
+            <div class="card-type">Dragon / Effect</div>
+            <div class="card-stats">ATK 3000 / DEF 2500</div>
+            <div class="card-effect">When this card is summoned, draw one card for each Certification in your graveyard. Cannot be destroyed by cards that lack documented proof of concept.</div>
+            <div class="card-flavor">"More is better."</div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">3 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">🐍</span>
+            <div class="card-name">Vendor Evangelist Hydra</div>
+            <div class="card-type">Hydra / Effect</div>
+            <div class="card-stats">ATK 2800 / DEF 2400</div>
+            <div class="card-effect">Gains one additional attack per turn for each buzzword spoken (max 3). Once per turn: Shuffle one Agile Ritual from your deck into your opponent's deck.</div>
+            <div class="card-flavor">"Every head speaks a different roadmap."</div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">4 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">🔥</span>
+            <div class="card-name">Burnout Elemental</div>
+            <div class="card-type">Pyro / Effect</div>
+            <div class="card-stats">ATK 2600 / DEF 1000</div>
+            <div class="card-effect">Gains 300 ATK each turn it remains on the field. After 3 turns: destroy this card and skip your next draw phase.</div>
+            <div class="card-flavor">"Brilliant. Briefly."</div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">5 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">📅</span>
+            <div class="card-name">Calendar Overlord</div>
+            <div class="card-type">Machine / Effect</div>
+            <div class="card-stats">ATK 2400 / DEF 2400</div>
+            <div class="card-effect">On summon: both players skip their next Battle Phase. Once per turn: delay a card effect until the next turn.</div>
+            <div class="card-flavor">"Feel free to double book. One of these will probably be cancelled."</div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">6 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">🧱</span>
+            <div class="card-name">Legacy System Minotaur</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-stats">ATK 2100 / DEF 2500</div>
+            <div class="card-effect">Cannot be targeted by card effects. Once per turn: a random effect you control is negated.</div>
+            <div class="card-flavor">"It cannot be decommissioned. It has been here longer than the person who built it."</div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="beast-card">
+          <div class="card-inner fusion">
+            <div class="card-counter">7 / 18</div>
+            <div class="card-type-badge">Fusion</div>
+            <span class="card-emoji">🧱</span>
+            <div class="card-name">Legacy User Minotaur</div>
+            <div class="card-type">Beast / End User / Effect — Fusion</div>
+            <div class="card-stats">ATK 2200 / DEF 2600</div>
+            <div class="card-effect">Fusion: Legacy System Minotaur + End User (Unintended Use). Once per turn: randomly select one active Tool or System effect. Resolve it incorrectly. Then apply one additional unintended outcome. Introduces BANDWIDTH FRAGMENTATION.</div>
+            <div class="card-flavor">"It still works. It just doesn't work the way it used to. Or should. Or… ever did."</div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">8 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">🧩</span>
+            <div class="card-name">Middle Manager Chimera</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-stats">ATK 1800 / DEF 2200</div>
+            <div class="card-effect">Counts as 3 tributes, but only fulfills 1 tribute requirement. Once per turn: Redirect an attack to another monster you control.</div>
+            <div class="card-flavor">"Technically present. Strategically elsewhere."</div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">9 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">💰</span>
+            <div class="card-name">Budget Approval Gatekeeper</div>
+            <div class="card-type">Fairy / Effect</div>
+            <div class="card-stats">ATK 1000 / DEF 2800</div>
+            <div class="card-effect">Negate effects of monsters with ATK &gt; 2000 unless their controller pays 1000 LP.</div>
+            <div class="card-flavor">"The form is available. The form has 14 required fields. Two of them are contradictory."</div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">10 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">📊</span>
+            <div class="card-name">PowerPoint Lich</div>
+            <div class="card-type">Undead / Effect</div>
+            <div class="card-stats">ATK 1200 / DEF 3000</div>
+            <div class="card-effect">Gains 1 Slide Counter each turn. Cannot be destroyed while it has counters. Opponent loses 100 LP per counter during standby phase.</div>
+            <div class="card-flavor">"Slide 47 of 200. The deck has always existed. It will always exist."</div>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">11 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">🔄</span>
+            <div class="card-name">Out of Scope Ouroboros</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-stats">ATK 600 / DEF 2400</div>
+            <div class="card-effect">Once per turn: declare one defect, requirement, or stakeholder concern on the field "out of scope." That item cannot be acknowledged, addressed, or referenced for the rest of the duel. This card's own existence cannot be declared out of scope. That has been tried.</div>
+            <div class="card-flavor">"Have you checked the SOW?"</div>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">12 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">👻</span>
+            <div class="card-name">Out of Office Phantom</div>
+            <div class="card-type">Spirit / Effect</div>
+            <div class="card-effect">Cannot be targeted. Leaves the field at end of turn. While active: opponent cannot interact with this card.</div>
+            <div class="card-flavor">"He's out until the 14th. He has been out since the 3rd. He will always be out."</div>
+          </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">13 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">🦴</span>
+            <div class="card-name">End User: Husk</div>
+            <div class="card-type">Undead / End User / Effect</div>
+            <div class="card-stats">ATK 200 / DEF 2000</div>
+            <div class="card-effect">Cannot be motivated, trained, or engaged. Passively consumes 100 Bandwidth per turn from the user education budget. When destroyed: replaced by another End User: Husk during the next standby phase.</div>
+            <div class="card-flavor">"The seat is filled. The work continues to not get done."</div>
+          </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">14 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">🧌</span>
+            <div class="card-name">End User: Gnome</div>
+            <div class="card-type">Beast / End User / Effect</div>
+            <div class="card-effect">Disrupts Morning Phase with unsolicited opinions. Demands JSON output regardless of use case. Effect cannot be countered without documentation of a prior instance where JSON failed.</div>
+            <div class="card-flavor">"He just prefers JSON. His team used it on a project once."</div>
+          </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">15 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">🦄</span>
+            <div class="card-name">End User Group: Unicorns</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-stats">ATK 1200 (each) / DEF 1200 (each)</div>
+            <div class="card-effect">On summon: place 5 Tokens on the field with matching stats. Tokens cannot be targeted by single-target removal. AoE removal destroys one at random; remaining tokens are unaffected. Each turn tokens remain: opponent must address one End User Concern or lose 200 Bandwidth.</div>
+            <div class="card-flavor">"Their existence has been argued for generations."</div>
+          </div>
+        </div>
+
+        <!-- 16 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">16 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">🪞</span>
+            <div class="card-name">Self-Reporting Mimic</div>
+            <div class="card-type">Beast / Trap / Effect</div>
+            <div class="card-stats">ATK 200 / DEF 4000</div>
+            <div class="card-effect">Cannot be activated quickly. When an ad or policy deceives the user, the user may submit a report to the platform that served it. Report is filed with the same entity that approved the original action. Once per game: feel briefly heard. Effect resolves on a turn of the platform's choosing, if at all.</div>
+            <div class="card-flavor">"Reports are reviewed in the order they were forgotten."</div>
+          </div>
+        </div>
+
+        <!-- 17 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">17 / 18</div>
+            <div class="card-type-badge">Bestiary</div>
+            <span class="card-emoji">🦁</span>
+            <div class="card-name">Principal Consultant Sphinx</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-effect">Once per turn: declare one card effect on the field "unverified." That effect cannot resolve until its controller answers one question posed by the Sphinx's controller. The question does not need to be answerable. It needs to sound reasonable. Gains ATK each time a question goes unanswered.</div>
+            <div class="card-flavor">"You must answer three questions correctly to earn knowledge of the scope."</div>
+          </div>
+        </div>
+
+        <!-- 18 -->
+        <div class="beast-card">
+          <div class="card-inner immortal-card">
+            <div class="card-counter">18 / 18</div>
+            <div class="card-type-badge">Immortal</div>
+            <span class="card-emoji">🐟</span>
+            <div class="card-name">Beta Betta</div>
+            <div class="card-type">Fish / Effect — Immortal · Exists Across All Lanes</div>
+            <div class="card-stats">ATK 400 / DEF 400</div>
+            <div class="card-effect">Sits on the Ringmaster's desk. Present at every meeting. Consulted on nothing. Once per turn: observe all effects activated this turn. Cannot interact with any of them. Cannot be removed from the field. Launch date not yet confirmed.</div>
+            <div class="card-flavor">"He's been here longer than the current framework. He will outlast the next one."</div>
+          </div>
+        </div>
+
+      </div><!-- /carousel-inner -->
+    </div><!-- /carousel-track -->
+  </div><!-- /carousel-wrap -->
+
+  <div class="carousel-dots" id="carouselDots"></div>
+  <div class="pause-notice">Hover to pause the parade · The parade does not otherwise stop</div>
+
+  <div class="rope">
+    <div class="rope-line"></div>
+    <div class="rope-knot">◆</div>
+    <div class="rope-line"></div>
+  </div>
+
+  <!-- ── Rarity ── -->
+  <div class="section-heading">Rarity Tiers</div>
+  <div class="section-sub">All phenomena are real. Not all phenomena are equally difficult to pull.</div>
+
+  <div class="rarity-grid">
+    <div class="rarity-card">
+      <div class="rarity-name">Common</div>
+      <div class="rarity-desc">Normal chaos. Found in every pack. Found in every meeting.</div>
+    </div>
+    <div class="rarity-card">
+      <div class="rarity-name">Rare</div>
+      <div class="rarity-desc">Slightly more ridiculous. Requires a specific set of conditions most organisations meet accidentally.</div>
+    </div>
+    <div class="rarity-card">
+      <div class="rarity-name">Ultra Rare</div>
+      <div class="rarity-desc">Game-warping nonsense. You will know it when you see it. You will have seen it before.</div>
+    </div>
+    <div class="rarity-card">
+      <div class="rarity-name">Thought Leader Tier™</div>
+      <div class="rarity-desc">Overpowered, vague, and deeply unnecessary. "If it makes sense, it's probably underpowered."</div>
+    </div>
+  </div>
+
+  <div class="notice">
+    The Business Bestiary is one of two permanent lanes of The Corporate Circus.<br/>
+    These creatures are not metaphors. They are field-documented phenomena rendered in mythological register.<br/><br/>
+    <em>All flavor text is testimony.<br/>
+    All mechanics are documentation of observed phenomena.</em>
+  </div>
+
+  <footer>
+    <div class="lights" style="margin-bottom:24px;">
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    </div>
+    <p>
+      <a href="/">← Back to The Corporate Circus</a><br/>
+      A Subsidiary of <a href="https://indifferencer.com">Indifferencer, Inc.™</a><br/>
+      All phenomena documented · All outcomes delivered regardless of intent<br/>
+      © Indifferencer, Inc.™ · They cannot be decommissioned · They have been here longer than the current framework
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  const inner   = document.getElementById('carouselInner');
+  const dotsWrap = document.getElementById('carouselDots');
+  const fill    = document.getElementById('progressFill');
+  const cards   = inner.querySelectorAll('.beast-card');
+  const total   = cards.length;
+  const INTERVAL = 7000; // 7 seconds per card
+
+  let current   = 0;
+  let paused    = false;
+  let timer     = null;
+  let fillTimer = null;
+
+  // Build dots
+  cards.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+  });
+
+  function updateDots() {
+    dotsWrap.querySelectorAll('.dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function goTo(index) {
+    current = (index + total) % total;
+    inner.style.transform = `translateX(-${current * 100}%)`;
+    updateDots();
+    restartFill();
+  }
+
+  function next() { goTo(current + 1); }
+
+  function startFill() {
+    fill.style.transition = 'none';
+    fill.style.width = '0%';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        fill.style.transition = `width ${INTERVAL}ms linear`;
+        fill.style.width = '100%';
+      });
+    });
+  }
+
+  function restartFill() {
+    clearTimeout(fillTimer);
+    startFill();
+    if (!paused) {
+      fillTimer = setTimeout(next, INTERVAL);
+    }
+  }
+
+  function startTimer() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      if (!paused) { next(); startTimer(); }
+    }, INTERVAL);
+  }
+
+  // Pause on hover
+  const wrap = document.querySelector('.carousel-wrap');
+  wrap.addEventListener('mouseenter', () => {
+    paused = true;
+    clearTimeout(fillTimer);
+    fill.style.transition = 'none';
+  });
+  wrap.addEventListener('mouseleave', () => {
+    paused = false;
+    restartFill();
+  });
+
+  // Kick it off
+  restartFill();
+</script>
+</body>
+</html>
