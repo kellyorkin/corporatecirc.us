@@ -81,6 +81,14 @@ exports.handler = async (event) => {
   const filename = `${timestamp()}-${slug}.json`;
   const path = `${CARDS_DIR}/${filename}`;
 
+  // Default new cards to "draft" status. The render pipeline will
+  // pick them up, render them onto the appropriate venue page,
+  // and flip status to "published" via PR.
+  // State transitions are owned by the renderer, not the saver.
+  if (!card.status) {
+    card.status = 'draft';
+  }
+
   const cardJson = JSON.stringify(card, null, 2) + '\n';
   const encodedContent = Buffer.from(cardJson, 'utf-8').toString('base64');
   const githubUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`;
