@@ -24,5 +24,6 @@
   "translation_layer": {
     "observation": "Nobody logged in.",
     "skeptical_question": "Was anyone asked what they needed?"
-  }
+  },
+  "status": "published"
 }

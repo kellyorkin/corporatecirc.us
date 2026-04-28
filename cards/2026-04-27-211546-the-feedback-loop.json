@@ -24,5 +24,6 @@
     "observation": "Bot trains on its own output.",
     "skeptical_question": "Was this intentional?"
   },
-  "image_sign_text": "LEARNS FROM YOU. IMPROVES FOR YOU."
+  "image_sign_text": "LEARNS FROM YOU. IMPROVES FOR YOU.",
+  "status": "published"
 }

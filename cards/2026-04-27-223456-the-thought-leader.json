@@ -27,5 +27,6 @@
   "translation_layer": {
     "observation": "Opinion posted online.",
     "skeptical_question": "Has anyone done this differently?"
-  }
+  },
+  "status": "published"
 }

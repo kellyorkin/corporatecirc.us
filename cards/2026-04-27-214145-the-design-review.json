@@ -29,5 +29,6 @@
   "translation_layer": {
     "observation": "Wrong design. Confident email.",
     "skeptical_question": "Did anyone read the brief?"
-  }
+  },
+  "status": "published"
 }

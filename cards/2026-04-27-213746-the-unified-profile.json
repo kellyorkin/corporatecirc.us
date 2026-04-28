@@ -25,5 +25,6 @@
     "observation": "Email matched to email.",
     "skeptical_question": "Is this the same person or just the same browser?"
   },
-  "image_sign_text": "ONE CUSTOMER. ONE TRUTH. ONE MYSTERY."
+  "image_sign_text": "ONE CUSTOMER. ONE TRUTH. ONE MYSTERY.",
+  "status": "published"
 }

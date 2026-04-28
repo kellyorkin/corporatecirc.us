@@ -29,5 +29,6 @@
   "translation_layer": {
     "observation": "Eight people ate sandwiches.",
     "skeptical_question": "Who selected the participants?"
-  }
+  },
+  "status": "published"
 }

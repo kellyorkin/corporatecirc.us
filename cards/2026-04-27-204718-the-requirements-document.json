@@ -25,5 +25,6 @@
   "translation_layer": {
     "observation": "Product was garbage.",
     "skeptical_question": "Who wrote the specs?"
-  }
+  },
+  "status": "published"
 }

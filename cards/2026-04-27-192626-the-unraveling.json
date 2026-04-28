@@ -24,5 +24,6 @@
   "translation_layer": {
     "observation": "Spaghetti, now diagrammed.",
     "skeptical_question": "Has any noodle actually moved?"
-  }
+  },
+  "status": "published"
 }

@@ -29,5 +29,6 @@
   "translation_layer": {
     "observation": "Prompts accepted. Code copied.",
     "skeptical_question": "Has anyone read this?"
-  }
+  },
+  "status": "published"
 }

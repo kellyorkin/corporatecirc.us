@@ -23,5 +23,6 @@
   "translation_layer": {
     "observation": "A meeting was scheduled.",
     "skeptical_question": "Who attended?"
-  }
+  },
+  "status": "published"
 }

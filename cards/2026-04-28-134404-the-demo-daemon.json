@@ -27,5 +27,6 @@
   "translation_layer": {
     "observation": "Hardcoded data. Rehearsed path.",
     "skeptical_question": "Can it do that with our data?"
-  }
+  },
+  "status": "published"
 }

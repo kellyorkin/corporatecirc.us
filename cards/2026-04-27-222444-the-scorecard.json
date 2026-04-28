@@ -27,5 +27,6 @@
   "translation_layer": {
     "observation": "Numbers. No context.",
     "skeptical_question": "What would a bad score look like?"
-  }
+  },
+  "status": "published"
 }

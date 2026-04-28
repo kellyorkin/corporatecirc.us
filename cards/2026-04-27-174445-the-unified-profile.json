@@ -24,5 +24,6 @@
   "translation_layer": {
     "observation": "Duplicate records, merged poorly.",
     "skeptical_question": "Is this the same person, or four different people?"
-  }
+  },
+  "status": "published"
 }

@@ -24,5 +24,6 @@
   "translation_layer": {
     "observation": "A guess wearing a label.",
     "skeptical_question": "Who authorised sizes above XL?"
-  }
+  },
+  "status": "published"
 }

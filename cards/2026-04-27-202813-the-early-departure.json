@@ -23,5 +23,6 @@
   "translation_layer": {
     "observation": "Person left. Did not return.",
     "skeptical_question": "Was anyone waiting on a decision?"
-  }
+  },
+  "status": "published"
 }

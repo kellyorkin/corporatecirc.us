@@ -23,5 +23,6 @@
   "translation_layer": {
     "observation": "No decision was made.",
     "skeptical_question": "Was anyone empowered to decide?"
-  }
+  },
+  "status": "published"
 }

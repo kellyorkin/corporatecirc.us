@@ -25,5 +25,6 @@
   "translation_layer": {
     "observation": "No list was made.",
     "skeptical_question": "Did anyone write anything down?"
-  }
+  },
+  "status": "published"
 }

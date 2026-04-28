@@ -24,5 +24,6 @@
   "translation_layer": {
     "observation": "Waterfall with sticky notes.",
     "skeptical_question": "Has anyone read the manifesto?"
-  }
+  },
+  "status": "published"
 }

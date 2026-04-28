@@ -25,5 +25,6 @@
   "translation_layer": {
     "observation": "SQL on top of files.",
     "skeptical_question": "Is this just the warehouse again?"
-  }
+  },
+  "status": "published"
 }

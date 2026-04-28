@@ -27,5 +27,6 @@
   "translation_layer": {
     "observation": "Two words. Same emails.",
     "skeptical_question": "Did the customer notice?"
-  }
+  },
+  "status": "published"
 }

@@ -29,5 +29,6 @@
   "translation_layer": {
     "observation": "Senior rep guards perimeter.",
     "skeptical_question": "Was a single lead captured?"
-  }
+  },
+  "status": "published"
 }

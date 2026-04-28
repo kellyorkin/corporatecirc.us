@@ -24,5 +24,6 @@
   "translation_layer": {
     "observation": "Something went wrong.",
     "skeptical_question": "Was this ever the plan?"
-  }
+  },
+  "status": "published"
 }

@@ -27,5 +27,6 @@
   "translation_layer": {
     "observation": "Memo sent. Slide updated.",
     "skeptical_question": "Which system, specifically, is the AI?"
-  }
+  },
+  "status": "published"
 }

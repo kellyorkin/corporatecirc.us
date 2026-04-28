@@ -27,5 +27,6 @@
   "translation_layer": {
     "observation": "Old software still running.",
     "skeptical_question": "Does anyone have the documentation?"
-  }
+  },
+  "status": "published"
 }

@@ -29,5 +29,6 @@
   "translation_layer": {
     "observation": "Same complaints. New attendees.",
     "skeptical_question": "Did anything change since last time?"
-  }
+  },
+  "status": "published"
 }

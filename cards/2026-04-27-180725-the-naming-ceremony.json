@@ -25,5 +25,6 @@
   "translation_layer": {
     "observation": "Meeting about a name.",
     "skeptical_question": "Has anyone tested it yet?"
-  }
+  },
+  "status": "published"
 }

@@ -24,5 +24,6 @@
   "translation_layer": {
     "observation": "Long document, unread.",
     "skeptical_question": "Was this written to be read?"
-  }
+  },
+  "status": "published"
 }

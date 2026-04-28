@@ -24,5 +24,6 @@
   "translation_layer": {
     "observation": "Data moved backwards.",
     "skeptical_question": "Why was it in the warehouse if it needed to be here?"
-  }
+  },
+  "status": "published"
 }

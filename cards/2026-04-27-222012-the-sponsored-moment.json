@@ -29,5 +29,6 @@
   "translation_layer": {
     "observation": "Ad placed near content.",
     "skeptical_question": "Did anyone choose to see this?"
-  }
+  },
+  "status": "published"
 }

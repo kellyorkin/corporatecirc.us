@@ -24,5 +24,6 @@
   "translation_layer": {
     "observation": "Scar tissue, documented.",
     "skeptical_question": "Has anyone read the whole thing?"
-  }
+  },
+  "status": "published"
 }
