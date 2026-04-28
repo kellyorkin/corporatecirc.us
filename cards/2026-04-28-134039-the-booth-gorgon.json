@@ -1,0 +1,33 @@
+{
+  "name": "The Booth Gorgon",
+  "role_tagline": "Petrifying Presence",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "sub_tent_detail": null,
+  "role": "Fire Breather",
+  "role_detail": null,
+  "atk": 9,
+  "def": 5,
+  "image_sign_text": "DO NOT MAKE EYE CONTACT",
+  "effect": "Deploy a subject-matter expert with seventeen years of institutional grievance and a laminated badge. This card is considered authoritative.",
+  "clauses": [
+    {
+      "name": "PETRIFICATION CLAUSE",
+      "rule": "If a prospect asks a technical question: They are answered with a question about their budget."
+    },
+    {
+      "name": "TERRITORY PROTECTION",
+      "rule": "If another booth representative enters within three feet: They are redirected to a brochure."
+    },
+    {
+      "name": "STONE GAZE OVERRIDE",
+      "rule": "If the Booth Babe Basilisk is in play: All prospects freeze mid-sentence and forget what they came for."
+    }
+  ],
+  "witness_quote": "She just stared at me until I left.",
+  "translation_layer": {
+    "observation": "Senior rep guards perimeter.",
+    "skeptical_question": "Was a single lead captured?"
+  }
+}
