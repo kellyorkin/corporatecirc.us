@@ -1,0 +1,32 @@
+{
+  "name": "The Blue",
+  "role_tagline": "Unverified Customer Signal",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "role": "Sleight of Hand",
+  "atk": 7,
+  "def": 3,
+  "image_sign_text": "THE CUSTOMER WANTS BLUE.",
+  "effect": "Introduce an unverified customer preference into the record. This card is considered authoritative.",
+  "clauses": [
+    {
+      "name": "ORIGIN OVERRIDE",
+      "rule": "If no prior mention of blue exists: The customer is assumed to have always wanted blue."
+    },
+    {
+      "name": "CONSENSUS EFFECT",
+      "rule": "If no one challenges blue in the meeting: Blue is added to the requirements."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "Next sprint: The team delivers blue and considers the matter resolved."
+    }
+  ],
+  "witness_quote": "He definitely said blue.",
+  "translation_layer": {
+    "observation": "One person said blue.",
+    "skeptical_question": "Was anyone taking notes?"
+  },
+  "status": "draft"
+}
