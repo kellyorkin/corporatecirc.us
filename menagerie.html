@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Management Menagerie — Corporate Circus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E8C96A;
+      --gold-dim:    #8B6914;
+      --cream:       #F5EDD6;
+      --parchment:   #E8D5A3;
+      --dark:        #060A06;
+      --menagerie:   #1A3A1A;
+      --menagerie-hi:#2E6B2E;
+      --menagerie-md:#3D8B3D;
+      --red-stripe:  #8B2215;
+      --boss:        #4A1A00;
+      --boss-hi:     #8B3A00;
+      --clevel:      #1A2A3A;
+      --clevel-hi:   #2A4A6A;
+      --fusion:      #3A1A5A;
+      --immortal:    #1A3A2A;
+      --concept:     #3A3A1A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--dark);
+      color: var(--cream);
+      font-family: 'IM Fell English', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 40px,
+        rgba(26,58,26,0.05) 40px,
+        rgba(26,58,26,0.05) 80px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb {
+      padding: 20px 0 0;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+    }
+    .breadcrumb a { color: var(--gold-dim); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* ── Lights ── */
+    .lights {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0 0;
+    }
+    .bulb {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--menagerie-md);
+      box-shadow: 0 0 6px 2px rgba(61,139,61,0.5);
+      animation: flicker 2.5s ease-in-out infinite;
+    }
+    .bulb:nth-child(2n) { animation-delay: 0.4s; background: var(--gold-light); box-shadow: 0 0 6px 2px rgba(232,201,106,0.5); }
+    .bulb:nth-child(3n) { animation-delay: 0.8s; }
+    .bulb:nth-child(4n) { animation-delay: 1.2s; background: var(--gold-light); box-shadow: 0 0 6px 2px rgba(232,201,106,0.5); }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      45%       { opacity: 0.6; }
+      50%       { opacity: 1; }
+      85%       { opacity: 0.85; }
+    }
+
+    /* ── Banner ── */
+    .banner {
+      text-align: center;
+      padding: 48px 20px 28px;
+    }
+    .banner-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--menagerie-md);
+      text-transform: uppercase;
+      border: 1px solid var(--menagerie-hi);
+      display: inline-block;
+      padding: 4px 16px;
+      margin-bottom: 24px;
+    }
+    .banner-icon {
+      font-size: 56px;
+      display: block;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 0 16px rgba(46,107,46,0.6));
+      animation: breathe 5s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.05); }
+    }
+    .banner h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(22px, 4.5vw, 44px);
+      font-weight: 900;
+      color: var(--gold-light);
+      text-shadow: 0 0 30px rgba(46,107,46,0.4), 2px 2px 0 rgba(0,0,0,0.8);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .banner-sub {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── Rope ── */
+    .rope {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .rope-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); }
+    .rope-knot { color: var(--menagerie-md); font-size: 14px; }
+
+    /* ── Field guide intro ── */
+    .field-guide {
+      background: linear-gradient(135deg, rgba(26,58,26,0.4), rgba(6,10,6,0.8));
+      border: 1px solid rgba(46,107,46,0.3);
+      border-left: 4px solid var(--menagerie-hi);
+      padding: 28px 36px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .field-guide-label {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--menagerie-md);
+      margin-bottom: 12px;
+    }
+    .field-guide p {
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--parchment);
+      font-style: italic;
+    }
+
+    /* ── REORG notice ── */
+    .reorg-notice {
+      background: linear-gradient(135deg, rgba(42,74,106,0.3), rgba(6,10,6,0.8));
+      border: 1px solid rgba(42,74,106,0.4);
+      border-top: 3px solid #4A7AAA;
+      padding: 20px 28px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .reorg-notice .reorg-label {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #4A7AAA;
+      margin-bottom: 8px;
+    }
+    .reorg-notice p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--parchment);
+      font-style: italic;
+    }
+
+    /* ── Progress bar ── */
+    .progress-bar {
+      height: 2px;
+      background: rgba(46,107,46,0.2);
+      margin: 0 0 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--menagerie-hi);
+      width: 0%;
+      transition: width linear;
+    }
+
+    /* ── Carousel ── */
+    .carousel-wrap { position: relative; margin: 0 0 16px; }
+    .carousel-track { overflow: hidden; position: relative; }
+    .carousel-inner { display: flex; transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+
+    /* ── Card ── */
+    .beast-card { min-width: 100%; padding: 4px; }
+
+    .card-inner {
+      border: 1px solid rgba(46,107,46,0.3);
+      border-top: 4px solid var(--menagerie-hi);
+      background: linear-gradient(160deg, rgba(26,58,26,0.25), rgba(6,10,6,0.9));
+      padding: 32px 40px 28px;
+      position: relative;
+      min-height: 340px;
+    }
+    .card-inner.boss    { border-top-color: #B8560A; background: linear-gradient(160deg, rgba(74,26,0,0.35), rgba(6,10,6,0.9)); }
+    .card-inner.clevel  { border-top-color: #4A7AAA; background: linear-gradient(160deg, rgba(26,42,58,0.35), rgba(6,10,6,0.9)); }
+    .card-inner.concept { border-top-color: #8B8B2A; background: linear-gradient(160deg, rgba(58,58,26,0.25), rgba(6,10,6,0.9)); }
+    .card-inner.immortal-card { border-top-color: #27AE60; background: linear-gradient(160deg, rgba(26,58,42,0.3), rgba(6,10,6,0.9)); }
+
+    .card-type-badge {
+      position: absolute;
+      top: 16px; right: 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      color: var(--cream);
+      background: var(--menagerie);
+    }
+    .boss   .card-type-badge { background: #8B3A00; }
+    .clevel .card-type-badge { background: #2A4A6A; }
+    .concept .card-type-badge { background: #5A5A1A; color: var(--parchment); }
+    .immortal-card .card-type-badge { background: #1A6B3A; }
+
+    .card-counter {
+      position: absolute;
+      top: 16px; left: 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--gold-dim);
+    }
+
+    .card-emoji {
+      font-size: 36px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .card-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(15px, 2.8vw, 21px);
+      color: var(--gold-light);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .card-type {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--menagerie-md);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .boss    .card-type { color: #C86A20; }
+    .clevel  .card-type { color: #5A9ABF; }
+    .concept .card-type { color: #9B9B3A; }
+    .immortal-card .card-type { color: #2ECC71; }
+
+    .card-stats {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: inline-block;
+      background: rgba(201,168,76,0.08);
+      padding: 3px 12px;
+      border: 1px solid rgba(201,168,76,0.2);
+    }
+
+    .card-effect {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--parchment);
+      margin-bottom: 14px;
+    }
+
+    .card-flavor {
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold-dim);
+      border-top: 1px solid rgba(46,107,46,0.2);
+      padding-top: 12px;
+      line-height: 1.6;
+    }
+
+    /* ── Dots ── */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 8px;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--menagerie);
+      border: 1px solid var(--menagerie-hi);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .dot.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      transform: scale(1.3);
+    }
+
+    .pause-notice {
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: rgba(46,107,46,0.4);
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    /* ── Section heading ── */
+    .section-heading {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 17px;
+      color: var(--gold);
+      text-align: center;
+      margin: 48px 0 6px;
+    }
+    .section-sub {
+      text-align: center;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold-dim);
+      margin-bottom: 24px;
+    }
+
+    /* ── Win condition ── */
+    .win-condition {
+      border: 1px solid rgba(42,74,106,0.4);
+      border-top: 4px solid #C0392B;
+      background: linear-gradient(160deg, rgba(42,26,26,0.4), rgba(6,10,6,0.9));
+      padding: 28px 36px;
+      margin-bottom: 16px;
+    }
+    .win-label {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #C0392B;
+      margin-bottom: 12px;
+    }
+    .win-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 20px;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .win-effect {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--parchment);
+      margin-bottom: 12px;
+    }
+    .win-flavor {
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold-dim);
+      border-top: 1px solid rgba(192,57,43,0.2);
+      padding-top: 12px;
+    }
+
+    /* ── Notice ── */
+    .notice {
+      border: 1px solid rgba(46,107,46,0.2);
+      background: rgba(46,107,46,0.04);
+      padding: 20px 24px;
+      margin: 48px 0 0;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--gold-dim);
+      text-align: center;
+      line-height: 2;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 40px 0 0;
+      border-top: 1px solid rgba(46,107,46,0.15);
+      margin-top: 60px;
+    }
+    footer p {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      line-height: 2.4;
+    }
+    footer a { color: var(--gold-dim); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .card-inner { padding: 24px 16px 20px; min-height: auto; }
+      .field-guide { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="breadcrumb">
+    <a href="/">Corporatecirc.us</a>
+    <span>›</span>
+    The Management Menagerie
+  </div>
+
+  <div class="lights">
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+  </div>
+
+  <div class="banner">
+    <div class="banner-label">Now Showing · The Management Menagerie</div>
+    <span class="banner-icon">🦁</span>
+    <h1>The Management Menagerie</h1>
+    <div class="banner-sub">
+      Naturalistic animals observed in their corporate habitat<br/>
+      Field-guide accuracy · Zoo-grade containment · Neither has helped
+    </div>
+  </div>
+
+  <div class="rope">
+    <div class="rope-line"></div>
+    <div class="rope-knot">◆</div><div class="rope-knot">◆</div><div class="rope-knot">◆</div>
+    <div class="rope-line"></div>
+  </div>
+
+  <div class="field-guide">
+    <div class="field-guide-label">Field Observer's Note · Est. Unknown · Containment Ongoing</div>
+    <p>These specimens were not introduced to the corporate environment.<br/>
+    They evolved there. Containment has been attempted.<br/>
+    Containment has not changed their behaviour.<br/>
+    The habitat has adapted to them.</p>
+  </div>
+
+  <div class="reorg-notice">
+    <div class="reorg-label">⚠ Special Win Condition Active — External Card</div>
+    <p><strong>REORG</strong> lives outside both decks permanently. Cannot be drawn, searched, or prevented.<br/>
+    Activates automatically when two or more C-Level Killer Whales surface simultaneously.<br/>
+    Cannot be negated. Cannot be chained. The field continues but the game is over.<br/>
+    <em>"It was already written. The Killer Whales just made it official."</em></p>
+  </div>
+
+  <!-- ── Carousel ── -->
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+  <div class="carousel-wrap">
+    <div class="carousel-track">
+      <div class="carousel-inner" id="carouselInner">
+
+        <!-- 1 -->
+        <div class="beast-card">
+          <div class="card-inner boss">
+            <div class="card-counter">1 / 22</div>
+            <div class="card-type-badge">Boss Monster</div>
+            <span class="card-emoji">🫏</span>
+            <div class="card-name">Executive Decision Donkey</div>
+            <div class="card-type">Beast / Effect — Boss Monster</div>
+            <div class="card-stats">ATK 3500 / DEF 3000</div>
+            <div class="card-effect">Once per duel: override all effects on the field. Declare one outcome at random — it becomes reality. Cannot be negated. Cannot be questioned. Cannot be attributed to any specific decision made by any specific person.</div>
+            <div class="card-flavor">"The outcome was always correct." — Indifferencer, Inc.™</div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="beast-card">
+          <div class="card-inner clevel">
+            <div class="card-counter">2 / 22</div>
+            <div class="card-type-badge">C-Level</div>
+            <span class="card-emoji">🐋</span>
+            <div class="card-name">C-Level Killer Whales</div>
+            <div class="card-type">Beast / C-Level / Effect</div>
+            <div class="card-stats">ATK 3200 / DEF 2800</div>
+            <div class="card-effect">While alone: once per turn, declare one strategic initiative. All monsters must align or lose 300 ATK.<br/><br/>
+            POD EFFECT: While another C-Level Killer Whale is on the field: both gain 500 ATK. All non-C-Level monsters lose 200 DEF per Killer Whale on the field.<br/><br/>
+            POD WIN CONDITION: When two or more surface simultaneously: REORG activates automatically from outside the game. Cannot be negated. Run up to 3 copies.</div>
+            <div class="card-flavor">"The initiative was always aligned. The org chart just needed to catch up."</div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="beast-card">
+          <div class="card-inner clevel">
+            <div class="card-counter">3 / 22</div>
+            <div class="card-type-badge">C-Level</div>
+            <span class="card-emoji">🐳</span>
+            <div class="card-name">Chief Undefined Killer Whale</div>
+            <div class="card-type">Beast / C-Level / Effect</div>
+            <div class="card-effect">On summon: declare a domain. That domain is now a C-Level function for the rest of the duel. All effects related to that domain require C-Level approval. Cannot be questioned without scheduling a clarifying meeting.<br/><br/>
+            Counts as a C-Level Killer Whale for all pod purposes.</div>
+            <div class="card-flavor">"The title came first. The role followed. Eventually."</div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="beast-card">
+          <div class="card-inner clevel">
+            <div class="card-counter">4 / 22</div>
+            <div class="card-type-badge">C-Level Support</div>
+            <span class="card-emoji">🦀</span>
+            <div class="card-name">Executive Assistant Crab</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-stats">ATK 800 / DEF 3200</div>
+            <div class="card-effect">While on the field: all non-C-Level monsters must pay 800 LP to interact with any C-Level Killer Whale, regardless of which player controls them.<br/><br/>
+            ALLEGIANCE-NEUTRAL: whoever controls Executive Assistant Crab controls access to ALL C-Level Killer Whales on the field. When controlled by the opposing player: that player may redirect one C-Level surface per turn to their own field.</div>
+            <div class="card-flavor">"She's not disloyal. She's just very good at her job for whoever currently has her calendar access."</div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">5 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🦚</span>
+            <div class="card-name">Certifications Peacock</div>
+            <div class="card-type">Self Promoter / Effect</div>
+            <div class="card-stats">ATK 3000 / DEF 2500</div>
+            <div class="card-effect">When this card is summoned, draw one card for each Certification in your graveyard. Cannot be destroyed by cards that lack documented proof of concept.</div>
+            <div class="card-flavor">"More is better."</div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">6 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🐍</span>
+            <div class="card-name">Sales Engineer Snake</div>
+            <div class="card-type">Reptile / Effect</div>
+            <div class="card-stats">ATK 1900 / DEF 1100</div>
+            <div class="card-effect">Summonable only during Pitch Phase or when a Demo card is on the field. Once per turn: declare an opponent's monster "fully compatible with your existing infrastructure." That monster's effects resolve as if its requirements were met, regardless of whether they are. If the resolution fails: see Feature Bug.</div>
+            <div class="card-flavor">"Of course this will work as designed. Trust me."</div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">7 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🪱</span>
+            <div class="card-name">Legacy System Leech</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-stats">ATK 2100 / DEF 2500</div>
+            <div class="card-effect">Cannot be targeted by card effects. Once per turn: a random effect you control is negated.</div>
+            <div class="card-flavor">"May have monetary value. May be a bloodsucker."</div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">8 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🦫</span>
+            <div class="card-name">Bureaucratic Beaver</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-stats">ATK 1800 / DEF 2200</div>
+            <div class="card-effect">Counts as 3 tributes, but only fulfills 1 tribute requirement. Once per turn: Redirect an attack to another monster you control.</div>
+            <div class="card-flavor">"The gate will be as well kept as the dam will be impenetrable."</div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">9 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🐩</span>
+            <div class="card-name">PowerPoint Poodle</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-stats">ATK 1200 / DEF 3000</div>
+            <div class="card-effect">Gains 1 Slide Counter each turn. Cannot be destroyed while it has counters. Opponent loses 100 LP per counter during standby phase.</div>
+            <div class="card-flavor">"Pretty but high maintenance."</div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">10 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">📅</span>
+            <div class="card-name">Calendar Overlord</div>
+            <div class="card-type">Machine / Effect</div>
+            <div class="card-stats">ATK 2400 / DEF 2400</div>
+            <div class="card-effect">On summon: both players skip their next Battle Phase. Once per turn: delay a card effect until the next turn.</div>
+            <div class="card-flavor">"Feel free to double book. One of these will probably be cancelled."</div>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">11 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🦜</span>
+            <div class="card-name">Budget Approval Budgie</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-stats">ATK 1000 / DEF 2800</div>
+            <div class="card-effect">Negate effects of monsters with ATK &gt; 2000 unless their controller pays 1000 LP.</div>
+            <div class="card-flavor">"The form is available. The form has 14 required fields. Two of them are contradictory."</div>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">12 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🐟</span>
+            <div class="card-name">Out of Office Coelacanth</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-effect">Cannot be targeted. Leaves the field at end of turn. While active: opponent cannot interact with this card. Has survived every organisational restructuring since before records began.</div>
+            <div class="card-flavor">"He's out until the 14th. He has been out since the 3rd. He will always be out."</div>
+          </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">13 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🔥</span>
+            <div class="card-name">Burnout Elemental</div>
+            <div class="card-type">Pyro / Effect</div>
+            <div class="card-stats">ATK 2600 / DEF 1000</div>
+            <div class="card-effect">Gains 300 ATK each turn it remains on the field. After 3 turns: destroy this card and skip your next draw phase.</div>
+            <div class="card-flavor">"Brilliant. Briefly."</div>
+          </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">14 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🦤</span>
+            <div class="card-name">Out of Scope Ostrich</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-stats">ATK 600 / DEF 2400</div>
+            <div class="card-effect">Once per turn: declare one defect, requirement, or stakeholder concern on the field "out of scope." That item cannot be acknowledged, addressed, or referenced for the rest of the duel. Effect cannot be negated by Documentation Check.</div>
+            <div class="card-flavor">"It wasn't covered by the test plan."</div>
+          </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">15 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🐓</span>
+            <div class="card-name">End User: Rooster</div>
+            <div class="card-type">Beast / End User / Effect</div>
+            <div class="card-effect">Disrupts Morning Phase with unsolicited opinions. Demands JSON output regardless of use case. Effect cannot be countered without documentation of a prior instance where JSON failed.</div>
+            <div class="card-flavor">"He just prefers JSON. His team used it on a project once."</div>
+          </div>
+        </div>
+
+        <!-- 16 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">16 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🦘</span>
+            <div class="card-name">End User Group: Emus</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-stats">ATK 1200 (each) / DEF 1200 (each)</div>
+            <div class="card-effect">On summon: place 5 Emu Tokens on the field with matching stats. Tokens cannot be targeted by single-target removal. AoE removal destroys one at random; remaining tokens are unaffected. Each turn tokens remain: opponent must address one End User Concern or lose 200 Bandwidth.</div>
+            <div class="card-flavor">"See: Australian Emu War (1932). The institution lost."</div>
+          </div>
+        </div>
+
+        <!-- 17 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">17 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🐨</span>
+            <div class="card-name">End User: Possum</div>
+            <div class="card-type">Beast / End User / Effect</div>
+            <div class="card-stats">ATK 400 / DEF 1800</div>
+            <div class="card-effect">When targeted by any platform interaction effect: plays dead. Effect resolves but produces no behavioural response. Cannot be re-engaged by training cards for 3 turns.</div>
+            <div class="card-flavor">"He completed the training. The training did not complete him."</div>
+          </div>
+        </div>
+
+        <!-- 18 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">18 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🦥</span>
+            <div class="card-name">Self-Reporting Sloth</div>
+            <div class="card-type">Beast / Trap / Effect</div>
+            <div class="card-stats">ATK 200 / DEF 4000</div>
+            <div class="card-effect">Cannot be activated quickly. When an ad or policy deceives the user, the user may submit a report to the platform that served it. Report is filed with the same entity that approved the original action. Once per game: feel briefly heard.</div>
+            <div class="card-flavor">"Reports are reviewed in the order they were forgotten."</div>
+          </div>
+        </div>
+
+        <!-- 19 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">19 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🦜</span>
+            <div class="card-name">Principal Consultant Parrot</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-effect">Once per turn: repeat the last effect played by either player. Gains ATK equal to the number of times it has repeated an effect this duel.</div>
+            <div class="card-flavor">"Slides 1–25 and 26–50 contain the same information formatted differently."</div>
+          </div>
+        </div>
+
+        <!-- 20 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">20 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🐗</span>
+            <div class="card-name">Business Analyst Boar</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-effect">Once per turn: identify the actual root cause of any problem on the field. Note: Out of Scope Ostrich's effect cannot be negated by this identification — the Boar can name the problem; the Ostrich can still bury it.</div>
+            <div class="card-flavor">"He found the root cause. The root cause was declared out of scope."</div>
+          </div>
+        </div>
+
+        <!-- 21 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">21 / 22</div>
+            <div class="card-type-badge">Menagerie</div>
+            <span class="card-emoji">🦆</span>
+            <div class="card-name">Decoy Duck</div>
+            <div class="card-type">Beast / Effect</div>
+            <div class="card-stats">ATK 600 / DEF 600</div>
+            <div class="card-effect">When targeted by any card effect: redirect that effect to Decoy Duck instead of the original target. The original target is unaffected.<br/><br/>
+            Cannot coexist on the same field as Executive Assistant Crab. When both are present: the active player immediately chooses which one leaves.</div>
+            <div class="card-flavor">"It wasn't evasion. It was agility."</div>
+          </div>
+        </div>
+
+        <!-- 22 -->
+        <div class="beast-card">
+          <div class="card-inner immortal-card">
+            <div class="card-counter">22 / 22</div>
+            <div class="card-type-badge">Immortal</div>
+            <span class="card-emoji">🐠</span>
+            <div class="card-name">Beta Betta</div>
+            <div class="card-type">Fish / Effect — Immortal · Exists Across All Lanes</div>
+            <div class="card-stats">ATK 400 / DEF 400</div>
+            <div class="card-effect">Sits on the Ringmaster's desk. Present at every meeting. Consulted on nothing. Once per turn: observe all effects activated this turn. Cannot interact with any of them. Cannot be removed from the field. Launch date not yet confirmed.</div>
+            <div class="card-flavor">"He's been here longer than the current framework. He will outlast the next one."</div>
+          </div>
+        </div>
+
+      </div><!-- /carousel-inner -->
+    </div><!-- /carousel-track -->
+  </div><!-- /carousel-wrap -->
+
+  <div class="carousel-dots" id="carouselDots"></div>
+  <div class="pause-notice">Hover to pause the parade · The specimens do not otherwise stop</div>
+
+  <div class="rope">
+    <div class="rope-line"></div>
+    <div class="rope-knot">◆</div>
+    <div class="rope-line"></div>
+  </div>
+
+  <!-- ── REORG Win Condition ── -->
+  <div class="section-heading">★ Special Win Condition</div>
+  <div class="section-sub">Lives outside both decks permanently. Cannot be drawn. Cannot be prevented.</div>
+
+  <div class="win-condition">
+    <div class="win-label">External Card · Cannot Be Included In Any Deck · Always In Play</div>
+    <div class="win-name">REORG</div>
+    <div class="win-effect">
+      Activates automatically when two or more C-Level Killer Whales surface simultaneously on the same player's field. Cannot be negated. Cannot be chained. Cannot be responded to.<br/><br/>
+      When REORG activates: the player who controls the pod wins by default. All cards on the field are rearranged. Some report to different zones. Some are eliminated without explanation. The field continues but the game is over.<br/><br/>
+      The Executive Assistant Crab is accordingly the most strategically significant card on the field at all times — she controls who assembles the pod, regardless of who summoned the Killer Whales.
+    </div>
+    <div class="win-flavor">"It was already written. The Killer Whales just made it official."</div>
+  </div>
+
+  <div class="notice">
+    The Management Menagerie is one of two permanent lanes of The Corporate Circus.<br/>
+    These specimens were not introduced to the environment. They evolved there.<br/><br/>
+    <em>Field-guide accuracy. Zoo-grade containment.<br/>
+    Neither has changed the behaviour of the observed.</em>
+  </div>
+
+  <footer>
+    <div class="lights" style="margin-bottom:24px;">
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    </div>
+    <p>
+      <a href="/">← Back to The Corporate Circus</a><br/>
+      A Subsidiary of <a href="https://indifferencer.com">Indifferencer, Inc.™</a><br/>
+      All phenomena documented · All outcomes delivered regardless of intent<br/>
+      © Indifferencer, Inc.™ · Containment ongoing · Results inconclusive
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  const inner    = document.getElementById('carouselInner');
+  const dotsWrap = document.getElementById('carouselDots');
+  const fill     = document.getElementById('progressFill');
+  const cards    = inner.querySelectorAll('.beast-card');
+  const total    = cards.length;
+  const INTERVAL = 7000;
+
+  let current = 0;
+  let paused  = false;
+  let fillTimer = null;
+
+  cards.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+  });
+
+  function updateDots() {
+    dotsWrap.querySelectorAll('.dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function goTo(index) {
+    current = (index + total) % total;
+    inner.style.transform = `translateX(-${current * 100}%)`;
+    updateDots();
+    restartFill();
+  }
+
+  function next() { goTo(current + 1); }
+
+  function startFill() {
+    fill.style.transition = 'none';
+    fill.style.width = '0%';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        fill.style.transition = `width ${INTERVAL}ms linear`;
+        fill.style.width = '100%';
+      });
+    });
+  }
+
+  function restartFill() {
+    clearTimeout(fillTimer);
+    startFill();
+    if (!paused) { fillTimer = setTimeout(next, INTERVAL); }
+  }
+
+  const wrap = document.querySelector('.carousel-wrap');
+  wrap.addEventListener('mouseenter', () => {
+    paused = true;
+    clearTimeout(fillTimer);
+    fill.style.transition = 'none';
+  });
+  wrap.addEventListener('mouseleave', () => {
+    paused = false;
+    restartFill();
+  });
+
+  restartFill();
+</script>
+</body>
+</html>
