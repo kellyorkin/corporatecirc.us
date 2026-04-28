@@ -1,0 +1,32 @@
+{
+  "name": "The Customer 360",
+  "role_tagline": "Unified Customer View",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "CDP Circus",
+  "role": "Magician",
+  "atk": 6,
+  "def": 5,
+  "image_sign_text": "ONE CUSTOMER. ONE TRUTH. ONE DASHBOARD.",
+  "effect": "Consolidate all customer touchpoints into a single unified profile. This card is considered complete.",
+  "clauses": [
+    {
+      "name": "UNIFICATION CLAUSE",
+      "rule": "If at least three data sources are connected: The profile is considered unified."
+    },
+    {
+      "name": "IDENTITY RESOLUTION EFFECT",
+      "rule": "When two records share a first name and zip code: They are considered the same person."
+    },
+    {
+      "name": "COMPLETENESS OVERRIDE",
+      "rule": "If any field is empty: It is considered a known unknown and the profile remains complete."
+    }
+  ],
+  "witness_quote": "Finally, a single source of truth.",
+  "translation_layer": {
+    "observation": "Several spreadsheets joined.",
+    "skeptical_question": "Which version of the customer is the real one?"
+  },
+  "status": "draft"
+}
