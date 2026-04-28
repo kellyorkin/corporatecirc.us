@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Enterprise Exposition — Corporate Circus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E8C96A;
+      --gold-dim:    #8B6914;
+      --cream:       #F5EDD6;
+      --parchment:   #E8D5A3;
+      --dark:        #0A0404;
+      --crimson:     #6B1A0F;
+      --crimson-hi:  #9B2A1A;
+      --crimson-md:  #C0392B;
+      --velvet:      #3A0A0A;
+      --spell-blue:  #2A5A8B;
+      --trap-purple: #5A2A7A;
+      --immortal:    #1A3A2A;
+      --concept:     #3A3A1A;
+      --boss:        #4A1A00;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--dark);
+      color: var(--cream);
+      font-family: 'IM Fell English', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 40px,
+        rgba(107,26,15,0.05) 40px,
+        rgba(107,26,15,0.05) 80px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb {
+      padding: 20px 0 0;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+    }
+    .breadcrumb a { color: var(--gold-dim); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* ── Lights ── */
+    .lights {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0 0;
+    }
+    .bulb {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      box-shadow: 0 0 6px 2px rgba(232,201,106,0.5);
+      animation: flicker 2.5s ease-in-out infinite;
+    }
+    .bulb:nth-child(2n) { animation-delay: 0.4s; background: var(--crimson-md); box-shadow: 0 0 6px 2px rgba(192,57,43,0.6); }
+    .bulb:nth-child(3n) { animation-delay: 0.8s; }
+    .bulb:nth-child(4n) { animation-delay: 1.2s; background: var(--crimson-md); box-shadow: 0 0 6px 2px rgba(192,57,43,0.6); }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      45%       { opacity: 0.6; }
+      50%       { opacity: 1; }
+      85%       { opacity: 0.85; }
+    }
+
+    /* ── Banner ── */
+    .banner {
+      text-align: center;
+      padding: 48px 20px 28px;
+    }
+    .banner-label {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--crimson-hi);
+      text-transform: uppercase;
+      border: 1px solid var(--crimson);
+      display: inline-block;
+      padding: 4px 16px;
+      margin-bottom: 24px;
+    }
+    .banner-icon {
+      font-size: 60px;
+      display: block;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 0 20px rgba(192,57,43,0.5));
+      animation: breathe 5s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(192,57,43,0.5)); }
+      50%       { transform: scale(1.04); filter: drop-shadow(0 0 30px rgba(201,168,76,0.6)); }
+    }
+    .banner h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(22px, 4.5vw, 46px);
+      font-weight: 900;
+      color: var(--gold-light);
+      text-shadow: 0 0 40px rgba(192,57,43,0.4), 0 0 80px rgba(201,168,76,0.2), 2px 2px 0 rgba(0,0,0,0.8);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .banner-sub {
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.9;
+    }
+
+    /* ── Rope ── */
+    .rope {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .rope-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); }
+    .rope-knot { color: var(--gold); font-size: 16px; }
+
+    /* ── Proclamation ── */
+    .proclamation {
+      background: linear-gradient(160deg, rgba(107,26,15,0.35), rgba(10,4,4,0.9));
+      border: 1px solid rgba(192,57,43,0.25);
+      border-top: 3px solid var(--gold-dim);
+      border-bottom: 3px solid var(--gold-dim);
+      padding: 32px 40px;
+      text-align: center;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .proclamation::before, .proclamation::after {
+      content: '✦';
+      position: absolute;
+      color: var(--gold-dim);
+      font-size: 14px;
+    }
+    .proclamation::before { top: 12px; left: 20px; }
+    .proclamation::after  { bottom: 12px; right: 20px; }
+    .proclamation p {
+      font-size: 16px;
+      line-height: 1.95;
+      color: var(--parchment);
+      font-style: italic;
+    }
+    .proclamation .decree {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-top: 16px;
+    }
+
+    /* ── Progress bar ── */
+    .progress-bar {
+      height: 2px;
+      background: rgba(192,57,43,0.2);
+      margin: 0 0 8px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--crimson-hi), var(--gold-dim));
+      width: 0%;
+      transition: width linear;
+    }
+
+    /* ── Carousel ── */
+    .carousel-wrap { position: relative; margin: 0 0 16px; }
+    .carousel-track { overflow: hidden; }
+    .carousel-inner { display: flex; transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+    .beast-card { min-width: 100%; padding: 4px; }
+
+    /* ── Card inner ── */
+    .card-inner {
+      border: 1px solid rgba(192,57,43,0.3);
+      border-top: 4px solid var(--crimson-hi);
+      background: linear-gradient(160deg, rgba(107,26,15,0.25), rgba(10,4,4,0.9));
+      padding: 32px 40px 28px;
+      position: relative;
+      min-height: 340px;
+    }
+    .card-inner.boss     { border-top-color: var(--gold); background: linear-gradient(160deg, rgba(74,26,0,0.4), rgba(10,4,4,0.9)); }
+    .card-inner.wildcard { border-top-color: #AA8800; background: linear-gradient(160deg, rgba(74,58,0,0.3), rgba(10,4,4,0.9)); }
+    .card-inner.concept  { border-top-color: #8B8B2A; background: linear-gradient(160deg, rgba(58,58,26,0.25), rgba(10,4,4,0.9)); border-style: dashed; }
+    .card-inner.immortal-card { border-top-color: #27AE60; background: linear-gradient(160deg, rgba(26,58,42,0.3), rgba(10,4,4,0.9)); }
+    .card-inner.travels  { border-top-color: var(--gold-dim); }
+
+    .card-type-badge {
+      position: absolute;
+      top: 16px; right: 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      color: var(--cream);
+      background: var(--crimson);
+    }
+    .boss      .card-type-badge { background: #8B6000; }
+    .wildcard  .card-type-badge { background: #7A6000; }
+    .concept   .card-type-badge { background: #5A5A1A; }
+    .immortal-card .card-type-badge { background: #1A6B3A; }
+    .travels   .card-type-badge { background: var(--gold-dim); color: var(--dark); }
+
+    .card-counter {
+      position: absolute;
+      top: 16px; left: 20px;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--gold-dim);
+    }
+    .card-emoji { font-size: 36px; display: block; margin-bottom: 12px; }
+    .card-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(15px, 2.8vw, 21px);
+      color: var(--gold-light);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .card-type {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--crimson-hi);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .boss      .card-type { color: #C8A020; }
+    .wildcard  .card-type { color: #C8A020; }
+    .concept   .card-type { color: #9B9B3A; }
+    .immortal-card .card-type { color: #2ECC71; }
+    .travels   .card-type { color: var(--gold-dim); }
+
+    .card-stats {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: inline-block;
+      background: rgba(201,168,76,0.08);
+      padding: 3px 12px;
+      border: 1px solid rgba(201,168,76,0.2);
+    }
+    .card-effect {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--parchment);
+      margin-bottom: 14px;
+    }
+    .card-flavor {
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold-dim);
+      border-top: 1px solid rgba(192,57,43,0.2);
+      padding-top: 12px;
+      line-height: 1.6;
+    }
+    .permanent-note {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-dim);
+      padding: 2px 10px;
+      margin-bottom: 10px;
+    }
+
+    /* ── Dots ── */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 8px;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--crimson);
+      border: 1px solid var(--crimson-hi);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .dot.active { background: var(--gold); border-color: var(--gold); transform: scale(1.3); }
+
+    .pause-notice {
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: rgba(192,57,43,0.35);
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── Section heading ── */
+    .section-heading {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 17px;
+      color: var(--gold);
+      text-align: center;
+      margin: 48px 0 6px;
+    }
+    .section-sub {
+      text-align: center;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--gold-dim);
+      margin-bottom: 24px;
+    }
+
+    /* ── Spell/Trap grid ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .spell-card {
+      padding: 18px 16px;
+      border: 1px solid rgba(42,90,139,0.3);
+      border-left: 3px solid var(--spell-blue);
+      background: rgba(42,90,139,0.07);
+      transition: border-color 0.2s;
+    }
+    .spell-card:hover { border-color: rgba(42,90,139,0.5); }
+
+    .trap-card {
+      padding: 18px 16px;
+      border: 1px solid rgba(90,42,122,0.3);
+      border-left: 3px solid var(--trap-purple);
+      background: rgba(90,42,122,0.07);
+      transition: border-color 0.2s;
+    }
+    .trap-card:hover { border-color: rgba(90,42,122,0.5); }
+
+    .field-card {
+      padding: 20px 20px;
+      border: 1px solid rgba(201,168,76,0.25);
+      border-left: 4px solid var(--gold-dim);
+      background: rgba(201,168,76,0.06);
+      margin-bottom: 12px;
+    }
+
+    .sc-label {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .spell-card .sc-label { color: #4A8FBF; }
+    .trap-card  .sc-label { color: #9B59B6; }
+    .field-card .sc-label { color: var(--gold-dim); }
+
+    .sc-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 13px;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .sc-effect {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--parchment);
+    }
+    .sc-flavor {
+      font-style: italic;
+      font-size: 12px;
+      color: var(--gold-dim);
+      margin-top: 8px;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding-top: 8px;
+      line-height: 1.5;
+    }
+    .sc-status {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      margin-bottom: 6px;
+      border: 1px solid;
+    }
+    .status-set  { color: #27AE60; border-color: #27AE60; }
+    .status-draft { color: #F39C12; border-color: #F39C12; }
+
+    /* ── Inhibitors ── */
+    .inhibitor-card {
+      padding: 18px 16px;
+      border: 1px solid rgba(139,34,21,0.3);
+      border-left: 3px solid var(--crimson-hi);
+      background: rgba(107,26,15,0.1);
+      transition: border-color 0.2s;
+    }
+    .inhibitor-card:hover { border-color: rgba(139,34,21,0.5); }
+    .inhibitor-card .sc-label { color: var(--crimson-hi); }
+
+    /* ── Mechanics ── */
+    .mechanics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .mechanic {
+      border: 1px solid rgba(201,168,76,0.12);
+      padding: 14px 16px;
+      background: rgba(10,4,4,0.5);
+    }
+    .mechanic-name {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 6px;
+    }
+    .mechanic-text {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--parchment);
+      font-style: italic;
+    }
+
+    /* ── Notice ── */
+    .notice {
+      border: 1px solid rgba(192,57,43,0.2);
+      background: rgba(192,57,43,0.04);
+      padding: 20px 24px;
+      margin: 48px 0 0;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--gold-dim);
+      text-align: center;
+      line-height: 2;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 40px 0 0;
+      border-top: 1px solid rgba(192,57,43,0.15);
+      margin-top: 60px;
+    }
+    footer p {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      line-height: 2.4;
+    }
+    footer a { color: var(--gold-dim); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+
+    @media (max-width: 600px) {
+      .card-inner { padding: 24px 16px 20px; min-height: auto; }
+      .proclamation { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="breadcrumb">
+    <a href="/">Corporatecirc.us</a>
+    <span>›</span>
+    The Enterprise Exposition
+  </div>
+
+  <div class="lights">
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+  </div>
+
+  <div class="banner">
+    <div class="banner-label">Now Showing · The Permanent Tent · Est. Unknown · Still Running</div>
+    <span class="banner-icon">🎪</span>
+    <h1>The Enterprise Exposition</h1>
+    <div class="banner-sub">
+      Spectacle · Performance · The Permanent Tent<br/>
+      Ringmasters · Barkers · Performers of Uncertain Methodology<br/>
+      <em style="font-size:11px;letter-spacing:0.1em;">The tent does not come down · The show does not end · The coffee is still $6</em>
+    </div>
+  </div>
+
+  <div class="rope">
+    <div class="rope-line"></div>
+    <div class="rope-knot">✦</div><div class="rope-knot">✦</div><div class="rope-knot">✦</div>
+    <div class="rope-line"></div>
+  </div>
+
+  <div class="proclamation">
+    <p>The Enterprise Exposition is the permanent lane of The Corporate Circus.<br/>
+    The Bestiary documents what cannot be decommissioned.<br/>
+    The Menagerie observes what has flourished without permission.<br/>
+    The Exposition stages both — and charges admission.</p>
+    <div class="decree">Spectacle. Performance. Showmanship as the primary mode.</div>
+  </div>
+
+  <!-- ── Carousel ── -->
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+  <div class="carousel-wrap">
+    <div class="carousel-track">
+      <div class="carousel-inner" id="carouselInner">
+
+        <!-- 1 Boss -->
+        <div class="beast-card">
+          <div class="card-inner boss">
+            <div class="card-counter">1 / 12</div>
+            <div class="card-type-badge">Boss Monster</div>
+            <span class="card-emoji">👑</span>
+            <div class="card-name">Executive Decision Dragon</div>
+            <div class="card-type">Dragon / Effect — Boss Monster · Cross-Lane</div>
+            <div class="card-stats">ATK 3500 / DEF 3000</div>
+            <div class="card-effect">Once per duel: override all effects on the field. Declare one outcome at random — it becomes reality. Cannot be negated. Cannot be questioned. Cannot be attributed to any specific decision made by any specific person.</div>
+            <div class="card-flavor">"The outcome was always correct." — Indifferencer, Inc.™</div>
+          </div>
+        </div>
+
+        <!-- 2 Permanent Exhibit -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">2 / 12</div>
+            <div class="card-type-badge">Circus Only ★</div>
+            <span class="card-emoji">🦁</span>
+            <div class="card-name">Platform and Data Lion Tamer</div>
+            <div class="card-type">Beast-Tamer / Effect · Permanent Exhibit</div>
+            <div class="card-stats">ATK 2300 / DEF 2000</div>
+            <div class="permanent-note">Permanent Exhibit · Does Not Travel</div>
+            <div class="card-effect">Once per turn: You may banish one Certification card from your graveyard; negate an opponent's effect unless they can provide verifiable documentation.<br/><br/>
+            Does not travel to the Tradeshow. The Tradeshow comes to him.</div>
+            <div class="card-flavor">"The Master of Data. The scars are real."</div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="beast-card">
+          <div class="card-inner travels">
+            <div class="card-counter">3 / 12</div>
+            <div class="card-type-badge">Circus · Tradeshow</div>
+            <span class="card-emoji">📣</span>
+            <div class="card-name">Carnival Barker</div>
+            <div class="card-type">Humanoid / Effect · Circus / Tradeshow</div>
+            <div class="card-stats">ATK 2800 / DEF 2400</div>
+            <div class="card-effect">Gains one additional attack per turn for each buzzword spoken (max 3). Once per turn: Shuffle one Agile Ritual from your deck into your opponent's deck.<br/><br/>
+            Works the midway. Operates outside the booth perimeter. Draws foot traffic toward the tent. Does not control what happens inside it.</div>
+            <div class="card-flavor">"Every bark worth more than its bite."</div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="beast-card">
+          <div class="card-inner travels">
+            <div class="card-counter">4 / 12</div>
+            <div class="card-type-badge">Circus · Tradeshow</div>
+            <span class="card-emoji">🎩</span>
+            <div class="card-name">Pitch Ringmaster</div>
+            <div class="card-type">Humanoid / Effect · Circus / Tradeshow</div>
+            <div class="card-effect">Once per turn during Meeting Phase: declare one product capability. That capability is considered demonstrated. If no demo is available: the capability is considered upcoming. Gains 200 ATK for each competitor mentioned by name.</div>
+            <div class="card-flavor">"He's done this pitch forty-seven times. It gets better every time. He believes this."</div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="beast-card">
+          <div class="card-inner travels">
+            <div class="card-counter">5 / 12</div>
+            <div class="card-type-badge">Circus · Tradeshow</div>
+            <span class="card-emoji">🌀</span>
+            <div class="card-name">PowerPoint Poi Spinner</div>
+            <div class="card-type">Humanoid / Effect · Circus / Tradeshow</div>
+            <div class="card-stats">ATK 1200 / DEF 3000</div>
+            <div class="card-effect">Gains 1 Slide Counter each turn. Cannot be destroyed while it has counters. Opponent loses 100 LP per counter during standby phase.<br/><br/>
+            At the Tradeshow: each Slide Counter represents $4,000 of production budget. The deck ends on a pricing page. This was always the intent.</div>
+            <div class="card-flavor">"Pretty but high maintenance."</div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="beast-card">
+          <div class="card-inner travels">
+            <div class="card-counter">6 / 12</div>
+            <div class="card-type-badge">Circus · Tradeshow</div>
+            <span class="card-emoji">🔥</span>
+            <div class="card-name">Fire Eating Developer</div>
+            <div class="card-type">Humanoid / Effect · Circus / Tradeshow</div>
+            <div class="card-stats">ATK 3200 / DEF 0</div>
+            <div class="card-effect">One Time Effect: identify the actual root cause of a significant problem due to relentless complaints. The resolution will be deployed in front of an excited audience and never again. Out of Scope effect cannot be negated by this identification.</div>
+            <div class="card-flavor">"He fixed the issue with the highest client feedback and will never be seen again."</div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">7 / 12</div>
+            <div class="card-type-badge">Cross-Lane</div>
+            <span class="card-emoji">🔥</span>
+            <div class="card-name">Burnout Elemental</div>
+            <div class="card-type">Pyro / Effect · Cross-Lane</div>
+            <div class="card-stats">ATK 2600 / DEF 1000</div>
+            <div class="card-effect">Gains 300 ATK each turn it remains on the field. After 3 turns: destroy this card and skip your next draw phase.</div>
+            <div class="card-flavor">"Brilliant. Briefly."</div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="beast-card">
+          <div class="card-inner">
+            <div class="card-counter">8 / 12</div>
+            <div class="card-type-badge">Cross-Lane</div>
+            <span class="card-emoji">📅</span>
+            <div class="card-name">Calendar Overlord</div>
+            <div class="card-type">Machine / Effect · Cross-Lane</div>
+            <div class="card-stats">ATK 2400 / DEF 2400</div>
+            <div class="card-effect">On summon: both players skip their next Battle Phase. Once per turn: delay a card effect until the next turn.</div>
+            <div class="card-flavor">"Feel free to double book. One of these will probably be cancelled."</div>
+          </div>
+        </div>
+
+        <!-- 9 Wild Card -->
+        <div class="beast-card">
+          <div class="card-inner wildcard">
+            <div class="card-counter">9 / 12</div>
+            <div class="card-type-badge">Wild Card</div>
+            <span class="card-emoji">🃏</span>
+            <div class="card-name">Project Spooner</div>
+            <div class="card-type">Humanoid / Wild Card / Effect · All Lanes</div>
+            <div class="card-stats">ATK ??? / DEF ???</div>
+            <div class="card-effect">Cannot be legally summoned by any standard method. Appears when a Steering Committee meeting is declared. Stats are determined by whoever is currently presenting.<br/><br/>
+            Once per duel: rename any card on the field. The renamed card's effects remain identical. Both players must refer to it by its new name for the rest of the duel.<br/><br/>
+            Removing him requires both players to agree it is necessary, schedule the removal for a future turn, and confirm via a follow-up action.</div>
+            <div class="card-flavor">"Why is Spooner here?"</div>
+          </div>
+        </div>
+
+        <!-- 10 Concept -->
+        <div class="beast-card">
+          <div class="card-inner concept">
+            <div class="card-counter">10 / 12</div>
+            <div class="card-type-badge">Concept Draft</div>
+            <span class="card-emoji">🎠</span>
+            <div class="card-name">End User: Hall of Mirrors Wanderer</div>
+            <div class="card-type">Performer / End User / Effect · Circus Exclusive · Concept</div>
+            <div class="card-effect">The user trapped in a maze of distorted reflections of the same system — unable to find the exit, every direction returning a slightly different version of the same broken interface.<br/><br/>
+            Full card text to be drafted.</div>
+            <div class="card-flavor">"Which version of the dashboard is current? All of them. None of them."</div>
+          </div>
+        </div>
+
+        <!-- 11 Concept -->
+        <div class="beast-card">
+          <div class="card-inner concept">
+            <div class="card-counter">11 / 12</div>
+            <div class="card-type-badge">Concept Draft</div>
+            <span class="card-emoji">🐾</span>
+            <div class="card-name">Product Launch Lemmings</div>
+            <div class="card-type">Beast / Effect · All Lanes · Concept Draft</div>
+            <div class="card-stats">ATK 800 (each) / DEF 800 (each)</div>
+            <div class="card-effect">On summon: place 3 Lemming Tokens on the field with matching stats. Each token gains 200 ATK for each Launch Lemmings or Lemming Token currently on the field. When a launch is declared: all Lemming Tokens follow regardless of field conditions. When destroyed by launch conditions: all following tokens are also destroyed.<br/><br/>
+            Card text still being finalised. Named and concept locked.</div>
+            <div class="card-flavor">"The launch date was always realistic. Everyone said so."</div>
+          </div>
+        </div>
+
+        <!-- 12 Immortal -->
+        <div class="beast-card">
+          <div class="card-inner immortal-card">
+            <div class="card-counter">12 / 12</div>
+            <div class="card-type-badge">Immortal</div>
+            <span class="card-emoji">🐡</span>
+            <div class="card-name">Beta Betta</div>
+            <div class="card-type">Fish / Effect — Immortal · Exists Across All Lanes</div>
+            <div class="card-stats">ATK 400 / DEF 400</div>
+            <div class="card-effect">Sits on the Ringmaster's desk. Present at every meeting. Consulted on nothing. Once per turn: observe all effects activated this turn. Cannot interact with any of them. When any player declares a methodology transformation: this card is unaffected. Cannot be removed from the field. Launch date not yet confirmed.</div>
+            <div class="card-flavor">"He's been here longer than the current framework. He will outlast the next one."</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-dots" id="carouselDots"></div>
+  <div class="pause-notice">Hover to pause the parade · The Exposition does not otherwise stop</div>
+
+  <div class="rope">
+    <div class="rope-line"></div><div class="rope-knot">◆</div><div class="rope-line"></div>
+  </div>
+
+  <!-- ── Field Spells ── -->
+  <div class="section-heading">Field Spells</div>
+  <div class="section-sub">Environmental conditions. Active for all players. Cannot be ignored.</div>
+
+  <div class="field-card">
+    <div class="sc-label">Field Spell · Set</div>
+    <div class="sc-name">The Room Where It Happens (But Nothing Gets Done)</div>
+    <div class="sc-effect">All players may activate one additional effect during Meeting Phase. If more than 3 effects resolve: negate all of them.</div>
+    <div class="sc-flavor">"Provided by Indifferencer, Inc.™ — Delivering outcomes regardless of intent."</div>
+  </div>
+
+  <div class="field-card">
+    <div class="sc-label">Field Spell · Concept Draft</div>
+    <div class="sc-name">Agile</div>
+    <div class="sc-effect">Waterfall is the default game state — this card represents the transformation event, not the methodology itself. When activated: all cards on the field are immediately renamed to Agile equivalents. Their effects remain identical. Players must refer to all Meetings as Ceremonies, all Problems as Opportunities, and all Failures as Learning Moments. Any player who uses original pre-Agile terminology discards 1 card.<br/><br/>
+    This card cannot be removed from the field. It can only be replaced by another Field Spell, which must be named a Hybrid of two existing methodologies.<br/><br/>
+    Activation condition: requires a monster who has passed at least one Scrum Master certification — or claims to have.</div>
+    <div class="sc-flavor">"We've always been Agile. We're reframing our existing process."</div>
+  </div>
+
+  <div class="rope">
+    <div class="rope-line"></div><div class="rope-knot">◆</div><div class="rope-line"></div>
+  </div>
+
+  <!-- ── Spells & Traps ── -->
+  <div class="section-heading">Register-Neutral Cards</div>
+  <div class="section-sub">Spells, traps, and effects. Operate across all lanes. No register required.</div>
+
+  <div class="card-grid">
+    <div class="spell-card">
+      <div class="sc-status status-set">✓ Set</div>
+      <div class="sc-label">Spell Card</div>
+      <div class="sc-name">Agile Ritual</div>
+      <div class="sc-effect">Special Summon one monster without meeting its requirements. Place 2 Chaos Counters on it. Each turn, roll a die: on 1–2, the monster behaves unpredictably.</div>
+    </div>
+    <div class="trap-card">
+      <div class="sc-status status-set">✓ Set</div>
+      <div class="sc-label">Trap Card</div>
+      <div class="sc-name">Scope Creep</div>
+      <div class="sc-effect">When an opponent declares an attack: double all monsters' ATK on the field. Then increase all summoning requirements for the rest of the duel.</div>
+    </div>
+    <div class="spell-card">
+      <div class="sc-status status-set">✓ Set</div>
+      <div class="sc-label">Spell Card</div>
+      <div class="sc-name">Reply-All Storm</div>
+      <div class="sc-effect">When opponent activates a card: copy its effect for every card in your hand. Then discard your entire hand.</div>
+    </div>
+    <div class="trap-card">
+      <div class="sc-status status-set">✓ Set</div>
+      <div class="sc-label">Trap Card</div>
+      <div class="sc-name">Meeting That Could Have Been an Email</div>
+      <div class="sc-effect">Negate an opponent's action and end their turn. Both players discard 1 card.</div>
+    </div>
+    <div class="spell-card">
+      <div class="sc-status status-set">✓ Set</div>
+      <div class="sc-label">Spell Card</div>
+      <div class="sc-name">Overengineered Solution</div>
+      <div class="sc-effect">Double one monster's ATK. Flip a coin: if tails, destroy it.</div>
+    </div>
+    <div class="trap-card">
+      <div class="sc-status status-set">✓ Set</div>
+      <div class="sc-label">Trap Card</div>
+      <div class="sc-name">Temporary Fix</div>
+      <div class="sc-effect">Restore 500 Fragmented Bandwidth to usable Bandwidth. Then Fragment 700.</div>
+      <div class="sc-flavor">"That should hold."</div>
+    </div>
+    <div class="spell-card">
+      <div class="sc-status status-draft">⚠ Draft</div>
+      <div class="sc-label">Spell / Quick-Play</div>
+      <div class="sc-name">Feature Bug</div>
+      <div class="sc-effect">When any effect fails to resolve correctly: that effect is retroactively declared intentional. Pairs with Sales Engineer Snake.</div>
+      <div class="sc-flavor">"It's working as designed."</div>
+    </div>
+    <div class="spell-card">
+      <div class="sc-status status-draft">⚠ Draft</div>
+      <div class="sc-label">Spell / Quick-Play</div>
+      <div class="sc-name">Works on My Machine</div>
+      <div class="sc-effect">Negate an opponent's effect by claiming the effect does not apply to your environment. Opponent must prove otherwise.</div>
+    </div>
+    <div class="trap-card">
+      <div class="sc-status status-draft">⚠ Draft</div>
+      <div class="sc-label">Trap / Effect</div>
+      <div class="sc-name">Red X (Silent Failure)</div>
+      <div class="sc-effect">When an effect fails, do not explain why. Opponent must guess. No documentation is provided. No error code is surfaced.</div>
+    </div>
+  </div>
+
+  <div class="rope">
+    <div class="rope-line"></div><div class="rope-knot">◆</div><div class="rope-line"></div>
+  </div>
+
+  <!-- ── Productivity Inhibitors ── -->
+  <div class="section-heading">🪤 Productivity Inhibitors</div>
+  <div class="section-sub">Trap sub-archetype. Stops progress while appearing productive. Punishes clarity. Creates artificial structure.</div>
+
+  <div class="card-grid">
+    <div class="inhibitor-card">
+      <div class="sc-label">Continuous Trap</div>
+      <div class="sc-name">Recurring Meeting</div>
+      <div class="sc-effect">Choose one monster. That monster cannot attack this turn. During each Standby Phase: its controller must discard 1 card or skip their Battle Phase. This effect can only be removed if both players agree it is no longer necessary.</div>
+      <div class="sc-flavor">"Just a quick weekly sync."</div>
+    </div>
+    <div class="inhibitor-card">
+      <div class="sc-label">Trap Card · Overcommit Variant</div>
+      <div class="sc-name">Working Session</div>
+      <div class="sc-effect">Activate during opponent's Main Phase: end their turn. Both players select 1 card to commit to. If either player activates a different card before playing their committed card: negate that effect and apply Scope Creep.</div>
+      <div class="sc-flavor">"Let's align on EVERYTHING."</div>
+    </div>
+    <div class="inhibitor-card">
+      <div class="sc-label">Trap Card · No Agenda Variant</div>
+      <div class="sc-name">Working Session</div>
+      <div class="sc-effect">Activate at start of opponent's Main Phase: both players reveal their hands and shuffle them back into their decks. Draw the same number of cards. For the rest of the turn: no card effects can be activated. Monsters cannot attack.</div>
+      <div class="sc-flavor">"We'll figure it out as we go."</div>
+    </div>
+    <div class="inhibitor-card">
+      <div class="sc-label">Trap Card · Wrong Attendees Variant</div>
+      <div class="sc-name">Working Session</div>
+      <div class="sc-effect">Activate when opponent targets a card or declares an attack: randomly select a different valid target. If no valid target exists: negate the effect and opponent discards 1 card.</div>
+      <div class="sc-flavor">"Oh… you needed engineering?"</div>
+    </div>
+    <div class="inhibitor-card">
+      <div class="sc-label">Trap Card · Follow-Up Variant</div>
+      <div class="sc-name">Working Session</div>
+      <div class="sc-effect">Activate from the Graveyard after a Working Session resolves: return that card to the field. Its effects are weaker, but it cannot be ignored.</div>
+      <div class="sc-flavor">"Just circling back."</div>
+    </div>
+  </div>
+
+  <div class="rope">
+    <div class="rope-line"></div><div class="rope-knot">◆</div><div class="rope-line"></div>
+  </div>
+
+  <!-- ── Mechanics ── -->
+  <div class="section-heading">Mechanics Reference</div>
+  <div class="section-sub">Core systems. Intentionally vague where noted. This is a feature.</div>
+
+  <div class="mechanics-grid">
+    <div class="mechanic">
+      <div class="mechanic-name">Meeting Phase</div>
+      <div class="mechanic-text">Once per turn, before Battle Phase. Each player may activate one Discussion effect. If more than 2 effects activate: both players discard 1 card. "This meeting could have been avoided."</div>
+    </div>
+    <div class="mechanic">
+      <div class="mechanic-name">Certification Counters</div>
+      <div class="mechanic-text">Exist in graveyard or on field. Power up Platform and Data Lion Tamer and Certification Coin Kirin.</div>
+    </div>
+    <div class="mechanic">
+      <div class="mechanic-name">Documentation Checks</div>
+      <div class="mechanic-text">Certain effects require "proof." If opponent cannot respond: effect resolves. If they can: effect is negated. Intentionally vague and annoying.</div>
+    </div>
+    <div class="mechanic">
+      <div class="mechanic-name">Chaos Counters</div>
+      <div class="mechanic-text">Introduced by Agile Ritual. Cause randomised or unstable outcomes.</div>
+    </div>
+    <div class="mechanic">
+      <div class="mechanic-name">Slide Counters</div>
+      <div class="mechanic-text">Introduced by PowerPoint Lich, Poodle, and Poi Spinner. Accumulate each turn. Drain opponent LP during standby. Cannot be removed while the source card is on the field.</div>
+    </div>
+    <div class="mechanic">
+      <div class="mechanic-name">Bandwidth Fragmentation</div>
+      <div class="mechanic-text">Introduced by Legacy User Minotaur. Each unintended effect: lose 200 Bandwidth + Fragment 300. If Fragmented Bandwidth exceeds 2000: all Tool Cards misfire automatically once per turn.</div>
+    </div>
+  </div>
+
+  <div class="notice">
+    The Enterprise Exposition is the permanent lane. It does not pack up.<br/>
+    The Bestiary documents what cannot be destroyed.<br/>
+    The Menagerie observes what cannot be contained.<br/>
+    The Exposition stages both — and has been doing so since before the current framework.<br/><br/>
+    <em>"If it makes sense, it's probably underpowered."<br/>
+    All flavor text is testimony. All mechanics are documentation of observed phenomena.</em>
+  </div>
+
+  <footer>
+    <div class="lights" style="margin-bottom:24px;">
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+      <div class="bulb"></div><div class="bulb"></div><div class="bulb"></div>
+    </div>
+    <p>
+      <a href="/">← Back to The Corporate Circus</a><br/>
+      A Subsidiary of <a href="https://indifferencer.com">Indifferencer, Inc.™</a><br/>
+      All phenomena documented · All outcomes delivered regardless of intent<br/>
+      © Indifferencer, Inc.™ · The tent is permanent · The show must go on
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  const inner    = document.getElementById('carouselInner');
+  const dotsWrap = document.getElementById('carouselDots');
+  const fill     = document.getElementById('progressFill');
+  const cards    = inner.querySelectorAll('.beast-card');
+  const total    = cards.length;
+  const INTERVAL = 7000;
+
+  let current = 0;
+  let paused  = false;
+  let fillTimer = null;
+
+  cards.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+  });
+
+  function updateDots() {
+    dotsWrap.querySelectorAll('.dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function goTo(i) {
+    current = (i + total) % total;
+    inner.style.transform = `translateX(-${current * 100}%)`;
+    updateDots();
+    restartFill();
+  }
+
+  function startFill() {
+    fill.style.transition = 'none';
+    fill.style.width = '0%';
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      fill.style.transition = `width ${INTERVAL}ms linear`;
+      fill.style.width = '100%';
+    }));
+  }
+
+  function restartFill() {
+    clearTimeout(fillTimer);
+    startFill();
+    if (!paused) fillTimer = setTimeout(() => goTo(current + 1), INTERVAL);
+  }
+
+  const wrap = document.querySelector('.carousel-wrap');
+  wrap.addEventListener('mouseenter', () => { paused = true; clearTimeout(fillTimer); fill.style.transition = 'none'; });
+  wrap.addEventListener('mouseleave', () => { paused = false; restartFill(); });
+
+  restartFill();
+</script>
+</body>
+</html>
