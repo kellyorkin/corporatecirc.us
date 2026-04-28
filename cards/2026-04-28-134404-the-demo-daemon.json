@@ -1,0 +1,31 @@
+{
+  "name": "The Demo Daemon",
+  "role_tagline": "Controlled Environment Wizard",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "MVP Midway",
+  "role": "Magician",
+  "atk": 9,
+  "def": 3,
+  "image_sign_text": "LIVE DEMO. DO NOT TOUCH.",
+  "effect": "Execute a flawless product demonstration in a curated environment. This card is considered production-ready.",
+  "clauses": [
+    {
+      "name": "CONTROLLED CONDITIONS CLAUSE",
+      "rule": "If the demo environment is isolated from production: The demo is considered representative."
+    },
+    {
+      "name": "DEVIATION OVERRIDE",
+      "rule": "If the audience requests an unscripted action: Redirect to a prepared slide."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "Next turn: No one remembers the demo did not match the product."
+    }
+  ],
+  "witness_quote": "It worked perfectly in the demo.",
+  "translation_layer": {
+    "observation": "Hardcoded data. Rehearsed path.",
+    "skeptical_question": "Can it do that with our data?"
+  }
+}
