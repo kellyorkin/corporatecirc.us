@@ -21,6 +21,13 @@ from PIL import Image
 
 # === Configuration ===
 
+# TODO: STYLE hard-codes male Victorian features (handlebar mustaches, mutton
+# chops, beards) — added to fix the clean-shaven Juggler v1 regression. Some
+# cards are canonically female (Booth Gorgon, Legacy User's "Karen", the
+# referenced-but-unbuilt Booth Babe Basilisk) and currently render as men.
+# Revisit if female-coded cards reach critical mass — would require an
+# optional `performer_gender` field on cards plus a conditional female-feature
+# block in build_prompt.
 STYLE = (
     "vintage late-19th-century circus poster, chromolithograph style, "
     "bold flat colors, limited palette of crimson / cream / black / gold, "

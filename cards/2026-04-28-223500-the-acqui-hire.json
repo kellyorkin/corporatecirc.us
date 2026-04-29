@@ -1,0 +1,32 @@
+{
+  "name": "The Acqui-Hire",
+  "role_tagline": "Strategic User Absorption",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "CDP Circus",
+  "role": "Trapeze",
+  "atk": 7,
+  "def": 3,
+  "image_sign_text": "MILLIONS OF USERS. INSTANTLY YOURS.",
+  "effect": "Absorb an external user base into the enterprise identity graph. This card is considered transformative.",
+  "clauses": [
+    {
+      "name": "SYNERGY CLAUSE",
+      "rule": "When the acquisition is announced: The combined user base is considered unified."
+    },
+    {
+      "name": "MIGRATION OVERRIDE",
+      "rule": "When integration begins: Forty percent of acquired users are considered unreachable."
+    },
+    {
+      "name": "RETENTION PROTECTION",
+      "rule": "If churn exceeds projections: The remaining users are considered highly engaged."
+    }
+  ],
+  "witness_quote": "We didn't buy the product, we bought the users.",
+  "translation_layer": {
+    "observation": "Bought a CSV of emails.",
+    "skeptical_question": "Did anyone ask the users?"
+  },
+  "status": "published"
+}

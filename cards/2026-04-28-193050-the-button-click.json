@@ -1,0 +1,32 @@
+{
+  "name": "The Button Click",
+  "role_tagline": "Confirmed User Action",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "Analytics Arcade",
+  "role": "Clown",
+  "atk": 2,
+  "def": 6,
+  "effect": "Assert that a button was clicked. This card is considered verified.",
+  "clauses": [
+    {
+      "name": "ATTESTATION CLAUSE",
+      "rule": "If a stakeholder says they clicked the button: The button is considered clicked."
+    },
+    {
+      "name": "AUDIT OVERRIDE",
+      "rule": "If logs are requested: The logs are considered unavailable or inconclusive."
+    },
+    {
+      "name": "ACCOUNTABILITY PROTECTION",
+      "rule": "If the button was not clicked: The button is considered unclear in its original requirements."
+    }
+  ],
+  "witness_quote": "I definitely clicked it.",
+  "translation_layer": {
+    "observation": "Button state unconfirmed.",
+    "skeptical_question": "Is there a log for that?"
+  },
+  "image_sign_text": "CLICKED. CONFIRMED. MOVING ON.",
+  "status": "published"
+}
