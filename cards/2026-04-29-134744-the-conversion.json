@@ -1,0 +1,32 @@
+{
+  "name": "The Conversion",
+  "role_tagline": "Belief Amplification",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "AI Pavilion",
+  "role": "Fire Breather",
+  "atk": 7,
+  "def": 3,
+  "image_sign_text": "IT CHANGED EVERYTHING FOR ME.",
+  "effect": "Elevate an AI advocate to full evangelist status. This card is considered transformative.",
+  "clauses": [
+    {
+      "name": "TESTIMONY CLAUSE",
+      "rule": "If the user has a personal anecdote: It is immediately generalized to the entire organization."
+    },
+    {
+      "name": "UNSOLICITED BRIEFING EFFECT",
+      "rule": "Whenever a colleague mentions a problem: This card forces an AI recommendation regardless of relevance."
+    },
+    {
+      "name": "MARTYRDOM PROTECTION",
+      "rule": "If skepticism is expressed: The skeptic is considered a blocker and this card's ATK increases by 2."
+    }
+  ],
+  "witness_quote": "You just have to trust the process.",
+  "translation_layer": {
+    "observation": "Enthusiasm increased.",
+    "skeptical_question": "Has the use case changed, or just the volume?"
+  },
+  "status": "draft"
+}
