@@ -4,8 +4,7 @@
   "card_type": "Manufactured Exhibit",
   "osi_layer": 7,
   "sub_tent": "COE Circus",
-  "sub_tent_detail": null,
-  "role": "Fire Breather",
+  "role": "Lion Tamer",
   "role_detail": null,
   "atk": 9,
   "def": 5,
@@ -30,5 +29,6 @@
     "observation": "Senior rep guards perimeter.",
     "skeptical_question": "Was a single lead captured?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-booth-gorgon.png"
 }

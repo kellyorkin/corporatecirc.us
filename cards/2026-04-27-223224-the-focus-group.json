@@ -3,8 +3,7 @@
   "role_tagline": "Validated Consumer Insight",
   "card_type": "Manufactured Exhibit",
   "osi_layer": 7,
-  "sub_tent": "other",
-  "sub_tent_detail": "Insights Tent",
+  "sub_tent": "Analytics Arcade",
   "role": "Sleight of Hand",
   "role_detail": null,
   "atk": 4,
@@ -30,5 +29,6 @@
     "observation": "Eight people ate sandwiches.",
     "skeptical_question": "Who selected the participants?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-focus-group.png"
 }

@@ -4,7 +4,7 @@
   "card_type": "Manufactured Exhibit",
   "osi_layer": 7,
   "sub_tent": "COE Circus",
-  "sub_tent_detail": null,
+  "role": "Sleight of Hand",
   "image_sign_text": "AS SPECIFIED. AS DELIVERED.",
   "effect": "Redirect blame from the product to the specification. This card is considered compliant.",
   "clauses": [
@@ -26,5 +26,6 @@
     "observation": "Product was garbage.",
     "skeptical_question": "Who wrote the specs?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-requirements-document.png"
 }

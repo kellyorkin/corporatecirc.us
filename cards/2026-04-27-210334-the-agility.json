@@ -4,6 +4,7 @@
   "card_type": "Manufactured Exhibit",
   "osi_layer": 7,
   "sub_tent": "COE Circus",
+  "role": "Acrobat",
   "image_sign_text": "AGILE. JUST TRUST US.",
   "effect": "Declare all existing processes Agile. This card is considered transformative.",
   "clauses": [
@@ -25,5 +26,6 @@
     "observation": "Waterfall with sticky notes.",
     "skeptical_question": "Has anyone read the manifesto?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-agility.png"
 }

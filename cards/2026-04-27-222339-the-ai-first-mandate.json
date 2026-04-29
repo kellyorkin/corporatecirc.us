@@ -28,5 +28,6 @@
     "observation": "Memo sent. Slide updated.",
     "skeptical_question": "Which system, specifically, is the AI?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-ai-first-mandate.png"
 }

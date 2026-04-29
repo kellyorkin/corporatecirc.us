@@ -26,5 +26,6 @@
     "skeptical_question": "Is this the same person or just the same browser?"
   },
   "image_sign_text": "ONE CUSTOMER. ONE TRUTH. ONE MYSTERY.",
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-unified-profile.png"
 }

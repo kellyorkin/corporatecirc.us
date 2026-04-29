@@ -28,5 +28,6 @@
     "observation": "Two words. Same emails.",
     "skeptical_question": "Did the customer notice?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-channel-distinction.png"
 }

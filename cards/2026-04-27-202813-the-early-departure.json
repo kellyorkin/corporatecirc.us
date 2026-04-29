@@ -4,6 +4,7 @@
   "card_type": "Manufactured Exhibit",
   "osi_layer": 7,
   "sub_tent": "COE Circus",
+  "role": "Sleight of Hand",
   "effect": "Declare the day concluded at an arbitrary point. This card is considered decisive.",
   "clauses": [
     {
@@ -24,5 +25,6 @@
     "observation": "Person left. Did not return.",
     "skeptical_question": "Was anyone waiting on a decision?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-early-departure.png"
 }

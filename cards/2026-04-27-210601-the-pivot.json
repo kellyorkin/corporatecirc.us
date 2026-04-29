@@ -4,6 +4,7 @@
   "card_type": "Manufactured Exhibit",
   "osi_layer": 7,
   "sub_tent": "COE Circus",
+  "role": "Trapeze",
   "image_sign_text": "FAILURE IS A FEATURE",
   "effect": "Reclassify a failure mode as a methodology component. This card is considered intentional.",
   "clauses": [
@@ -25,5 +26,6 @@
     "observation": "Something went wrong.",
     "skeptical_question": "Was this ever the plan?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-pivot.png"
 }

@@ -4,6 +4,7 @@
   "card_type": "Manufactured Exhibit",
   "osi_layer": 7,
   "sub_tent": "COE Circus",
+  "role": "Magician",
   "effect": "Declare a discovery phase complete. This card is considered thorough.",
   "clauses": [
     {
@@ -24,5 +25,6 @@
     "observation": "A meeting was scheduled.",
     "skeptical_question": "Who attended?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-discovery.png"
 }
