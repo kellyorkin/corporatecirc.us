@@ -28,5 +28,6 @@
     "observation": "Old software still running.",
     "skeptical_question": "Does anyone have the documentation?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-legacy-system.png"
 }

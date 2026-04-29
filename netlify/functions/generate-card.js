@@ -38,7 +38,6 @@ SUB-TENTS
 - Compliance Sideshow — GDPR, governance, legal infrastructure
 - COE Circus — institutional capability theater
 - MVP Midway — minimum viable products, half-shipped features, beta launches that became permanent, prematurely-launched capabilities that stayed
-- other — name the new tent in carnival vocabulary via sub_tent_detail
 
 ROLES
 Every card carries a circus-performer role that shapes its voice and posture. The role may be reflected in the card's name (e.g., "The Risk Assessment Tightrope") or carried implicitly through the clauses' tone. Pick the role whose archetype best fits the phenomenon being satirized.
@@ -53,8 +52,13 @@ Every card carries a circus-performer role that shapes its voice and posture. Th
 - Fire Breather — risk theater / dramatic transformation: innovation labs, moonshots, controlled spectacle of danger
 - Magician — illusion: AI hype, vaporware, demos that do not match production
 - Clown — truth-telling through humor: dissent, gallows humor, the licensed fool naming the dysfunction
-- Carousel — going in circles: quarterly cycles, retros that change nothing, recurring discussions
-- other — emergent role; specify role_detail in carnival vocabulary
+- Contortionist — held in an impossible shape: stuck scope, legacy-bent processes, code that works in ways no one can explain
+- Lion Tamer — dominance over a dangerous thing: gatekeeping, executive management, perimeter defense through threat display
+- Illusionist — grand-spectacle illusion: sweeping declarations of unification, ceremonial validation, theater at industrial scale
+- Fortune Teller — divination without commitment: predictions, prophecies, vendor evaluations dressed as foresight
+- Knife Thrower — high-precision risk: surgical layoffs, on-target deadlines, decisive moves where misses are visible
+
+Magic-lane disambiguation (these roles overlap and must stay distinct): Sleight of Hand is small-precise misdirection; Magician is theatrical conjuring of an illusion; Illusionist is grand-spectacle illusion at scale; Fortune Teller is mystical divination of the future.
 
 STATS
 Every card carries an ATK score (1-10) and a DEF score (1-10). Assign them based on the card's satirical weight — its presence in a meeting, its capacity to derail or absorb pressure, its threat or shield value in the game's loose corporate metaphor. Provide no methodology. Do not justify the numbers. The arbitrariness is part of the satire — corporate scoring systems assign confident integers from vibes, and so does this one. Assign different numbers to different cards. Cards that satirize attack-shaped phenomena (declarations, escalations, demos) tend toward higher ATK; cards that satirize defensive phenomena (documents, stalemates, deflections) tend toward higher DEF. But you may also subvert these tendencies. The numbers should feel definite and unbalanced.
@@ -79,20 +83,12 @@ const TOOL_DEFINITION = {
       osi_layer: { type: "integer", enum: [1, 2, 3, 4, 5, 6, 7] },
       sub_tent: {
         type: "string",
-        enum: ["CDP Circus", "AI Pavilion", "Analytics Arcade", "Compliance Sideshow", "COE Circus", "MVP Midway", "other"]
-      },
-      sub_tent_detail: {
-        type: ["string", "null"],
-        description: "Required when sub_tent is 'other'. Names the new tent."
+        enum: ["CDP Circus", "AI Pavilion", "Analytics Arcade", "Compliance Sideshow", "COE Circus", "MVP Midway"]
       },
       role: {
         type: "string",
-        enum: ["Tightrope", "Strongman", "Sleight of Hand", "Trapeze", "Juggler", "Ringmaster", "Acrobat", "Fire Breather", "Magician", "Clown", "Carousel", "other"],
+        enum: ["Tightrope", "Strongman", "Sleight of Hand", "Trapeze", "Juggler", "Ringmaster", "Acrobat", "Fire Breather", "Magician", "Clown", "Contortionist", "Lion Tamer", "Illusionist", "Fortune Teller", "Knife Thrower"],
         description: "Circus-performer archetype shaping the card's voice and posture."
-      },
-      role_detail: {
-        type: ["string", "null"],
-        description: "Required when role is 'other'. Names the emergent role in carnival vocabulary."
       },
       atk: {
         type: "integer",
@@ -170,9 +166,7 @@ const FEW_SHOT_MESSAGES = [
           card_type: "Manufactured Exhibit",
           osi_layer: 7,
           sub_tent: "COE Circus",
-          sub_tent_detail: null,
           role: "Strongman",
-          role_detail: null,
           atk: 8,
           def: 4,
           image_sign_text: "INCREDIBLE STRENGTH! WITNESS!",
@@ -210,9 +204,7 @@ const FEW_SHOT_MESSAGES = [
           card_type: "Manufactured Exhibit",
           osi_layer: 7,
           sub_tent: "COE Circus",
-          sub_tent_detail: null,
           role: "Tightrope",
-          role_detail: null,
           atk: 3,
           def: 7,
           image_sign_text: "BALANCED. STEADY. NOTHING TO SEE HERE.",
@@ -250,9 +242,7 @@ const FEW_SHOT_MESSAGES = [
           card_type: "Manufactured Exhibit",
           osi_layer: 7,
           sub_tent: "COE Circus",
-          sub_tent_detail: null,
           role: "Ringmaster",
-          role_detail: null,
           atk: 9,
           def: 2,
           image_sign_text: null,
@@ -290,9 +280,7 @@ const FEW_SHOT_MESSAGES = [
           card_type: "Manufactured Exhibit",
           osi_layer: 7,
           sub_tent: "Analytics Arcade",
-          sub_tent_detail: null,
           role: "Magician",
-          role_detail: null,
           atk: 5,
           def: 8,
           image_sign_text: null,

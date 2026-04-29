@@ -3,8 +3,7 @@
   "role_tagline": "Visible Market Presence",
   "card_type": "Manufactured Exhibit",
   "osi_layer": 7,
-  "sub_tent": "other",
-  "sub_tent_detail": "Exposition Grounds",
+  "sub_tent": "MVP Midway",
   "role": "Strongman",
   "role_detail": null,
   "atk": 7,
@@ -30,5 +29,6 @@
     "observation": "Lanyards. Carpet. Demos.",
     "skeptical_question": "Did any of this close?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-trade-show.png"
 }

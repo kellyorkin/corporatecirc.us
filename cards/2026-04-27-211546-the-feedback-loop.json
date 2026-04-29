@@ -4,6 +4,7 @@
   "card_type": "Manufactured Exhibit",
   "osi_layer": 7,
   "sub_tent": "COE Circus",
+  "role": "Magician",
   "effect": "Capture user interactions to continuously improve response quality. This card is considered adaptive.",
   "clauses": [
     {
@@ -25,5 +26,6 @@
     "skeptical_question": "Was this intentional?"
   },
   "image_sign_text": "LEARNS FROM YOU. IMPROVES FOR YOU.",
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-feedback-loop.png"
 }

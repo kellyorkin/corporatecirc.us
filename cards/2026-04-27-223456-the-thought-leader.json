@@ -4,7 +4,7 @@
   "card_type": "Manufactured Exhibit",
   "osi_layer": 7,
   "sub_tent": "COE Circus",
-  "role": "Ringmaster",
+  "role": "Fortune Teller",
   "atk": 6,
   "def": 5,
   "image_sign_text": "LEADING THOUGHTS. SHAPING FUTURES.",
@@ -28,5 +28,6 @@
     "observation": "Opinion posted online.",
     "skeptical_question": "Has anyone done this differently?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-thought-leader.png"
 }

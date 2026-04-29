@@ -4,6 +4,7 @@
   "card_type": "Manufactured Exhibit",
   "osi_layer": 7,
   "sub_tent": "COE Circus",
+  "role": "Ringmaster",
   "effect": "Schedule and deliver an energizing kickoff meeting. This card is considered launched.",
   "clauses": [
     {
@@ -25,5 +26,6 @@
     "skeptical_question": "Was there ever a second meeting?"
   },
   "image_sign_text": "WE ARE ALIGNED. WE ARE MOVING.",
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-phantom-kickoff.png"
 }

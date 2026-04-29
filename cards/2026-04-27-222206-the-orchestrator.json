@@ -28,5 +28,6 @@
     "skeptical_question": "Who owns the segment definitions?"
   },
   "image_sign_text": "RIGHT MESSAGE. RIGHT PERSON. RIGHT NOW.",
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-orchestrator.png"
 }

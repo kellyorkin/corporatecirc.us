@@ -4,7 +4,7 @@
   "card_type": "Manufactured Exhibit",
   "osi_layer": 7,
   "sub_tent": "COE Circus",
-  "sub_tent_detail": null,
+  "role": "Ringmaster",
   "image_sign_text": "WHAT SHALL WE CALL IT?",
   "effect": "Convene stakeholders to assign a name to the proof of concept. This card is considered aligned.",
   "clauses": [
@@ -26,5 +26,6 @@
     "observation": "Meeting about a name.",
     "skeptical_question": "Has anyone tested it yet?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-naming-ceremony.png"
 }

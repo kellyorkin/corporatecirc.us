@@ -4,6 +4,7 @@
   "card_type": "Manufactured Exhibit",
   "osi_layer": 7,
   "sub_tent": "COE Circus",
+  "role": "Illusionist",
   "image_sign_text": "UNTANGLED. DOCUMENTED. RESOLVED.",
   "effect": "Produce a document that describes the spaghetti in detail. This card is considered actionable.",
   "clauses": [
@@ -25,5 +26,6 @@
     "observation": "Spaghetti, now diagrammed.",
     "skeptical_question": "Has any noodle actually moved?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-unraveling.png"
 }

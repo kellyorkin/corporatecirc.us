@@ -28,5 +28,6 @@
     "observation": "Numbers. No context.",
     "skeptical_question": "What would a bad score look like?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-scorecard.png"
 }

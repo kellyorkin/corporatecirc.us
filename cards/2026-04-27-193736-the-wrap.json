@@ -3,8 +3,8 @@
   "role_tagline": "Confident Closure",
   "card_type": "Manufactured Exhibit",
   "osi_layer": 7,
-  "sub_tent": "other",
-  "sub_tent_detail": "Production Lot",
+  "sub_tent": "COE Circus",
+  "role": "Ringmaster",
   "image_sign_text": "THAT'S A WRAP.",
   "effect": "Conclude production without documenting what was used or where it went. This card is considered complete.",
   "clauses": [
@@ -26,5 +26,6 @@
     "observation": "No list was made.",
     "skeptical_question": "Did anyone write anything down?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-wrap.png"
 }
