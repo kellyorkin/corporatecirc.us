@@ -1,0 +1,32 @@
+{
+  "name": "The Unsigned Draft",
+  "role_tagline": "Strategic Ambiguity",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "Compliance Sideshow",
+  "role": "Sleight of Hand",
+  "atk": 4,
+  "def": 9,
+  "image_sign_text": "COLLECTIVELY OWNED. INDIVIDUALLY UNOWNED.",
+  "effect": "Circulate a document with no named author. This card is considered collaborative.",
+  "clauses": [
+    {
+      "name": "DISTRIBUTED OWNERSHIP CLAUSE",
+      "rule": "If accountability is sought: Ownership is redistributed across all stakeholders simultaneously."
+    },
+    {
+      "name": "VERSION HISTORY PROTECTION",
+      "rule": "If a version history exists: It is considered too long to review."
+    },
+    {
+      "name": "CONSENSUS OVERRIDE",
+      "rule": "If the document is approved: The approver is considered a contributor, not an author."
+    }
+  ],
+  "witness_quote": "I think someone in legal touched it.",
+  "translation_layer": {
+    "observation": "No name on document.",
+    "skeptical_question": "Who wrote this?"
+  },
+  "status": "draft"
+}
