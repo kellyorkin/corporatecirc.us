@@ -28,5 +28,6 @@
     "observation": "A PDF, last opened never.",
     "skeptical_question": "Has anyone read past page two?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-living-document.png"
 }
