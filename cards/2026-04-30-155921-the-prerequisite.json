@@ -28,6 +28,6 @@
     "observation": "One person is blocking the queue.",
     "skeptical_question": "Was this in the sprint plan?"
   },
-  "status": "draft",
+  "status": "published",
   "image_path": "cards/images/the-prerequisite.png"
 }
