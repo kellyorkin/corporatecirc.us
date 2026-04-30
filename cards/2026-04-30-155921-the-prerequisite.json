@@ -1,0 +1,32 @@
+{
+  "name": "The Prerequisite",
+  "role_tagline": "Blocking Dependency",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "MVP Midway",
+  "role": "Lion Tamer",
+  "atk": 6,
+  "def": 9,
+  "image_sign_text": "FIX IT FIRST.",
+  "effect": "Block all forward progress until the fix is merged. This card is considered non-negotiable.",
+  "clauses": [
+    {
+      "name": "PREREQUISITE CLAUSE",
+      "rule": "If a new feature is proposed: It is placed in a holding state until this card is resolved."
+    },
+    {
+      "name": "ESCALATION EFFECT",
+      "rule": "If this card is ignored: The lead developer sends a second message, worded differently but meaning the same thing."
+    },
+    {
+      "name": "TECHNICAL DEBT OVERRIDE",
+      "rule": "If the fix is skipped anyway: The next feature inherits the defect and this card returns to play unannounced."
+    }
+  ],
+  "witness_quote": "We can't build on top of broken.",
+  "translation_layer": {
+    "observation": "One person is blocking the queue.",
+    "skeptical_question": "Was this in the sprint plan?"
+  },
+  "status": "draft"
+}
