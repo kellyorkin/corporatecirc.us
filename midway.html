@@ -414,9 +414,70 @@
     footer a { color: var(--amber-lo); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--amber); }
 
+    /* ── Marquee ── */
+    .marquee-wrap {
+      overflow: hidden;
+      background: rgba(212,133,10,0.06);
+      border-top: 1px solid rgba(212,133,10,0.2);
+      border-bottom: 1px solid rgba(212,133,10,0.2);
+      padding: 10px 0;
+      margin: 0 0 32px;
+      position: relative;
+    }
+    .marquee-wrap::before,
+    .marquee-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 60px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-wrap::before { left: 0; background: linear-gradient(90deg, #080604, transparent); }
+    .marquee-wrap::after  { right: 0; background: linear-gradient(-90deg, #080604, transparent); }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee-scroll 40s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      padding: 0 6px;
+    }
+    .marquee-item.tent  { color: var(--amber-hi); }
+    .marquee-item.role  { color: var(--amber-lo); }
+    .marquee-item.divider { color: rgba(212,133,10,0.3); padding: 0 8px; }
+
+    /* ── Unified card grid ── */
+    .all-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    /* ── Hidden pipeline containers ── */
+    .pipeline-containers { display: none; }
+
+    /* ── Tent sections no longer display ── */
+    .tent-section,
+    .rope.tent-rope { display: none; }
+
     @media (max-width: 600px) {
       .barker { padding: 20px 16px; }
-      .tent-desc { padding-left: 0; }
+      .all-cards-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -463,6 +524,21 @@
     The Midway simply shows what has been summoned.</p>
     <div class="decree">All phenomena documented · All exhibits on display · Admission free · Dignity optional</div>
   </div>
+
+  <!-- ── Marquee ── -->
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marqueeTrack">
+      <!-- populated by JS -->
+    </div>
+  </div>
+
+  <!-- ── Unified shuffled card display ── -->
+  <div class="all-cards-grid" id="allCardsGrid">
+    <!-- Cards shuffled here by JS from pipeline containers below -->
+  </div>
+
+  <!-- ── Pipeline containers (hidden — Cowork appends cards here by ID) ── -->
+  <div class="pipeline-containers">
 
   <!-- ── CDP Circus ── -->
   <div class="tent-section">
@@ -1684,6 +1760,8 @@
     </div>
   </div>
 
+  </div><!-- /pipeline-containers -->
+
   <div class="notice">
     Cards are generated in the Feature Creepshow and find their way here.<br/>
     The Midway is not curated. The Midway is not edited.<br/>
@@ -1710,42 +1788,77 @@
 
 </div>
 
-<!--
-  RENDER SCRIPT HOOK
-  Cowork will build the pipeline that reads from the GitHub cards folder
-  and populates each section by its ID:
-    #cdp-circus
-    #ai-pavilion
-    #analytics-arcade
-    #compliance-sideshow
-    #coe-circus
-    #mvp-midway
-    #emergent-tents
+<script>
+  // ── Marquee ──────────────────────────────────────────────────
+  const TENTS = [
+    { label: '📡 CDP Circus',          cls: 'tent' },
+    { label: '🤖 AI Pavilion',         cls: 'tent' },
+    { label: '📊 Analytics Arcade',    cls: 'tent' },
+    { label: '📋 Compliance Sideshow', cls: 'tent' },
+    { label: '🏛️ COE Circus',          cls: 'tent' },
+    { label: '🚀 MVP Midway',          cls: 'tent' },
+    { label: '🎪 Emergent Tents',      cls: 'tent' },
+  ];
+  const ROLES = [
+    'Magician','Strongman','Sleight of Hand','Tightrope',
+    'Trapeze','Juggler','Ringmaster','Acrobat',
+    'Fire Breather','Clown','Carousel','Lion Tamer','Illusionist'
+  ].map(r => ({ label: r, cls: 'role' }));
 
-  When a section receives cards, the .empty-stall should be removed
-  and cards appended as .midway-card elements.
+  function buildMarquee() {
+    const track = document.getElementById('marqueeTrack');
+    const items = [];
+    const maxLen = Math.max(TENTS.length, ROLES.length);
+    for (let i = 0; i < maxLen; i++) {
+      if (i < TENTS.length) { items.push(TENTS[i]); items.push({ label: '✦', cls: 'divider' }); }
+      if (i < ROLES.length) { items.push(ROLES[i]); items.push({ label: '✦', cls: 'divider' }); }
+    }
 
-  Card HTML structure for reference:
-  <div class="midway-card">
-    <div class="mc-badge">Manufactured Exhibit</div>
-    <div class="mc-name">Card Name</div>
-    <div class="mc-tagline">— Role Tagline —</div>
-    <div class="mc-stats">ATK 7 / DEF 3</div>
-    <div class="mc-effect">Effect text</div>
-    <div class="mc-clause-name">CLAUSE NAME</div>
-    <div>Clause rule text</div>
-    <div class="mc-witness">"Witness quote"</div>
-    <div class="mc-translation">
-      <div class="mc-translation-obs">Observation</div>
-      <div class="mc-translation-q">Skeptical question?</div>
-    </div>
-    <div class="mc-sign">IMAGE SIGN TEXT</div>
-    <div class="mc-meta">
-      <span>OSI Layer 7</span>
-      <span>Sub-tent</span>
-      <span>Role: Magician</span>
-    </div>
-  </div>
--->
+    // Duplicate for seamless loop
+    const full = [...items, ...items];
+    track.innerHTML = full.map(i =>
+      `<span class="marquee-item ${i.cls}">${i.label}</span>`
+    ).join('');
+  }
+
+  // ── Shuffle ───────────────────────────────────────────────────
+  function fisherYates(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function renderShuffled() {
+    const grid = document.getElementById('allCardsGrid');
+    // Collect all cards from all pipeline containers
+    const allCards = Array.from(document.querySelectorAll('.pipeline-containers .midway-card'));
+    if (allCards.length === 0) {
+      grid.innerHTML = `
+        <div class="empty-stall" style="grid-column:1/-1;">
+          <span class="stall-icon">🎡</span>
+          <p>No exhibits currently on the Midway.<br/>The Feature Creepshow is generating.<br/>The cards will find their way here.</p>
+        </div>`;
+      return;
+    }
+    // Shuffle and render clones into the display grid
+    const shuffled = fisherYates([...allCards]);
+    grid.innerHTML = '';
+    shuffled.forEach(card => grid.appendChild(card.cloneNode(true)));
+  }
+
+  // ── MutationObserver — re-shuffle when pipeline adds cards ───
+  function watchPipeline() {
+    const containers = document.querySelectorAll('.pipeline-containers .card-container');
+    const observer = new MutationObserver(() => renderShuffled());
+    containers.forEach(c => observer.observe(c, { childList: true }));
+  }
+
+  // ── Init ──────────────────────────────────────────────────────
+  buildMarquee();
+  renderShuffled();
+  watchPipeline();
+</script>
 </body>
 </html>
