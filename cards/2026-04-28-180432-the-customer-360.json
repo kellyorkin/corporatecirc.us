@@ -28,5 +28,6 @@
     "observation": "Several spreadsheets joined.",
     "skeptical_question": "Which version of the customer is the real one?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-customer-360.png"
 }

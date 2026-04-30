@@ -28,5 +28,6 @@
     "observation": "Bought a CSV of emails.",
     "skeptical_question": "Did anyone ask the users?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-acqui-hire.png"
 }

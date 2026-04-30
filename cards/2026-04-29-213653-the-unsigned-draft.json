@@ -28,5 +28,6 @@
     "observation": "No name on document.",
     "skeptical_question": "Who wrote this?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-unsigned-draft.png"
 }

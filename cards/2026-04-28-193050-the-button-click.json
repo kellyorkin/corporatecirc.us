@@ -28,5 +28,6 @@
     "skeptical_question": "Is there a log for that?"
   },
   "image_sign_text": "CLICKED. CONFIRMED. MOVING ON.",
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-button-click.png"
 }

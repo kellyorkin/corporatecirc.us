@@ -28,5 +28,6 @@
     "observation": "Enthusiasm increased.",
     "skeptical_question": "Has the use case changed, or just the volume?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-conversion.png"
 }

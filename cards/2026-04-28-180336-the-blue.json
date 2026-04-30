@@ -28,5 +28,6 @@
     "observation": "One person said blue.",
     "skeptical_question": "Was anyone taking notes?"
   },
-  "status": "published"
+  "status": "published",
+  "image_path": "cards/images/the-blue.png"
 }
