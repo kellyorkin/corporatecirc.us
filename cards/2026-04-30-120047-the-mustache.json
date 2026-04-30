@@ -1,0 +1,32 @@
+{
+  "name": "The Mustache",
+  "role_tagline": "Credentialed Gravitas",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "role": "Ringmaster",
+  "atk": 6,
+  "def": 7,
+  "image_sign_text": "AUTHORITY VISIBLY PRESENT",
+  "effect": "Confer legitimacy upon the bearer through visible facial distinction. This card is considered authoritative.",
+  "clauses": [
+    {
+      "name": "GRAVITAS CLAUSE",
+      "rule": "If the bearer speaks: All statements are considered considered."
+    },
+    {
+      "name": "CHALLENGE OVERRIDE",
+      "rule": "If this card is questioned: Redirect attention to the mustache."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "After the bearer leaves the room: The content of their statements is no longer retained, but the authority persists."
+    }
+  ],
+  "witness_quote": "He just has that presence.",
+  "translation_layer": {
+    "observation": "Facial hair on a face.",
+    "skeptical_question": "What did he actually say?"
+  },
+  "status": "draft"
+}
