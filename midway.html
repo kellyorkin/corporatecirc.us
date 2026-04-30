@@ -460,6 +460,30 @@
     .marquee-item.role  { color: var(--amber-lo); }
     .marquee-item.divider { color: rgba(212,133,10,0.3); padding: 0 8px; }
 
+    /* ── Shuffle button ── */
+    .shuffle-wrap {
+      text-align: center;
+      margin: 0 0 32px;
+    }
+    .shuffle-btn {
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--amber-hi);
+      background: transparent;
+      border: 1px solid var(--amber-lo);
+      padding: 10px 28px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .shuffle-btn:hover {
+      background: var(--amber-lo);
+      color: var(--dark);
+      border-color: var(--amber);
+    }
+    .shuffle-btn:active { transform: scale(0.97); }
+
     /* ── Unified card grid ── */
     .all-cards-grid {
       display: grid;
@@ -530,6 +554,11 @@
     <div class="marquee-track" id="marqueeTrack">
       <!-- populated by JS -->
     </div>
+  </div>
+
+  <!-- ── Shuffle button ── -->
+  <div class="shuffle-wrap">
+    <button class="shuffle-btn" id="shuffleBtn">🎴 Shuffle the Deck</button>
   </div>
 
   <!-- ── Unified shuffled card display ── -->
@@ -1802,7 +1831,8 @@
   const ROLES = [
     'Magician','Strongman','Sleight of Hand','Tightrope',
     'Trapeze','Juggler','Ringmaster','Acrobat',
-    'Fire Breather','Clown','Carousel','Lion Tamer','Illusionist'
+    'Fire Breather','Clown','Carousel','Lion Tamer',
+    'Illusionist','Contortionist','Fortune Teller','Knife Thrower'
   ].map(r => ({ label: r, cls: 'role' }));
 
   function buildMarquee() {
@@ -1859,6 +1889,7 @@
   buildMarquee();
   renderShuffled();
   watchPipeline();
+  document.getElementById('shuffleBtn').addEventListener('click', renderShuffled);
 </script>
 </body>
 </html>
