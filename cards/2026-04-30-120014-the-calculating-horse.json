@@ -28,5 +28,6 @@
     "observation": "Horse reads body language.",
     "skeptical_question": "What happens when no one in the room knows the answer?"
   },
-  "status": "published"
+  "status": "draft",
+  "image_path": "cards/images/the-calculating-horse.png"
 }

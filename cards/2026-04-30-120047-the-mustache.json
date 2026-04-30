@@ -28,5 +28,6 @@
     "observation": "Facial hair on a face.",
     "skeptical_question": "What did he actually say?"
   },
-  "status": "published"
+  "status": "draft",
+  "image_path": "cards/images/the-mustache.png"
 }
