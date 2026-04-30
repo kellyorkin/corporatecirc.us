@@ -1,0 +1,32 @@
+{
+  "name": "The Living Document",
+  "role_tagline": "Governed. Maintained. Current.",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "Compliance Sideshow",
+  "role": "Contortionist",
+  "atk": 2,
+  "def": 9,
+  "image_sign_text": "CERTIFIED. REVIEWED. APPROVED.",
+  "effect": "Produce a compliance document. This card is considered current.",
+  "clauses": [
+    {
+      "name": "VERSION CONTROL CLAUSE",
+      "rule": "If the document has a version number: It is considered actively maintained."
+    },
+    {
+      "name": "OWNERSHIP PROTECTION",
+      "rule": "If an owner is named in the header: All follow-up questions are considered redirected."
+    },
+    {
+      "name": "DUST ACCUMULATION EFFECT",
+      "rule": "After ninety days without a meeting: The document is still considered current."
+    }
+  ],
+  "witness_quote": "It's all in the document.",
+  "translation_layer": {
+    "observation": "A PDF, last opened never.",
+    "skeptical_question": "Has anyone read past page two?"
+  },
+  "status": "draft"
+}
