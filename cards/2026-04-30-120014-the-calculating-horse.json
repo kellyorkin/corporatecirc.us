@@ -1,0 +1,32 @@
+{
+  "name": "The Calculating Horse",
+  "role_tagline": "Intelligent Computation",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "AI Pavilion",
+  "role": "Fortune Teller",
+  "atk": 6,
+  "def": 3,
+  "image_sign_text": "IT COUNTS. IT KNOWS. IT ANSWERS.",
+  "effect": "Produce a numerical answer by reading the room. This card is considered intelligent.",
+  "clauses": [
+    {
+      "name": "AUDIENCE FEEDBACK CLAUSE",
+      "rule": "If the audience reacts visibly: The answer is considered correct."
+    },
+    {
+      "name": "CLEVER HANS EFFECT",
+      "rule": "If the questioner already knows the answer: This card's output is indistinguishable from intelligence."
+    },
+    {
+      "name": "BLINDFOLD OVERRIDE",
+      "rule": "If the audience is removed: This card produces no output."
+    }
+  ],
+  "witness_quote": "It got the right answer every time.",
+  "translation_layer": {
+    "observation": "Horse reads body language.",
+    "skeptical_question": "What happens when no one in the room knows the answer?"
+  },
+  "status": "draft"
+}
