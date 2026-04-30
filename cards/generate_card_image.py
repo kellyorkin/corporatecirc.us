@@ -84,16 +84,36 @@ def build_prompt(card: dict) -> str:
         f"fully within frame, reading exactly: \"{sign_text}\""
     ) if sign_text else ""
 
+    # Explicit text-exclusion clause. gpt-image-1 will otherwise render any field
+    # values it sees in the prompt as visible text in the image (verified failure
+    # mode 2026-04-30 with The Booth Gorgon: role_tagline and observation both
+    # leaked into a body-text panel). Listing every surface that commonly carries
+    # text in vintage circus posters is verbose but works better than a bare
+    # negative ("no other text") because the model anchors on enumerated nouns.
+    banner_count = "exactly two banners" if sign_text else "exactly one banner"
+    banner_specs = f"the top banner reading \"{card['name'].upper()}\""
+    if sign_text:
+        banner_specs += f" and the bottom banner reading \"{sign_text}\""
+    text_constraint = (
+        f"TEXT CONSTRAINT: This image contains {banner_count} and no other text or "
+        f"writing of any kind. All readable text is contained in {banner_specs}. "
+        f"Every other surface in the image — the performer's costume, badges, pins, "
+        f"sashes, background signs, painted backdrops, decorative ribbons, scrolls, "
+        f"ticket booths, panels, plaques, programmes, props, and ornamental borders "
+        f"— must be completely free of letters, numbers, words, or readable symbols. "
+        f"Any visible writing outside the specified banner(s) is incorrect and must "
+        f"be omitted entirely."
+    )
+
     return (
         f"subject: {ROLE_VISUALS[role]}\n"
         f"style: {STYLE}\n"
-        f"satirical context: {card['name']} — {card['role_tagline']}. "
-        f"{card['translation_layer']['observation']}\n"
         f"composition: portrait orientation circus poster layout. "
         f"A prominent banner across the upper sixth of the image, fully within frame, "
         f"reading exactly: \"{card['name'].upper()}\". "
         f"The performer in the central portion of the frame with their action fully visible"
-        f"{bottom_banner}"
+        f"{bottom_banner}.\n"
+        f"{text_constraint}"
     )
 
 
