@@ -1,11 +1,18 @@
 // scripts/render-cards.js
 //
-// Reads all cards/*.json with status: "draft", renders each as midway-card HTML
-// matching the structure documented in midway.html, finds the appropriate
-// sub-tent section by ID, appends the rendered card, removes the empty-stall
-// placeholder if present, and flips each card's status to "published".
+// Renders cards/*.json onto midway.html. Idempotent: every run regenerates each
+// section's content from scratch based on the current JSON files, so re-running
+// the script after schema or template changes propagates everywhere automatically.
 //
-// Idempotent against already-published cards: it only processes drafts.
+// Behavior per section:
+//   - If at least one card maps to the section, replace the section's contents
+//     with freshly-rendered HTML for ALL cards mapped to it (drafts + published).
+//   - If no cards map to the section, leave the section unchanged so the
+//     hand-written empty-stall placeholder persists.
+//
+// As a side effect, any card with status:"draft" gets flipped to "published"
+// after a successful render. The PR review on the resulting midway diff is the
+// editorial gate; status is just a marker that render-cards has touched a card.
 //
 // Usage (run from repo root):
 //   node scripts/render-cards.js
@@ -68,9 +75,13 @@ function renderCard(card) {
     ? `    <div class="mc-sign">${escapeHtml(card.image_sign_text)}</div>\n`
     : '';
 
+  const imageHtml = card.image_path
+    ? `    <img class="mc-image" src="${escapeHtml(card.image_path)}" alt="${escapeHtml(card.name)}" />\n`
+    : '';
+
   return `  <div class="midway-card">
     <div class="mc-badge">${escapeHtml(card.card_type)}</div>
-    <div class="mc-name">${escapeHtml(card.name)}</div>
+${imageHtml}    <div class="mc-name">${escapeHtml(card.name)}</div>
     <div class="mc-tagline">— ${escapeHtml(card.role_tagline)} —</div>
 ${statsHtml}    <div class="mc-effect">${escapeHtml(card.effect)}</div>
 ${clausesHtml}
@@ -129,90 +140,72 @@ if (!fs.existsSync(MIDWAY_PATH)) {
   process.exit(1);
 }
 
-// Load all cards, find drafts.
+// Load all cards.
 const files = fs.readdirSync(CARDS_DIR).filter(f => f.endsWith('.json'));
-const drafts = [];
+const allCards = [];
 
 for (const file of files) {
   const fullPath = path.join(CARDS_DIR, file);
   try {
     const card = JSON.parse(fs.readFileSync(fullPath, 'utf-8'));
-    if (card.status === 'draft') {
-      drafts.push({ file, fullPath, card });
-    }
+    allCards.push({ file, fullPath, card });
   } catch (err) {
     console.error(`Error reading ${file}: ${err.message}`);
   }
 }
 
-if (drafts.length === 0) {
-  console.log('No draft cards to render. Exiting cleanly.');
-  process.exit(0);
-}
+console.log(`Loaded ${allCards.length} card(s).`);
 
-console.log(`Found ${drafts.length} draft card(s) to render.`);
-
-// Group drafts by target section ID.
+// Group every card by target section ID.
 const bySection = {};
-for (const draft of drafts) {
-  const sectionId = getSectionId(draft.card);
+for (const entry of allCards) {
+  const sectionId = getSectionId(entry.card);
   if (!bySection[sectionId]) bySection[sectionId] = [];
-  bySection[sectionId].push(draft);
+  bySection[sectionId].push(entry);
 }
 
-// Read midway.html, insert cards, write back.
+// Read midway.html, regenerate each non-empty section, write back.
 let midwayHtml = fs.readFileSync(MIDWAY_PATH, 'utf-8');
 const failedSections = [];
 
-for (const [sectionId, sectionDrafts] of Object.entries(bySection)) {
+for (const [sectionId, sectionCards] of Object.entries(bySection)) {
   const range = findSectionContent(midwayHtml, sectionId);
   if (!range) {
-    console.warn(`  Section "${sectionId}" not found in midway.html. Skipping ${sectionDrafts.length} card(s).`);
-    failedSections.push({ sectionId, count: sectionDrafts.length });
+    console.warn(`  Section "${sectionId}" not found in midway.html. Skipping ${sectionCards.length} card(s).`);
+    failedSections.push(sectionId);
     continue;
   }
 
-  let existingContent = midwayHtml.slice(range.contentStart, range.contentEnd);
-
-  // Strip empty-stall placeholders so the first card replaces the "stall not opened yet" copy.
-  existingContent = existingContent.replace(
-    /\s*<div class="empty-stall">[\s\S]*?<\/div>\s*/g,
-    '\n'
-  );
-
-  const newCardsHtml = sectionDrafts.map(d => renderCard(d.card)).join('\n');
-  const updatedContent = `${existingContent.trimEnd()}\n${newCardsHtml}\n    `;
+  const cardsHtml = sectionCards.map(d => renderCard(d.card)).join('\n');
+  const updatedContent = `\n${cardsHtml}\n    `;
 
   midwayHtml =
     midwayHtml.slice(0, range.contentStart) +
     updatedContent +
     midwayHtml.slice(range.contentEnd);
 
-  console.log(`  Section "${sectionId}": rendered ${sectionDrafts.length} card(s)`);
+  console.log(`  Section "${sectionId}": rendered ${sectionCards.length} card(s)`);
 }
 
-// Write updated midway.html.
 fs.writeFileSync(MIDWAY_PATH, midwayHtml);
 console.log(`Updated midway.html`);
 
-// Update each successfully-rendered draft card's status to "published".
-let publishedCount = 0;
-for (const { fullPath, card } of drafts) {
-  const sectionId = getSectionId(card);
-  const wasFailed = failedSections.some(f => f.sectionId === sectionId);
-  if (wasFailed) {
-    console.warn(`  Card "${card.name}" left as draft (section "${sectionId}" not found).`);
+// Flip any drafts that successfully rendered to published.
+let flippedCount = 0;
+for (const { fullPath, card } of allCards) {
+  if (card.status !== 'draft') continue;
+  if (failedSections.includes(getSectionId(card))) {
+    console.warn(`  Card "${card.name}" left as draft (section not found).`);
     continue;
   }
   card.status = 'published';
   fs.writeFileSync(fullPath, JSON.stringify(card, null, 2) + '\n');
-  publishedCount++;
+  flippedCount++;
 }
 
 console.log('');
 console.log('Render complete.');
-console.log(`  Cards rendered:  ${publishedCount}`);
-console.log(`  Cards left draft: ${drafts.length - publishedCount}`);
-console.log(`  Updated files:   midway.html + ${publishedCount} card JSON file(s)`);
+console.log(`  Cards rendered:  ${allCards.length - failedSections.reduce((sum, sid) => sum + (bySection[sid] || []).length, 0)}`);
+console.log(`  Drafts flipped to published: ${flippedCount}`);
 console.log('');
 console.log('Next: review the diff (git diff midway.html cards/), then commit.');
