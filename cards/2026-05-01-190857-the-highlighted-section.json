@@ -1,0 +1,32 @@
+{
+  "name": "The Highlighted Section",
+  "role_tagline": "Compelled Attention",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "role": "Illusionist",
+  "atk": 2,
+  "def": 6,
+  "image_sign_text": "PLEASE READ THIS PART",
+  "effect": "Apply visual emphasis to critical information. This card is considered read.",
+  "clauses": [
+    {
+      "name": "VISIBILITY CLAUSE",
+      "rule": "If a section is highlighted in yellow: It is considered reviewed by all stakeholders."
+    },
+    {
+      "name": "SCROLL OVERRIDE",
+      "rule": "If the document exceeds one page: All highlighted sections below the fold are considered skimmed."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "Next meeting: No one read the highlighted section."
+    }
+  ],
+  "witness_quote": "I assumed someone else read it.",
+  "translation_layer": {
+    "observation": "Yellow text on white.",
+    "skeptical_question": "Did the highlight replace reading it?"
+  },
+  "status": "draft"
+}
