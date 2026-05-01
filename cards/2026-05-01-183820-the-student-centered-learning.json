@@ -1,0 +1,32 @@
+{
+  "name": "The Student Centered Learning",
+  "role_tagline": "Learner Empowerment",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "role": "Illusionist",
+  "atk": 4,
+  "def": 7,
+  "image_sign_text": "THE STUDENT IS IN CONTROL.",
+  "effect": "Reframe instructor-led content delivery as learner-driven discovery. This card is considered transformative.",
+  "clauses": [
+    {
+      "name": "AUTONOMY CLAUSE",
+      "rule": "If the learner selects from a pre-approved list of options: The experience is considered personalized."
+    },
+    {
+      "name": "ENGAGEMENT OVERRIDE",
+      "rule": "If participation metrics are collected: The learning is considered active."
+    },
+    {
+      "name": "FORGETFULNESS CLAUSE",
+      "rule": "Next quarter: The curriculum is unchanged and the instructor is back at the whiteboard."
+    }
+  ],
+  "witness_quote": "They're driving their own journey now.",
+  "translation_layer": {
+    "observation": "Same slides, renamed modules.",
+    "skeptical_question": "Who wrote the choices they're choosing from?"
+  },
+  "status": "draft"
+}
