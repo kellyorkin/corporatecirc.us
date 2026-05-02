@@ -28,5 +28,6 @@
     "observation": "Very large book exists.",
     "skeptical_question": "Which edition are we actually following?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-national-electric-code.png"
 }
