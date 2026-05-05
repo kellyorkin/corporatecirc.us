@@ -28,5 +28,6 @@
     "observation": "A word said in a meeting.",
     "skeptical_question": "Was synthesis ever invoked the first time?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-synthesis-reinvocation.png"
 }
