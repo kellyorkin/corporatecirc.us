@@ -1,0 +1,32 @@
+{
+  "name": "The Synthesis Reinvocation",
+  "role_tagline": "Realignment Through Convergence",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "role": "Ringmaster",
+  "atk": 6,
+  "def": 5,
+  "image_sign_text": "SYNTHESIS. REINVOKED.",
+  "effect": "Declare that synthesis must be reinvoked. This card is considered urgent.",
+  "clauses": [
+    {
+      "name": "REINVOCATION CLAUSE",
+      "rule": "If synthesis was previously invoked: It is considered to have lapsed and must be reinvoked immediately."
+    },
+    {
+      "name": "ALIGNMENT EFFECT",
+      "rule": "When all stakeholders agree synthesis is needed: The meeting ends without defining what synthesis is."
+    },
+    {
+      "name": "ORIGINAL MANDATE OVERRIDE",
+      "rule": "If anyone asks what synthesis means: Reference the original mandate and schedule a follow-up."
+    }
+  ],
+  "witness_quote": "We lost the thread somewhere.",
+  "translation_layer": {
+    "observation": "A word said in a meeting.",
+    "skeptical_question": "Was synthesis ever invoked the first time?"
+  },
+  "status": "draft"
+}
