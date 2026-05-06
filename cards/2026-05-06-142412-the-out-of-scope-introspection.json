@@ -1,0 +1,32 @@
+{
+  "name": "The Out-of-Scope Introspection",
+  "role_tagline": "Bounded Self-Awareness",
+  "card_type": "Manufactured Exhibit",
+  "osi_layer": 7,
+  "sub_tent": "COE Circus",
+  "role": "Contortionist",
+  "atk": 2,
+  "def": 6,
+  "image_sign_text": "PARKING LOT ITEM",
+  "effect": "Identify a systemic problem that falls outside the current engagement boundary. This card is considered insightful.",
+  "clauses": [
+    {
+      "name": "BOUNDARY CLAUSE",
+      "rule": "If the problem identified is real but undeniably out of scope: It is acknowledged, documented, and set aside."
+    },
+    {
+      "name": "FOLLOW-ON EFFECT",
+      "rule": "If this card survives to the next phase: A separate workstream is proposed to address it at additional cost."
+    },
+    {
+      "name": "FORGETFULNESS OVERRIDE",
+      "rule": "If no follow-on engagement is approved: The insight is considered parked indefinitely."
+    }
+  ],
+  "witness_quote": "Great point. Not for this sprint.",
+  "translation_layer": {
+    "observation": "Problem noticed. Problem ignored.",
+    "skeptical_question": "Was the boundary drawn before or after the problem appeared?"
+  },
+  "status": "draft"
+}
