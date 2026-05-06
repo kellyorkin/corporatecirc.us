@@ -1,0 +1,32 @@
+{
+  "name": "The Aggressive Simplification",
+  "role_tagline": "Radical Clarity",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Volatile",
+  "sub_tent": "COE Circus",
+  "role": "Knife Thrower",
+  "atk": 9,
+  "def": 3,
+  "image_sign_text": "LESS IS MORE. MUCH LESS.",
+  "effect": "Remove complexity until only a slogan remains. This card is considered decisive.",
+  "clauses": [
+    {
+      "name": "REDUCTION CLAUSE",
+      "rule": "When a nuanced process is encountered: Collapse it into a single bullet point."
+    },
+    {
+      "name": "COLLATERAL EFFECT",
+      "rule": "If the bullet point is questioned: The questioner is considered resistant to change."
+    },
+    {
+      "name": "REINSTATEMENT OVERRIDE",
+      "rule": "Six months after simplification: The removed complexity is quietly reinstated under a different name."
+    }
+  ],
+  "witness_quote": "We just need to simplify.",
+  "translation_layer": {
+    "observation": "Things were deleted.",
+    "skeptical_question": "Which three teams are now doing this manually?"
+  },
+  "status": "draft"
+}
