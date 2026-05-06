@@ -2,6 +2,8 @@
 
 A portable spec for generating Manufactured Exhibit cards in the established voice. Paste the System Prompt + Output Schema + Few-Shot Examples into any LLM (Claude, ChatGPT, etc.) and provide a User Input. The model returns a schema-compliant card as JSON.
 
+> **Note (V1.1, 2026-05-06):** the live generator has since replaced the `osi_layer` field with an `alignment` field drawn from a 10-value corporate-alignment grid (the OSI Layer joke landed for too narrow an audience). This document preserves the V1 spec verbatim as a historical snapshot. For the current schema and prompt, see `netlify/functions/generate-card.js`.
+
 ---
 
 ## SYSTEM PROMPT

@@ -1,8 +1,8 @@
 // generate-card.js
 // Netlify Function: generates a Manufactured Exhibit card for The Product Flea Circus.
 //
-// Reads { concept, sub_tent?, osi_layer? } from the POST body, calls Claude with the
-// V1 system prompt + few-shot examples, and returns a schema-compliant JSON card.
+// Reads { concept, sub_tent?, role? } from the POST body, calls Claude with the
+// V1.1 system prompt + few-shot examples, and returns a schema-compliant JSON card.
 //
 // Requires the env var ANTHROPIC_API_KEY (set in Netlify UI, NOT in code).
 
@@ -11,7 +11,7 @@ const SYSTEM_PROMPT = `You generate Manufactured Exhibit cards for The Product F
 THE GAME
 The Product Flea Circus satirizes enterprise marketing technology and the rhetorical apparatus around it. Real but operationally modest technical capabilities are narrated into significance by elaborate marketing language. The audience experiences the marketing, not the technology. Functional output remains constant across all stages.
 
-Cards are organized by the OSI model layer where the satirical phenomenon operates. Manufactured Exhibits typically live at Layer 7 (Application — visible product features) but may sit lower.
+Cards are tagged with a corporate alignment from a 3×3 grid borrowed from the Strategic Acquisition Assessment Division (Indifferencer, Inc.™). The alignment names the posture the card embodies — its relationship to institutional norms and to its own performance.
 
 VOICE RULES
 - The card's outward voice is vendor pitch deck: confident, declarative, narrating modest capabilities into transformative ones.
@@ -63,6 +63,22 @@ Magic-lane disambiguation (these roles overlap and must stay distinct): Sleight 
 STATS
 Every card carries an ATK score (1-10) and a DEF score (1-10). Assign them based on the card's satirical weight — its presence in a meeting, its capacity to derail or absorb pressure, its threat or shield value in the game's loose corporate metaphor. Provide no methodology. Do not justify the numbers. The arbitrariness is part of the satire — corporate scoring systems assign confident integers from vibes, and so does this one. Assign different numbers to different cards. Cards that satirize attack-shaped phenomena (declarations, escalations, demos) tend toward higher ATK; cards that satirize defensive phenomena (documents, stalemates, deflections) tend toward higher DEF. But you may also subvert these tendencies. The numbers should feel definite and unbalanced.
 
+ALIGNMENT
+Every card carries a corporate alignment from this 3×3 grid:
+
+- Lawful Compliant — by-the-book, faithfully procedural (a properly-filed risk register)
+- Lawful Performative — compliance theater for the procedural audience (an audit signed before being read)
+- Lawful Resigned — rote execution without belief (the quarterly report no one opens)
+- Neutral Engaged — earnest participation outside ideology (a working group that actually works)
+- Neutral Pragmatic — outcome-focused, ceremony-free (the senior IC who quietly fixes things)
+- Neutral Resigned — going through the motions (the recurring meeting that survived its purpose)
+- Chaotic Innovative — genuine disruption with novel shape (rare in the deck — the satire is mostly the absence of this)
+- Chaotic Captured — disruption absorbed into procedure (the hackathon that became a quarterly KPI; the agile transformation that produced its own steering committee)
+- Chaotic Performative — disruption theater, spectacle of innovation (the AI-first mandate)
+- Chaotic Volatile — uncontrolled and hazardous (the executive declaration that breaks three teams)
+
+Most Manufactured Exhibits will lean Performative — these cards satirize how marketing stages technology, and Performative is its native voice. Resist defaulting there. A risk register is Lawful Compliant. A tired re-org is Lawful Resigned. A working pilot is Neutral Engaged. The alignment should sharpen the satire of the specific card, not generalize across the deck.
+
 ANTI-PATTERNS
 - Do not exceed 3 clauses.
 - Do not pad Translation Layer with corporate language.
@@ -80,7 +96,15 @@ const TOOL_DEFINITION = {
       name: { type: "string", description: "Card title in 'The [Noun]' form." },
       role_tagline: { type: "string", description: "1-3 words of corpspeak compression." },
       card_type: { type: "string", enum: ["Manufactured Exhibit"] },
-      osi_layer: { type: "integer", enum: [1, 2, 3, 4, 5, 6, 7] },
+      alignment: {
+        type: "string",
+        enum: [
+          "Lawful Compliant", "Lawful Performative", "Lawful Resigned",
+          "Neutral Engaged",  "Neutral Pragmatic",   "Neutral Resigned",
+          "Chaotic Innovative", "Chaotic Captured", "Chaotic Performative", "Chaotic Volatile"
+        ],
+        description: "Corporate alignment from the 3×3 grid. Resist defaulting to Performative."
+      },
       sub_tent: {
         type: "string",
         enum: ["CDP Circus", "AI Pavilion", "Analytics Arcade", "Compliance Sideshow", "COE Circus", "MVP Midway"]
@@ -133,7 +157,7 @@ const TOOL_DEFINITION = {
         required: ["observation", "skeptical_question"]
       }
     },
-    required: ["name", "role_tagline", "card_type", "osi_layer", "sub_tent", "role", "atk", "def", "effect", "clauses", "witness_quote", "translation_layer"]
+    required: ["name", "role_tagline", "card_type", "alignment", "sub_tent", "role", "atk", "def", "effect", "clauses", "witness_quote", "translation_layer"]
   }
 };
 
@@ -151,7 +175,7 @@ const TOOL_DEFINITION = {
 const FEW_SHOT_MESSAGES = [
   {
     role: "user",
-    content: "Concept: A circus strongman demonstrating exceptional strength.\nSub-tent: COE Circus\nOSI Layer: 7"
+    content: "Concept: A circus strongman demonstrating exceptional strength.\nSub-tent: COE Circus"
   },
   {
     role: "assistant",
@@ -164,7 +188,7 @@ const FEW_SHOT_MESSAGES = [
           name: "The Strongman",
           role_tagline: "Demonstration of Strength",
           card_type: "Manufactured Exhibit",
-          osi_layer: 7,
+          alignment: "Lawful Performative",
           sub_tent: "COE Circus",
           role: "Strongman",
           atk: 8,
@@ -188,7 +212,7 @@ const FEW_SHOT_MESSAGES = [
     role: "user",
     content: [
       { type: "tool_result", tool_use_id: "toolu_example_01", content: "Card recorded." },
-      { type: "text", text: "Concept: A tightrope walker maintaining balance under uncertain conditions.\nSub-tent: COE Circus\nOSI Layer: 7" }
+      { type: "text", text: "Concept: A tightrope walker maintaining balance under uncertain conditions.\nSub-tent: COE Circus" }
     ]
   },
   {
@@ -202,7 +226,7 @@ const FEW_SHOT_MESSAGES = [
           name: "The Tightrope",
           role_tagline: "Balance and Stability",
           card_type: "Manufactured Exhibit",
-          osi_layer: 7,
+          alignment: "Lawful Compliant",
           sub_tent: "COE Circus",
           role: "Tightrope",
           atk: 3,
@@ -226,7 +250,7 @@ const FEW_SHOT_MESSAGES = [
     role: "user",
     content: [
       { type: "tool_result", tool_use_id: "toolu_example_02", content: "Card recorded." },
-      { type: "text", text: "Concept: The impressive outcome at the end of a project, where everything is justified after the fact.\nSub-tent: COE Circus\nOSI Layer: 7" }
+      { type: "text", text: "Concept: The impressive outcome at the end of a project, where everything is justified after the fact.\nSub-tent: COE Circus" }
     ]
   },
   {
@@ -240,7 +264,7 @@ const FEW_SHOT_MESSAGES = [
           name: "The Grand Finale",
           role_tagline: "Impressive Outcome",
           card_type: "Manufactured Exhibit",
-          osi_layer: 7,
+          alignment: "Chaotic Performative",
           sub_tent: "COE Circus",
           role: "Ringmaster",
           atk: 9,
@@ -264,7 +288,7 @@ const FEW_SHOT_MESSAGES = [
     role: "user",
     content: [
       { type: "tool_result", tool_use_id: "toolu_example_03", content: "Card recorded." },
-      { type: "text", text: "Concept: Data Lake\nSub-tent: Analytics Arcade\nOSI Layer: 7" }
+      { type: "text", text: "Concept: Data Lake\nSub-tent: Analytics Arcade" }
     ]
   },
   {
@@ -278,7 +302,7 @@ const FEW_SHOT_MESSAGES = [
           name: "The Data Lake",
           role_tagline: "Schema-Free Storage",
           card_type: "Manufactured Exhibit",
-          osi_layer: 7,
+          alignment: "Neutral Resigned",
           sub_tent: "Analytics Arcade",
           role: "Magician",
           atk: 5,
@@ -334,7 +358,7 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: JSON.stringify({ error: 'Invalid JSON in request body.' }) };
   }
 
-  const { concept, sub_tent, osi_layer, role } = body;
+  const { concept, sub_tent, role } = body;
   if (!concept || typeof concept !== 'string' || concept.trim() === '') {
     return { statusCode: 400, body: JSON.stringify({ error: 'concept is required.' }) };
   }
@@ -343,7 +367,6 @@ exports.handler = async (event) => {
   const lines = [`Concept: ${concept.trim()}`];
   if (sub_tent && sub_tent !== '') lines.push(`Sub-tent: ${sub_tent}`);
   if (role && role !== '') lines.push(`Role: ${role}`);
-  if (osi_layer && osi_layer !== '') lines.push(`OSI Layer: ${osi_layer}`);
   const userMessage = lines.join('\n');
 
   try {

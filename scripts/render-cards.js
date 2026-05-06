@@ -91,7 +91,7 @@ ${clausesHtml}
       <div class="mc-translation-q">${escapeHtml(card.translation_layer.skeptical_question)}</div>
     </div>
 ${signHtml}    <div class="mc-meta">
-      <span>OSI Layer ${escapeHtml(card.osi_layer)}</span>
+      <span>${escapeHtml(card.alignment)}</span>
       <span>${subTentDisplay}</span>${roleDisplay ? `\n      <span>Role: ${roleDisplay}</span>` : ''}
     </div>
   </div>`;

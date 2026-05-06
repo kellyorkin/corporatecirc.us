@@ -2,7 +2,7 @@
   "name": "The Feedback Loop",
   "role_tagline": "Continuous Self-Improvement",
   "card_type": "Manufactured Exhibit",
-  "osi_layer": 7,
+  "alignment": "Chaotic Volatile",
   "sub_tent": "COE Circus",
   "role": "Magician",
   "effect": "Capture user interactions to continuously improve response quality. This card is considered adaptive.",

@@ -2,7 +2,7 @@
   "name": "The Synthesis Reinvocation",
   "role_tagline": "Realignment Through Convergence",
   "card_type": "Manufactured Exhibit",
-  "osi_layer": 7,
+  "alignment": "Lawful Performative",
   "sub_tent": "COE Circus",
   "role": "Ringmaster",
   "atk": 6,
@@ -28,6 +28,6 @@
     "observation": "A word said in a meeting.",
     "skeptical_question": "Was synthesis ever invoked the first time?"
   },
-  "status": "draft",
+  "status": "published",
   "image_path": "cards/images/the-synthesis-reinvocation.png"
 }

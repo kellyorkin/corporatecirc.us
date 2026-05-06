@@ -2,7 +2,7 @@
   "name": "The Out-of-Scope Introspection",
   "role_tagline": "Bounded Self-Awareness",
   "card_type": "Manufactured Exhibit",
-  "osi_layer": 7,
+  "alignment": "Lawful Resigned",
   "sub_tent": "COE Circus",
   "role": "Contortionist",
   "atk": 2,
@@ -28,6 +28,6 @@
     "observation": "Problem noticed. Problem ignored.",
     "skeptical_question": "Was the boundary drawn before or after the problem appeared?"
   },
-  "status": "draft",
+  "status": "published",
   "image_path": "cards/images/the-out-of-scope-introspection.png"
 }
