@@ -1,0 +1,32 @@
+{
+  "name": "The Reification",
+  "role_tagline": "Artifact-First Delivery",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Lawful Performative",
+  "sub_tent": "COE Circus",
+  "role": "Illusionist",
+  "atk": 4,
+  "def": 9,
+  "image_sign_text": "NOW TANGIBLE. NOW REAL. NOW YOURS.",
+  "effect": "Convert a concept into a deliverable artifact. This card is considered concrete.",
+  "clauses": [
+    {
+      "name": "ARTIFACT CLAUSE",
+      "rule": "If a document, slide deck, or diagram is produced: The abstraction is considered resolved."
+    },
+    {
+      "name": "OWNERSHIP EFFECT",
+      "rule": "When the artifact is assigned an owner: All further questions are redirected to that owner."
+    },
+    {
+      "name": "DURABILITY OVERRIDE",
+      "rule": "If no one references the artifact within ninety days: It is considered a foundation for future work."
+    }
+  ],
+  "witness_quote": "At least we have something to show.",
+  "translation_layer": {
+    "observation": "Slide deck. Possibly a spreadsheet.",
+    "skeptical_question": "Is the thing different, or just described?"
+  },
+  "status": "draft"
+}
