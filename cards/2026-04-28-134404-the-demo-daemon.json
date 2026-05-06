@@ -2,7 +2,7 @@
   "name": "The Demo Daemon",
   "role_tagline": "Controlled Environment Wizard",
   "card_type": "Manufactured Exhibit",
-  "osi_layer": 7,
+  "alignment": "Chaotic Performative",
   "sub_tent": "MVP Midway",
   "role": "Magician",
   "atk": 9,

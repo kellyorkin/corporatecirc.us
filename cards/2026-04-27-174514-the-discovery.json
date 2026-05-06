@@ -2,7 +2,7 @@
   "name": "The Discovery",
   "role_tagline": "Scoped Insight Generation",
   "card_type": "Manufactured Exhibit",
-  "osi_layer": 7,
+  "alignment": "Lawful Performative",
   "sub_tent": "COE Circus",
   "role": "Magician",
   "effect": "Declare a discovery phase complete. This card is considered thorough.",

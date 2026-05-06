@@ -2,7 +2,7 @@
   "name": "The National Electric Code",
   "role_tagline": "Mandated Safety Theater",
   "card_type": "Manufactured Exhibit",
-  "osi_layer": 7,
+  "alignment": "Lawful Performative",
   "sub_tent": "Compliance Sideshow",
   "role": "Lion Tamer",
   "atk": 4,
@@ -28,6 +28,6 @@
     "observation": "Very large book exists.",
     "skeptical_question": "Which edition are we actually following?"
   },
-  "status": "draft",
+  "status": "published",
   "image_path": "cards/images/the-national-electric-code.png"
 }
