@@ -28,5 +28,6 @@
     "observation": "Problem noticed. Problem ignored.",
     "skeptical_question": "Was the boundary drawn before or after the problem appeared?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-out-of-scope-introspection.png"
 }
