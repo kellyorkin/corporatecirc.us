@@ -1,0 +1,32 @@
+{
+  "name": "The Paradigm Shift",
+  "role_tagline": "Transformative Disruption",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Volatile",
+  "sub_tent": "COE Circus",
+  "role": "Fire Breather",
+  "atk": 10,
+  "def": 2,
+  "image_sign_text": "EVERYTHING CHANGES NOW",
+  "effect": "Declare that a fundamental shift in thinking is required. This card is considered urgent.",
+  "clauses": [
+    {
+      "name": "DECLARATION CLAUSE",
+      "rule": "When this card is played: All current initiatives are considered legacy."
+    },
+    {
+      "name": "ALIGNMENT OVERRIDE",
+      "rule": "If no one agrees on the new paradigm: The shift is considered underway regardless."
+    },
+    {
+      "name": "CONTINUITY PROTECTION",
+      "rule": "At end of turn: All systems continue operating exactly as before."
+    }
+  ],
+  "witness_quote": "I think we all know what needs to change.",
+  "translation_layer": {
+    "observation": "Someone is unhappy.",
+    "skeptical_question": "What would actually be different?"
+  },
+  "status": "draft"
+}
