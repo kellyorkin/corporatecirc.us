@@ -28,5 +28,6 @@
     "observation": "The box remains.",
     "skeptical_question": "Was there ever an outside?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-box.png"
 }
