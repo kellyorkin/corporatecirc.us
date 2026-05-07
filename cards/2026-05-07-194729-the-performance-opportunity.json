@@ -1,0 +1,32 @@
+{
+  "name": "The Performance Opportunity",
+  "role_tagline": "Optimistic Gap Analysis",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Lawful Performative",
+  "sub_tent": "Analytics Arcade",
+  "role": "Fortune Teller",
+  "atk": 6,
+  "def": 5,
+  "image_sign_text": "OPPORTUNITY IS EVERYWHERE",
+  "effect": "Identify areas where performance could theoretically improve. This card is considered insightful.",
+  "clauses": [
+    {
+      "name": "REFRAME CLAUSE",
+      "rule": "If a metric is underperforming: It is designated a performance opportunity."
+    },
+    {
+      "name": "HORIZON EFFECT",
+      "rule": "If no timeline is specified: The opportunity is considered perpetually imminent."
+    },
+    {
+      "name": "ACCOUNTABILITY OVERRIDE",
+      "rule": "If the opportunity is never realized: The identification of the opportunity is still considered progress."
+    }
+  ],
+  "witness_quote": "We're seeing some real upside here.",
+  "translation_layer": {
+    "observation": "Numbers are bad.",
+    "skeptical_question": "Who is doing the seeing?"
+  },
+  "status": "draft"
+}
