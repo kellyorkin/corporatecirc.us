@@ -28,5 +28,6 @@
     "observation": "CSS adjusted until it fits.",
     "skeptical_question": "Did anyone check this on mobile?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-front-end-developer.png"
 }
