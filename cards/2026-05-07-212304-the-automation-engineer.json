@@ -28,5 +28,6 @@
     "observation": "Script breaks on Tuesdays.",
     "skeptical_question": "Who wrote the script that runs the script?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-automation-engineer.png"
 }
