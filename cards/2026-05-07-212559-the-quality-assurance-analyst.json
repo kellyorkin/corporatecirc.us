@@ -28,6 +28,6 @@
     "observation": "Bugs logged. Bugs ignored.",
     "skeptical_question": "Were any of these actually fixed before launch?"
   },
-  "status": "draft",
+  "status": "published",
   "image_path": "cards/images/the-quality-assurance-analyst.png"
 }
