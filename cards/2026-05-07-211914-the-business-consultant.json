@@ -28,5 +28,6 @@
     "observation": "Slides. Hourly rate.",
     "skeptical_question": "Who briefed them before the readout?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-business-consultant.png"
 }
