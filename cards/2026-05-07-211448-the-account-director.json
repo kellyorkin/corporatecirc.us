@@ -28,5 +28,6 @@
     "observation": "Stands between two parties.",
     "skeptical_question": "What would happen if they talked directly?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-account-director.png"
 }
