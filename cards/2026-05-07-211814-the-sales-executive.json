@@ -1,0 +1,32 @@
+{
+  "name": "The Sales Executive",
+  "role_tagline": "Revenue Acceleration Partner",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Performative",
+  "sub_tent": "MVP Midway",
+  "role": "Knife Thrower",
+  "atk": 9,
+  "def": 3,
+  "image_sign_text": "CLOSING DEALS. OPENING POSSIBILITIES.",
+  "effect": "Commit the organization to a capability that does not yet exist. This card is considered visionary.",
+  "clauses": [
+    {
+      "name": "PROMISE OVERRIDE",
+      "rule": "When a prospect asks about an unbuilt feature: The feature is considered on the roadmap."
+    },
+    {
+      "name": "HANDOFF CLAUSE",
+      "rule": "When the contract is signed: The Sales Executive is considered no longer involved."
+    },
+    {
+      "name": "SCOPE EXPANSION EFFECT",
+      "rule": "If the customer expects delivery: Engineering is considered aware of the commitment."
+    }
+  ],
+  "witness_quote": "We absolutely can do that.",
+  "translation_layer": {
+    "observation": "Contract signed. Team notified.",
+    "skeptical_question": "Was any of that on the roadmap?"
+  },
+  "status": "draft"
+}
