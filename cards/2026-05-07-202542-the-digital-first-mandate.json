@@ -28,6 +28,6 @@
     "observation": "Email. Maybe a push notification.",
     "skeptical_question": "Does the customer know they prefer digital?"
   },
-  "status": "draft",
+  "status": "published",
   "image_path": "cards/images/the-digital-first-mandate.png"
 }
