@@ -1,0 +1,32 @@
+{
+  "name": "The Box",
+  "role_tagline": "Unconventional Thinking",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Captured",
+  "sub_tent": "COE Circus",
+  "role": "Contortionist",
+  "atk": 4,
+  "def": 3,
+  "image_sign_text": "THINK OUTSIDE IT.",
+  "effect": "Invoke unconventional thinking. This card is considered innovative.",
+  "clauses": [
+    {
+      "name": "OUTSIDE CLAUSE",
+      "rule": "If a stakeholder says 'think outside the box': The box is considered the deliverable."
+    },
+    {
+      "name": "REBOXING EFFECT",
+      "rule": "When an unconventional idea is presented: It is placed back inside the box for further review."
+    },
+    {
+      "name": "BOX PROTECTION",
+      "rule": "If the box is questioned: The box is retroactively described as a framework."
+    }
+  ],
+  "witness_quote": "We need to challenge our assumptions here.",
+  "translation_layer": {
+    "observation": "The box remains.",
+    "skeptical_question": "Was there ever an outside?"
+  },
+  "status": "draft"
+}
