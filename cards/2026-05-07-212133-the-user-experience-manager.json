@@ -1,0 +1,32 @@
+{
+  "name": "The User Experience Manager",
+  "role_tagline": "Advocate for Users",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Resigned",
+  "sub_tent": "COE Circus",
+  "role": "Contortionist",
+  "atk": 3,
+  "def": 6,
+  "image_sign_text": "PUTTING USERS FIRST™",
+  "effect": "Translate user needs into actionable insights for stakeholders who have already decided. This card is considered empathetic.",
+  "clauses": [
+    {
+      "name": "RESEARCH OVERRIDE",
+      "rule": "If user research contradicts the roadmap: The research is considered inconclusive."
+    },
+    {
+      "name": "SEAT AT THE TABLE CLAUSE",
+      "rule": "If this card is present in a planning meeting: It is considered consulted."
+    },
+    {
+      "name": "ADVOCACY PROTECTION",
+      "rule": "If a decision harms user experience: This card absorbs the feedback and is considered a process improvement opportunity."
+    }
+  ],
+  "witness_quote": "We really heard the users on this.",
+  "translation_layer": {
+    "observation": "Findings filed. Ignored.",
+    "skeptical_question": "Did anyone read the research?"
+  },
+  "status": "draft"
+}
