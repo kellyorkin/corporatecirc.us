@@ -28,5 +28,6 @@
     "observation": "Ticket opened, ticket closed.",
     "skeptical_question": "Did anything actually change?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-support-specialists.png"
 }
