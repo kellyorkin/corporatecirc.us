@@ -28,6 +28,6 @@
     "observation": "Existing task completed early.",
     "skeptical_question": "Was this already done?"
   },
-  "status": "draft",
+  "status": "published",
   "image_path": "cards/images/the-low-hanging-fruit.png"
 }
