@@ -1,0 +1,32 @@
+{
+  "name": "The KPIs",
+  "role_tagline": "Measurable Success",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Lawful Performative",
+  "sub_tent": "Analytics Arcade",
+  "role": "Sleight of Hand",
+  "atk": 6,
+  "def": 6,
+  "image_sign_text": "NUMBERS UP. MISSION ACHIEVED.",
+  "effect": "Declare measurable success across all tracked dimensions. This card is considered aligned.",
+  "clauses": [
+    {
+      "name": "SELECTION CLAUSE",
+      "rule": "If a metric trends unfavorably: It is removed from the dashboard."
+    },
+    {
+      "name": "REBASELINE OVERRIDE",
+      "rule": "If targets are missed: Targets are revised retroactively and the quarter is considered a win."
+    },
+    {
+      "name": "ATTRIBUTION PROTECTION",
+      "rule": "If outcomes cannot be traced to tracked metrics: The metrics are considered leading indicators."
+    }
+  ],
+  "witness_quote": "We're trending in the right direction.",
+  "translation_layer": {
+    "observation": "Selected numbers, upward.",
+    "skeptical_question": "What happened to the other metrics?"
+  },
+  "status": "draft"
+}
