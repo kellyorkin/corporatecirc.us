@@ -1,0 +1,32 @@
+{
+  "name": "The Business Consultant",
+  "role_tagline": "External Perspective",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "COE Circus",
+  "role": "Fortune Teller",
+  "atk": 6,
+  "def": 5,
+  "image_sign_text": "INSIGHTS. FRAMEWORKS. DELIVERABLES.",
+  "effect": "Deliver a bespoke strategic assessment. This card is considered objective.",
+  "clauses": [
+    {
+      "name": "MIRROR CLAUSE",
+      "rule": "If this card is played after a stakeholder interview: The findings reflect what stakeholders already believed."
+    },
+    {
+      "name": "FRAMEWORK EFFECT",
+      "rule": "When a recommendation is made: It is housed inside a proprietary two-by-two matrix."
+    },
+    {
+      "name": "DEPARTURE OVERRIDE",
+      "rule": "When this card leaves the field: All institutional knowledge it carried leaves with it."
+    }
+  ],
+  "witness_quote": "They said what we told them.",
+  "translation_layer": {
+    "observation": "Slides. Hourly rate.",
+    "skeptical_question": "Who briefed them before the readout?"
+  },
+  "status": "draft"
+}
