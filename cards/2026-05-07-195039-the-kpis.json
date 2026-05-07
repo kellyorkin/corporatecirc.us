@@ -28,5 +28,6 @@
     "observation": "Selected numbers, upward.",
     "skeptical_question": "What happened to the other metrics?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-kpis.png"
 }
