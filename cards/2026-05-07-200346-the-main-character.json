@@ -1,0 +1,32 @@
+{
+  "name": "The Main Character",
+  "role_tagline": "Narrative Centrality",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Performative",
+  "sub_tent": "COE Circus",
+  "role": "Ringmaster",
+  "atk": 7,
+  "def": 3,
+  "image_sign_text": "ALL EYES ON ME.",
+  "effect": "Reframe all surrounding activity as supporting context for this card's arc. This card is considered central.",
+  "clauses": [
+    {
+      "name": "NARRATIVE OVERRIDE",
+      "rule": "If this card is present: All other cards are considered supporting characters."
+    },
+    {
+      "name": "CREDIT ABSORPTION CLAUSE",
+      "rule": "When a project succeeds: This card is retroactively declared its author."
+    },
+    {
+      "name": "VICTIMHOOD PROTECTION",
+      "rule": "When this card is challenged: The challenge is reframed as a failure of vision by the challenger."
+    }
+  ],
+  "witness_quote": "He just really drives the conversation.",
+  "translation_layer": {
+    "observation": "Loud in every meeting.",
+    "skeptical_question": "Whose work is this, actually?"
+  },
+  "status": "draft"
+}
