@@ -1,0 +1,32 @@
+{
+  "name": "The People Partner",
+  "role_tagline": "Culture and Compliance",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Lawful Performative",
+  "sub_tent": "Compliance Sideshow",
+  "role": "Lion Tamer",
+  "atk": 4,
+  "def": 9,
+  "image_sign_text": "YOUR VOICE MATTERS TO US",
+  "effect": "Redirect employee concerns into documented process. This card is considered supportive.",
+  "clauses": [
+    {
+      "name": "OPEN DOOR CLAUSE",
+      "rule": "When a complaint is raised: The complaint is acknowledged, reframed as a growth opportunity, and filed."
+    },
+    {
+      "name": "ALIGNMENT PROTECTION",
+      "rule": "If any action threatens institutional posture: This card intervenes on behalf of the institution."
+    },
+    {
+      "name": "ENGAGEMENT SURVEY EFFECT",
+      "rule": "Once per quarter: Sentiment is measured, summarized into a positive headline, and presented to leadership as evidence of culture."
+    }
+  ],
+  "witness_quote": "It stays between us.",
+  "translation_layer": {
+    "observation": "Company's person, not yours.",
+    "skeptical_question": "Who does HR report to?"
+  },
+  "status": "draft"
+}
