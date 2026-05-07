@@ -1,0 +1,32 @@
+{
+  "name": "The Coffee Badge",
+  "role_tagline": "Presence Optimization",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Resigned",
+  "sub_tent": "COE Circus",
+  "role": "Sleight of Hand",
+  "atk": 2,
+  "def": 6,
+  "image_sign_text": "I WAS HERE.",
+  "effect": "Badge in. Acquire beverage. Badge out. This card is considered present.",
+  "clauses": [
+    {
+      "name": "VISIBILITY CLAUSE",
+      "rule": "If the badge log records entry: Attendance is considered fulfilled."
+    },
+    {
+      "name": "COLLABORATION EFFECT",
+      "rule": "If a colleague is briefly encountered in the kitchen: The interaction is considered a touchpoint."
+    },
+    {
+      "name": "RETURN-TO-OFFICE PROTECTION",
+      "rule": "When compliance metrics are reviewed: This card cannot be flagged as absent."
+    }
+  ],
+  "witness_quote": "I saw them this morning, definitely.",
+  "translation_layer": {
+    "observation": "Person entered. Person left.",
+    "skeptical_question": "Was the desk ever warm?"
+  },
+  "status": "draft"
+}
