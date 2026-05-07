@@ -1,0 +1,32 @@
+{
+  "name": "The Quality Assurance Analyst",
+  "role_tagline": "Defect Prevention",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "MVP Midway",
+  "role": "Knife Thrower",
+  "atk": 6,
+  "def": 7,
+  "image_sign_text": "PRECISION. EVERY TIME.",
+  "effect": "Identify defects before they reach production. This card is considered thorough.",
+  "clauses": [
+    {
+      "name": "FINDINGS CLAUSE",
+      "rule": "When a defect is documented: It is considered known and therefore manageable."
+    },
+    {
+      "name": "TIMELINE OVERRIDE",
+      "rule": "If the release deadline has been announced: This card's findings are considered advisory."
+    },
+    {
+      "name": "SHIP ANYWAY EFFECT",
+      "rule": "If stakeholders outnumber testers in the sign-off meeting: All outstanding defects are reclassified as post-launch enhancements."
+    }
+  ],
+  "witness_quote": "We'll fix it in the next sprint.",
+  "translation_layer": {
+    "observation": "Bugs logged. Bugs ignored.",
+    "skeptical_question": "Were any of these actually fixed before launch?"
+  },
+  "status": "draft"
+}
