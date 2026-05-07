@@ -1,0 +1,32 @@
+{
+  "name": "The Window of Opportunity",
+  "role_tagline": "Urgency Mandate",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Volatile",
+  "sub_tent": "MVP Midway",
+  "role": "Knife Thrower",
+  "atk": 9,
+  "def": 3,
+  "image_sign_text": "ACT NOW. WINDOW CLOSING.",
+  "effect": "Declare a finite period of strategic advantage. This card is considered urgent.",
+  "clauses": [
+    {
+      "name": "CLOSING WINDOW CLAUSE",
+      "rule": "When this card is played: All stakeholders must act immediately or forfeit the opportunity."
+    },
+    {
+      "name": "RETROSPECTIVE OVERRIDE",
+      "rule": "If the deadline passes without action: A new window of opportunity is identified."
+    },
+    {
+      "name": "PRECISION EFFECT",
+      "rule": "If a decision is made under this card's pressure: The decision is considered well-timed, regardless of outcome."
+    }
+  ],
+  "witness_quote": "We can't afford to wait.",
+  "translation_layer": {
+    "observation": "Deadline asserted without evidence.",
+    "skeptical_question": "Who measured the window?"
+  },
+  "status": "draft"
+}
