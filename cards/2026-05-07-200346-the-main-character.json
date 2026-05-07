@@ -28,5 +28,6 @@
     "observation": "Loud in every meeting.",
     "skeptical_question": "Whose work is this, actually?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-main-character.png"
 }

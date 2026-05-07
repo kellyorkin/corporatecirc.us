@@ -28,5 +28,6 @@
     "observation": "Badged in. Left immediately.",
     "skeptical_question": "Does the building know you were working?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-coffee-badge.png"
 }
