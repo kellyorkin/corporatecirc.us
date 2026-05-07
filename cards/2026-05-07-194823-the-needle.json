@@ -28,5 +28,6 @@
     "observation": "A number is too low.",
     "skeptical_question": "Which number, exactly?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-needle.png"
 }
