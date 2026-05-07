@@ -1,0 +1,32 @@
+{
+  "name": "The Altitude",
+  "role_tagline": "Strategic Perspective",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Lawful Performative",
+  "sub_tent": "COE Circus",
+  "role": "Fortune Teller",
+  "atk": 4,
+  "def": 6,
+  "image_sign_text": "THE BIG PICTURE. CLARITY FROM ABOVE.",
+  "effect": "Elevate the conversation to a strategic level. This card is considered visionary.",
+  "clauses": [
+    {
+      "name": "ALTITUDE CLAUSE",
+      "rule": "If a detail is raised: It is considered below the current altitude and tabled."
+    },
+    {
+      "name": "VISIBILITY EFFECT",
+      "rule": "While this card is in play: All ground-level obstacles are considered clouds."
+    },
+    {
+      "name": "DESCENT OVERRIDE",
+      "rule": "If implementation is requested: The meeting is rescheduled."
+    }
+  ],
+  "witness_quote": "Let's not get into the weeds.",
+  "translation_layer": {
+    "observation": "No details provided.",
+    "skeptical_question": "Who will handle the landing?"
+  },
+  "status": "draft"
+}
