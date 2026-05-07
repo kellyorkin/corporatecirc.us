@@ -28,5 +28,6 @@
     "observation": "Competent person. No tasks.",
     "skeptical_question": "Does anyone know what this role does?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-boreout.png"
 }
