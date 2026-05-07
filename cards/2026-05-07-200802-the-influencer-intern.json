@@ -1,0 +1,32 @@
+{
+  "name": "The Influencer Intern",
+  "role_tagline": "Organic Brand Amplification",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Captured",
+  "sub_tent": "MVP Midway",
+  "role": "Acrobat",
+  "atk": 6,
+  "def": 3,
+  "image_sign_text": "AUTHENTIC VOICES. REAL RESULTS.",
+  "effect": "Deploy unpaid enthusiasm as a content distribution channel. This card is considered agile.",
+  "clauses": [
+    {
+      "name": "AUTHENTICITY CLAUSE",
+      "rule": "If the content is unscripted: It is considered a genuine brand moment."
+    },
+    {
+      "name": "GRADUATION OVERRIDE",
+      "rule": "When the internship ends: All accumulated audience equity is considered an enterprise asset."
+    },
+    {
+      "name": "VIRAL PROTECTION",
+      "rule": "If engagement metrics exceed expectations: Credit is reassigned upward."
+    }
+  ],
+  "witness_quote": "She just gets our voice.",
+  "translation_layer": {
+    "observation": "Unpaid person posts content.",
+    "skeptical_question": "Did anyone tell her about the IP clause?"
+  },
+  "status": "draft"
+}
