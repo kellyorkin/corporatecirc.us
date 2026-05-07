@@ -1,0 +1,32 @@
+{
+  "name": "The Data Analyst",
+  "role_tagline": "Insight Generation Specialist",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "Analytics Arcade",
+  "role": "Juggler",
+  "atk": 4,
+  "def": 6,
+  "image_sign_text": "INSIGHTS IN REAL TIME!",
+  "effect": "Transform raw data into actionable insights on request. This card is considered indispensable.",
+  "clauses": [
+    {
+      "name": "CLEANING CLAUSE",
+      "rule": "Before any insight is produced: Seventy percent of available time is consumed."
+    },
+    {
+      "name": "REFRAME EFFECT",
+      "rule": "If the insight contradicts the stakeholder's assumption: The request is resubmitted with revised parameters."
+    },
+    {
+      "name": "SINGLE SOURCE OVERRIDE",
+      "rule": "If no authoritative data source exists: The analyst is considered the authoritative data source."
+    }
+  ],
+  "witness_quote": "Can you just pull a quick number?",
+  "translation_layer": {
+    "observation": "Spreadsheets. Pivot tables. Slack.",
+    "skeptical_question": "Which version of this report is current?"
+  },
+  "status": "draft"
+}
