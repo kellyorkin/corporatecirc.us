@@ -28,5 +28,6 @@
     "observation": "Unpaid person posts content.",
     "skeptical_question": "Did anyone tell her about the IP clause?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-influencer-intern.png"
 }
