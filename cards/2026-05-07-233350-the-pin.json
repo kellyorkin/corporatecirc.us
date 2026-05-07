@@ -1,0 +1,32 @@
+{
+  "name": "The Pin",
+  "role_tagline": "Strategic Deferral",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Resigned",
+  "sub_tent": "COE Circus",
+  "role": "Knife Thrower",
+  "atk": 4,
+  "def": 6,
+  "image_sign_text": "PINNED. PRESERVED. PENDING.",
+  "effect": "Defer the current agenda item with surgical precision. This card is considered decisive.",
+  "clauses": [
+    {
+      "name": "DEFERRAL CLAUSE",
+      "rule": "When discomfort is detected: The topic is pinned and the meeting moves on."
+    },
+    {
+      "name": "TOMORROW OVERRIDE",
+      "rule": "If tomorrow arrives: The pin is not revisited and is considered still pending."
+    },
+    {
+      "name": "PRESERVATION PROTECTION",
+      "rule": "If the pin survives three meetings: The original agenda item is considered resolved."
+    }
+  ],
+  "witness_quote": "Let's just park that for now.",
+  "translation_layer": {
+    "observation": "Decision not made.",
+    "skeptical_question": "Was tomorrow ever scheduled?"
+  },
+  "status": "draft"
+}
