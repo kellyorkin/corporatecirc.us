@@ -28,5 +28,6 @@
     "observation": "Person entered. Person left.",
     "skeptical_question": "Was the desk ever warm?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-coffee-badge.png"
 }
