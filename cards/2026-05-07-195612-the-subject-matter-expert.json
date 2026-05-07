@@ -28,5 +28,6 @@
     "observation": "One person knows everything.",
     "skeptical_question": "What happens when Dave leaves?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-subject-matter-expert.png"
 }
