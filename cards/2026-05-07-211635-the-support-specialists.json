@@ -1,0 +1,32 @@
+{
+  "name": "The Support Specialists",
+  "role_tagline": "Escalation Management",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Resigned",
+  "sub_tent": "COE Circus",
+  "role": "Juggler",
+  "atk": 2,
+  "def": 6,
+  "image_sign_text": "WE'RE HERE TO HELP.",
+  "effect": "Route all incoming issues through the appropriate ticketing system. This card is considered responsive.",
+  "clauses": [
+    {
+      "name": "TRIAGE CLAUSE",
+      "rule": "When an issue is submitted: The issue is considered acknowledged."
+    },
+    {
+      "name": "ESCALATION OVERRIDE",
+      "rule": "If the issue persists beyond two sprints: Ownership is transferred to a different team."
+    },
+    {
+      "name": "RESOLUTION EFFECT",
+      "rule": "When the ticket is closed: The issue is considered resolved regardless of status."
+    }
+  ],
+  "witness_quote": "Have you tried clearing your cache?",
+  "translation_layer": {
+    "observation": "Ticket opened, ticket closed.",
+    "skeptical_question": "Did anything actually change?"
+  },
+  "status": "draft"
+}
