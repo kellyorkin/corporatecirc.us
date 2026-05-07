@@ -1,0 +1,32 @@
+{
+  "name": "The Needle",
+  "role_tagline": "Metric Acceleration Imperative",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Volatile",
+  "sub_tent": "Analytics Arcade",
+  "role": "Ringmaster",
+  "atk": 7,
+  "def": 3,
+  "image_sign_text": "MOVE THE NEEDLE. NOW.",
+  "effect": "Declare that metrics must improve. This card is considered urgent.",
+  "clauses": [
+    {
+      "name": "DIRECTIONAL CLAUSE",
+      "rule": "If the needle is invoked: All teams are considered responsible for moving it."
+    },
+    {
+      "name": "NEEDLE DEFINITION OVERRIDE",
+      "rule": "If pressed on which metric: The needle is redefined to one that has already moved."
+    },
+    {
+      "name": "MOMENTUM PROTECTION",
+      "rule": "If the needle does not move: The initiative is considered to be building momentum."
+    }
+  ],
+  "witness_quote": "We really need to move the needle.",
+  "translation_layer": {
+    "observation": "A number is too low.",
+    "skeptical_question": "Which number, exactly?"
+  },
+  "status": "draft"
+}
