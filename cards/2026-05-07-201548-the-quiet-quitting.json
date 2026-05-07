@@ -28,5 +28,6 @@
     "observation": "Person does their job.",
     "skeptical_question": "When did doing the job become the problem?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-quiet-quitting.png"
 }
