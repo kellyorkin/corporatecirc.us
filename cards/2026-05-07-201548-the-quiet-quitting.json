@@ -1,0 +1,32 @@
+{
+  "name": "The Quiet Quitting",
+  "role_tagline": "Sustainable Minimum",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Resigned",
+  "sub_tent": "COE Circus",
+  "role": "Contortionist",
+  "atk": 2,
+  "def": 9,
+  "image_sign_text": null,
+  "effect": "Perform all required tasks at exactly the agreed scope. This card is considered engaged.",
+  "clauses": [
+    {
+      "name": "SCOPE PROTECTION",
+      "rule": "If a task falls outside the job description: It is returned unopened."
+    },
+    {
+      "name": "VISIBILITY CLAUSE",
+      "rule": "If a manager observes this card: They describe it as a performance issue."
+    },
+    {
+      "name": "CONTINUITY EFFECT",
+      "rule": "Each quarter this card remains in play: The card is considered indistinguishable from full participation."
+    }
+  ],
+  "witness_quote": "They used to really care.",
+  "translation_layer": {
+    "observation": "Person does their job.",
+    "skeptical_question": "When did doing the job become the problem?"
+  },
+  "status": "draft"
+}
