@@ -28,5 +28,6 @@
     "observation": "Spreadsheets. Pivot tables. Slack.",
     "skeptical_question": "Which version of this report is current?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-data-analyst.png"
 }
