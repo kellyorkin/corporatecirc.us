@@ -1,0 +1,32 @@
+{
+  "name": "The Account Director",
+  "role_tagline": "Strategic Relationship Management",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "COE Circus",
+  "role": "Lion Tamer",
+  "atk": 6,
+  "def": 7,
+  "image_sign_text": "YOUR PARTNER IN GROWTH",
+  "effect": "Maintain control of the client relationship through regular touchpoints and selective information sharing. This card is considered indispensable.",
+  "clauses": [
+    {
+      "name": "ESCALATION PROTECTION",
+      "rule": "If the client raises a complaint: Route it through a quarterly business review."
+    },
+    {
+      "name": "RENEWAL CLAUSE",
+      "rule": "If renewal is at risk: Schedule an executive alignment call."
+    },
+    {
+      "name": "VISIBILITY OVERRIDE",
+      "rule": "If the client speaks directly to the delivery team: This card is immediately discarded."
+    }
+  ],
+  "witness_quote": "I'll loop in my team on that.",
+  "translation_layer": {
+    "observation": "Stands between two parties.",
+    "skeptical_question": "What would happen if they talked directly?"
+  },
+  "status": "draft"
+}
