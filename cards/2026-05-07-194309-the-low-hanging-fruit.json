@@ -1,0 +1,32 @@
+{
+  "name": "The Low Hanging Fruit",
+  "role_tagline": "Quick Win Harvesting",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "MVP Midway",
+  "role": "Juggler",
+  "atk": 4,
+  "def": 3,
+  "image_sign_text": "RESULTS. FAST. NOW.",
+  "effect": "Identify and capture the easiest available wins. This card is considered impactful.",
+  "clauses": [
+    {
+      "name": "HARVEST CLAUSE",
+      "rule": "If this card is played in Q1: Declare momentum."
+    },
+    {
+      "name": "DIMINISHING RETURNS EFFECT",
+      "rule": "Each time this card is played: The fruit is considered higher than last time."
+    },
+    {
+      "name": "ORCHARD DEPLETION OVERRIDE",
+      "rule": "If no fruit remains: Propose a roadmap to grow more fruit."
+    }
+  ],
+  "witness_quote": "Let's just start with the easy stuff.",
+  "translation_layer": {
+    "observation": "Existing task completed early.",
+    "skeptical_question": "Was this already done?"
+  },
+  "status": "draft"
+}
