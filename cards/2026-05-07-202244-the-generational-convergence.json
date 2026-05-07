@@ -1,0 +1,32 @@
+{
+  "name": "The Generational Convergence",
+  "role_tagline": "Multigenerational Synergy",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Resigned",
+  "sub_tent": "COE Circus",
+  "role": "Juggler",
+  "atk": 4,
+  "def": 5,
+  "image_sign_text": "FIVE GENERATIONS. ONE TEAM.",
+  "effect": "Unite multiple generational cohorts under a single organisational framework. This card is considered inclusive.",
+  "clauses": [
+    {
+      "name": "GENERATIONAL TRANSLATION CLAUSE",
+      "rule": "If two cohorts disagree on a tool: Convene a working group to explore both perspectives."
+    },
+    {
+      "name": "REVERSE MENTORSHIP EFFECT",
+      "rule": "If a junior employee explains a platform to a senior one: This is considered a strategic capability."
+    },
+    {
+      "name": "EVERGREEN RESIGNATION OVERRIDE",
+      "rule": "If the initiative is still running after two years: Credit the initiative. If it has ended: Credit the learning."
+    }
+  ],
+  "witness_quote": "We really value diverse perspectives here.",
+  "translation_layer": {
+    "observation": "People of different ages work together.",
+    "skeptical_question": "Was this always just about the seating chart?"
+  },
+  "status": "draft"
+}
