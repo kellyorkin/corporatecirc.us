@@ -28,5 +28,6 @@
     "observation": "One person. All pipes.",
     "skeptical_question": "What happens when they leave?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-platform-engineer.png"
 }
