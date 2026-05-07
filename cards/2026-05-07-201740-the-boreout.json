@@ -1,0 +1,32 @@
+{
+  "name": "The Boreout",
+  "role_tagline": "Sustained Disengagement",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Resigned",
+  "sub_tent": "COE Circus",
+  "role": "Contortionist",
+  "atk": 2,
+  "def": 9,
+  "image_sign_text": "FULLY UTILIZED. HIGHLY ENGAGED.",
+  "effect": "Occupy a role without meaningful work to fill it. This card is considered resourced.",
+  "clauses": [
+    {
+      "name": "VISIBILITY PROTECTION",
+      "rule": "If no one assigns new work: This card is considered busy."
+    },
+    {
+      "name": "RETENTION CLAUSE",
+      "rule": "When a headcount review occurs: This card is considered critical to operations."
+    },
+    {
+      "name": "EROSION EFFECT",
+      "rule": "Each turn this card remains unactivated: Its ATK decreases by 1, to a minimum of 1."
+    }
+  ],
+  "witness_quote": "I just refresh my inbox.",
+  "translation_layer": {
+    "observation": "Competent person. No tasks.",
+    "skeptical_question": "Does anyone know what this role does?"
+  },
+  "status": "draft"
+}
