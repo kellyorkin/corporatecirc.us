@@ -1,0 +1,32 @@
+{
+  "name": "The New Normal",
+  "role_tagline": "Frictionless Transition",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Lawful Resigned",
+  "sub_tent": "COE Circus",
+  "role": "Contortionist",
+  "atk": 2,
+  "def": 9,
+  "image_sign_text": "THIS IS FINE.",
+  "effect": "Reframe institutional disruption as expected operating conditions. This card is considered adjusted.",
+  "clauses": [
+    {
+      "name": "NORMALISATION CLAUSE",
+      "rule": "If this card has been in play for two turns: All previous conditions are considered legacy."
+    },
+    {
+      "name": "RESILIENCE OVERRIDE",
+      "rule": "If anyone names the disruption: It is renamed an opportunity."
+    },
+    {
+      "name": "MEMORY PROTECTION",
+      "rule": "If anyone asks how things were before: The question is considered misaligned with current strategy."
+    }
+  ],
+  "witness_quote": "We've all adapted remarkably well.",
+  "translation_layer": {
+    "observation": "Old problems, new vocabulary.",
+    "skeptical_question": "Normal for whom?"
+  },
+  "status": "draft"
+}
