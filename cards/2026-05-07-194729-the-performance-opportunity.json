@@ -28,5 +28,6 @@
     "observation": "Numbers are bad.",
     "skeptical_question": "Who is doing the seeing?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-performance-opportunity.png"
 }
