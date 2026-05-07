@@ -1,0 +1,32 @@
+{
+  "name": "The Subject Matter Expert",
+  "role_tagline": "Institutional Knowledge Holder",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "COE Circus",
+  "role": "Lion Tamer",
+  "atk": 6,
+  "def": 9,
+  "image_sign_text": null,
+  "effect": "Gatekeep domain knowledge through selective availability. This card is considered indispensable.",
+  "clauses": [
+    {
+      "name": "SINGLE POINT OF FAILURE CLAUSE",
+      "rule": "If this card leaves the field: All dependent processes halt immediately."
+    },
+    {
+      "name": "TRIBAL KNOWLEDGE PROTECTION",
+      "rule": "If documentation is requested: Provide a meeting instead."
+    },
+    {
+      "name": "BACKLOG OVERRIDE",
+      "rule": "If this card is assigned to more than two workstreams simultaneously: All workstreams are considered in progress."
+    }
+  ],
+  "witness_quote": "Just ask Dave. Dave knows.",
+  "translation_layer": {
+    "observation": "One person knows everything.",
+    "skeptical_question": "What happens when Dave leaves?"
+  },
+  "status": "draft"
+}
