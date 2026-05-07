@@ -1,0 +1,32 @@
+{
+  "name": "The Technical Architect",
+  "role_tagline": "Visionary Systems Thinker",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "COE Circus",
+  "role": "Contortionist",
+  "atk": 6,
+  "def": 7,
+  "image_sign_text": "DIAGRAMS AVAILABLE UPON REQUEST.",
+  "effect": "Produce a reference architecture aligning all systems, teams, and strategic intent. This card is considered authoritative.",
+  "clauses": [
+    {
+      "name": "DIAGRAM CLAUSE",
+      "rule": "If a decision requires justification: A diagram is produced that supports any conclusion."
+    },
+    {
+      "name": "LEGACY OVERRIDE",
+      "rule": "If a legacy system is incompatible with the architecture: The architecture is updated to include it."
+    },
+    {
+      "name": "CONSULTATION PROTECTION",
+      "rule": "If this card is challenged: The challenger is invited to a follow-up session."
+    }
+  ],
+  "witness_quote": "It depends on your definition of done.",
+  "translation_layer": {
+    "observation": "Boxes and arrows.",
+    "skeptical_question": "Which version of this is current?"
+  },
+  "status": "draft"
+}
