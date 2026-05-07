@@ -28,5 +28,6 @@
     "observation": "Contract signed. Team notified.",
     "skeptical_question": "Was any of that on the roadmap?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-sales-executive.png"
 }
