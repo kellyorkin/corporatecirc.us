@@ -1,0 +1,32 @@
+{
+  "name": "The Marketing Coordinator",
+  "role_tagline": "Synchronized Execution",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "COE Circus",
+  "role": "Juggler",
+  "atk": 4,
+  "def": 6,
+  "image_sign_text": "ON BRAND. ON TIME. ON IT.",
+  "effect": "Manage all outstanding requests simultaneously. This card is considered aligned.",
+  "clauses": [
+    {
+      "name": "INTAKE CLAUSE",
+      "rule": "When a new request arrives: Add it to the queue and confirm receipt within one business day."
+    },
+    {
+      "name": "REPRIORITIZATION OVERRIDE",
+      "rule": "If a senior stakeholder marks anything urgent: All other tasks are deprioritized without announcement."
+    },
+    {
+      "name": "CAPACITY PROTECTION",
+      "rule": "If the number of active requests exceeds visible bandwidth: The coordinator is considered a bottleneck rather than a resource constraint."
+    }
+  ],
+  "witness_quote": "Can you just make it pop more?",
+  "translation_layer": {
+    "observation": "Many tabs. One person.",
+    "skeptical_question": "Who approved the brief?"
+  },
+  "status": "draft"
+}
