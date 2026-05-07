@@ -1,0 +1,32 @@
+{
+  "name": "The Full Stack",
+  "role_tagline": "End-to-End Ownership",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "MVP Midway",
+  "role": "Juggler",
+  "atk": 6,
+  "def": 6,
+  "image_sign_text": "FRONTEND. BACKEND. DEVOPS. WHATEVER.",
+  "effect": "Deploy a single resource across all layers of the technical architecture simultaneously. This card is considered versatile.",
+  "clauses": [
+    {
+      "name": "BREADTH CLAUSE",
+      "rule": "If a task lacks an owner: This card is assigned."
+    },
+    {
+      "name": "DEPTH OVERRIDE",
+      "rule": "If any single layer requires deep expertise: This card is considered sufficient anyway."
+    },
+    {
+      "name": "BURNOUT EFFECT",
+      "rule": "After three consecutive sprints of full-stack ownership: This card's ATK and DEF are each reduced by 3 until a backlog grooming ceremony is performed."
+    }
+  ],
+  "witness_quote": "Can you just take a look at it?",
+  "translation_layer": {
+    "observation": "One person. Many tickets.",
+    "skeptical_question": "Which layer is actually production-grade?"
+  },
+  "status": "draft"
+}
