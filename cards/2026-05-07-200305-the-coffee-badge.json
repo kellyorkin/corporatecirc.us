@@ -1,0 +1,32 @@
+{
+  "name": "The Coffee Badge",
+  "role_tagline": "Presence Optimization",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Lawful Performative",
+  "sub_tent": "COE Circus",
+  "role": "Sleight of Hand",
+  "atk": 2,
+  "def": 6,
+  "image_sign_text": "IN THE OFFICE. COMMITTED. PRESENT.",
+  "effect": "Register a physical presence at the office. This card is considered compliant.",
+  "clauses": [
+    {
+      "name": "BADGE SWIPE CLAUSE",
+      "rule": "If this card enters the building before 10am: Attendance is considered demonstrated."
+    },
+    {
+      "name": "DEPARTURE OVERRIDE",
+      "rule": "If this card exits before lunch: The visit is still considered a full contribution."
+    },
+    {
+      "name": "VISIBILITY PROTECTION",
+      "rule": "If anyone asks: A coffee was had."
+    }
+  ],
+  "witness_quote": "I was literally just there.",
+  "translation_layer": {
+    "observation": "Badged in. Left immediately.",
+    "skeptical_question": "Does the building know you were working?"
+  },
+  "status": "draft"
+}
