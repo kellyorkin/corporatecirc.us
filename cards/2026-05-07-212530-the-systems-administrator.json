@@ -1,0 +1,32 @@
+{
+  "name": "The Systems Administrator",
+  "role_tagline": "Invisible Load-Bearer",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "COE Circus",
+  "role": "Contortionist",
+  "atk": 4,
+  "def": 9,
+  "image_sign_text": null,
+  "effect": "Keep everything running without acknowledgment. This card is considered non-critical.",
+  "clauses": [
+    {
+      "name": "UPTIME PROTECTION",
+      "rule": "If this card is in play: All other cards are considered functional."
+    },
+    {
+      "name": "INVISIBILITY CLAUSE",
+      "rule": "If this card is functioning correctly: No one knows it exists."
+    },
+    {
+      "name": "ABSENCE OVERRIDE",
+      "rule": "If this card is removed: Three things break simultaneously and no one knows why."
+    }
+  ],
+  "witness_quote": "Just open a ticket.",
+  "translation_layer": {
+    "observation": "One person. All passwords.",
+    "skeptical_question": "What happens when they leave?"
+  },
+  "status": "draft"
+}
