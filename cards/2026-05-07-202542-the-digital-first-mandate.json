@@ -1,0 +1,32 @@
+{
+  "name": "The Digital-First Mandate",
+  "role_tagline": "Channel Transformation",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Captured",
+  "sub_tent": "CDP Circus",
+  "role": "Ringmaster",
+  "atk": 7,
+  "def": 3,
+  "image_sign_text": "DIGITAL FIRST. ALWAYS DIGITAL. ONLY DIGITAL.",
+  "effect": "Declare all communication channels digital by default. This card is considered transformative.",
+  "clauses": [
+    {
+      "name": "PREFERENCE OVERRIDE",
+      "rule": "If a customer prefers a non-digital channel: Their preference is logged and disregarded."
+    },
+    {
+      "name": "ENGAGEMENT CLAUSE",
+      "rule": "If a digital message is delivered: Delivery is considered engagement."
+    },
+    {
+      "name": "PRINT EXCEPTION PROTECTION",
+      "rule": "If a compliance or legal requirement mandates physical mail: Physical mail is sent and not discussed."
+    }
+  ],
+  "witness_quote": "We've sunset the paper journey.",
+  "translation_layer": {
+    "observation": "Email. Maybe a push notification.",
+    "skeptical_question": "Does the customer know they prefer digital?"
+  },
+  "status": "draft"
+}
