@@ -28,5 +28,6 @@
     "observation": "Someone is unhappy.",
     "skeptical_question": "What would actually be different?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-paradigm-shift.png"
 }
