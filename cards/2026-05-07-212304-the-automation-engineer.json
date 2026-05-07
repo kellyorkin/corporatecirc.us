@@ -1,0 +1,32 @@
+{
+  "name": "The Automation Engineer",
+  "role_tagline": "Manual Process Eliminator",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "COE Circus",
+  "role": "Contortionist",
+  "atk": 6,
+  "def": 5,
+  "image_sign_text": "HUMANS OPTIONAL",
+  "effect": "Replace manual processes with automated ones. This card is considered efficient.",
+  "clauses": [
+    {
+      "name": "AUTOMATION CLAUSE",
+      "rule": "If a manual process is identified: It is scheduled for elimination next quarter."
+    },
+    {
+      "name": "EXCEPTION OVERRIDE",
+      "rule": "If an automated process encounters an edge case: A human is quietly reintroduced to handle it."
+    },
+    {
+      "name": "MAINTENANCE EFFECT",
+      "rule": "After six months: The automation requires more maintenance than the process it replaced."
+    }
+  ],
+  "witness_quote": "We only need to build it once.",
+  "translation_layer": {
+    "observation": "Script breaks on Tuesdays.",
+    "skeptical_question": "Who wrote the script that runs the script?"
+  },
+  "status": "draft"
+}
