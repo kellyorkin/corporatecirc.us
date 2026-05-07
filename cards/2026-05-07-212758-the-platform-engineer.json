@@ -1,0 +1,32 @@
+{
+  "name": "The Platform Engineer",
+  "role_tagline": "Invisible Infrastructure",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "COE Circus",
+  "role": "Contortionist",
+  "atk": 4,
+  "def": 9,
+  "image_sign_text": null,
+  "effect": "Absorb all unassigned technical debt and undocumented dependencies. This card is considered foundational.",
+  "clauses": [
+    {
+      "name": "LOAD-BEARING CLAUSE",
+      "rule": "If a system fails: This card is considered responsible regardless of ownership."
+    },
+    {
+      "name": "THANKLESS WORK EFFECT",
+      "rule": "When this card resolves an incident: No stakeholder is updated."
+    },
+    {
+      "name": "DEPRECATION OVERRIDE",
+      "rule": "If a tool is deprecated: This card continues to operate it until something worse replaces it."
+    }
+  ],
+  "witness_quote": "I don't know who owns this.",
+  "translation_layer": {
+    "observation": "One person. All pipes.",
+    "skeptical_question": "What happens when they leave?"
+  },
+  "status": "draft"
+}
