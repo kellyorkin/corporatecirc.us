@@ -1,0 +1,32 @@
+{
+  "name": "The Silo",
+  "role_tagline": "Structural Removal Initiative",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Captured",
+  "sub_tent": "COE Circus",
+  "role": "Illusionist",
+  "atk": 6,
+  "def": 3,
+  "image_sign_text": "BREAKING DOWN BARRIERS. TOGETHER.",
+  "effect": "Declare the elimination of all organizational silos. This card is considered transformative.",
+  "clauses": [
+    {
+      "name": "DEMOLITION CLAUSE",
+      "rule": "When a silo is declared broken: A new working group is formed in its place."
+    },
+    {
+      "name": "PERSISTENCE EFFECT",
+      "rule": "If the original teams remain intact: The silo is considered broken regardless."
+    },
+    {
+      "name": "REASSEMBLY OVERRIDE",
+      "rule": "By the next planning cycle: All silos are considered restored under new names."
+    }
+  ],
+  "witness_quote": "We're finally aligned on alignment.",
+  "translation_layer": {
+    "observation": "Org chart relabeled.",
+    "skeptical_question": "Are the same people still not talking to each other?"
+  },
+  "status": "draft"
+}
