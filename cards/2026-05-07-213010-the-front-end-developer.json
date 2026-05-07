@@ -1,0 +1,32 @@
+{
+  "name": "The Front End Developer",
+  "role_tagline": "Pixel-Perfect Delivery",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "MVP Midway",
+  "role": "Contortionist",
+  "atk": 5,
+  "def": 6,
+  "image_sign_text": "LOOKS GREAT ON MY MACHINE",
+  "effect": "Render the interface as specified, on the devices that were tested. This card is considered complete.",
+  "clauses": [
+    {
+      "name": "BROWSER COMPATIBILITY CLAUSE",
+      "rule": "If a stakeholder opens the product in an untested browser: The layout is considered a known limitation."
+    },
+    {
+      "name": "DESIGN DRIFT EFFECT",
+      "rule": "Each time the design file is updated without notice: This card absorbs the change silently."
+    },
+    {
+      "name": "SCOPE PROTECTION",
+      "rule": "If the back end is not ready: This card waits indefinitely and is still considered blocked by someone else."
+    }
+  ],
+  "witness_quote": "Can you just make it pop?",
+  "translation_layer": {
+    "observation": "CSS adjusted until it fits.",
+    "skeptical_question": "Did anyone check this on mobile?"
+  },
+  "status": "draft"
+}
