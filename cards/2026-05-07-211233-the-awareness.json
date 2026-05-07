@@ -1,0 +1,32 @@
+{
+  "name": "The Awareness",
+  "role_tagline": "Visibility at Scale",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Performative",
+  "sub_tent": "CDP Circus",
+  "role": "Illusionist",
+  "atk": 6,
+  "def": 3,
+  "image_sign_text": "THEY KNOW YOU EXIST.",
+  "effect": "Generate measurable brand presence across all relevant audiences. This card is considered top-of-funnel.",
+  "clauses": [
+    {
+      "name": "IMPRESSION CLAUSE",
+      "rule": "If an impression is served: Brand awareness is considered increased."
+    },
+    {
+      "name": "ATTRIBUTION OVERRIDE",
+      "rule": "If revenue cannot be traced to this card: Awareness remains the upstream cause."
+    },
+    {
+      "name": "RECALL PROTECTION",
+      "rule": "If no one remembers the ad: The frequency is considered insufficient."
+    }
+  ],
+  "witness_quote": "It's not about clicks.",
+  "translation_layer": {
+    "observation": "Banner shown. Maybe seen.",
+    "skeptical_question": "Aware of what, exactly?"
+  },
+  "status": "draft"
+}
