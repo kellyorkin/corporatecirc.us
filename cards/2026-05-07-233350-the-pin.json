@@ -28,6 +28,6 @@
     "observation": "Decision not made.",
     "skeptical_question": "Was tomorrow ever scheduled?"
   },
-  "status": "draft",
+  "status": "published",
   "image_path": "cards/images/the-pin.png"
 }
