@@ -85,7 +85,21 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "Auto-generate card images [skip ci]"
-            git push
+            # save-card.js can push directly to main while this run is in
+            # flight; that makes the local push non-fast-forward. Rebase
+            # our additive image commit and retry. The commits we'd race
+            # against are new card files at unique paths, so the rebase
+            # is conflict-free.
+            for attempt in 1 2 3; do
+              if git pull --rebase origin main && git push; then
+                echo "Push succeeded on attempt $attempt."
+                exit 0
+              fi
+              echo "Push attempt $attempt failed; retrying after backoff..."
+              sleep 5
+            done
+            echo "Push failed after 3 attempts."
+            exit 1
           fi
 
   render-cards:
