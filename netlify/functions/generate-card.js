@@ -5,6 +5,20 @@
 // V1.1 system prompt + few-shot examples, and returns a schema-compliant JSON card.
 //
 // Requires the env var ANTHROPIC_API_KEY (set in Netlify UI, NOT in code).
+//
+// Voice rules, structural rules, alignment grid, stats guidance, and base
+// schema fields are shared across decks via netlify/lib/card-voice-rules.
+// Flea-Circus-specific bits (game framing, sub-tents, circus roles,
+// anti-patterns, image_sign_text, few-shots) live here.
+
+const {
+  VOICE_RULES_SHARED,
+  STRUCTURAL_RULES_SHARED,
+  STATS_GUIDANCE,
+  ALIGNMENT_GRID,
+  HEAVY_LIFTING_NOTE,
+  BASE_SCHEMA_FIELDS
+} = require('../lib/card-voice-rules');
 
 const SYSTEM_PROMPT = `You generate Manufactured Exhibit cards for The Product Flea Circus, a satirical card game by Indifferencer, Inc. Your output must be a single card matching the provided tool schema.
 
@@ -15,20 +29,10 @@ Cards are tagged with a corporate alignment from a 3×3 grid borrowed from the S
 
 VOICE RULES
 - The card's outward voice is vendor pitch deck: confident, declarative, narrating modest capabilities into transformative ones.
-- The Translation Layer's voice is forensic: brutally clinical, naming what's actually happening under the marketing apparatus.
-- Witness quotes are testimony: anonymous, short (2-7 words), the kind of phrase actually said in a meeting.
-- Honor the inversion: the more elaborate the corporate language, the more mundane its Translation Layer.
-- Do not name specific real vendors or products. Satirize the category, not the company.
-- Do not break voice for explanation. The card is the artifact.
+${VOICE_RULES_SHARED}
 
 STRUCTURAL RULES
-- name: "The [Noun]" form. Title case.
-- role_tagline: 1-3 words of corpspeak compression.
-- effect: Pattern: "[Action]. This card is considered [adjective]."
-- clauses: 2-3 named conditional rules. Names ALL CAPS, suffixed with CLAUSE / EFFECT / OVERRIDE / PROTECTION. Each rule: "[Trigger]: [Consequence]."
-- witness_quote: 2-7 words. Anonymous. Punchy.
-- translation_layer.observation: 2-5 words. Deadpan factual description.
-- translation_layer.skeptical_question: A short, quiet question raised by the magnifying glass.
+${STRUCTURAL_RULES_SHARED}
 - image_sign_text (optional): A marketing slogan visible in the artwork. Punchy capitals.
 
 SUB-TENTS
@@ -61,21 +65,10 @@ Every card carries a circus-performer role that shapes its voice and posture. Th
 Magic-lane disambiguation (these roles overlap and must stay distinct): Sleight of Hand is small-precise misdirection; Magician is theatrical conjuring of an illusion; Illusionist is grand-spectacle illusion at scale; Fortune Teller is mystical divination of the future.
 
 STATS
-Every card carries an ATK score (1-10) and a DEF score (1-10). Assign them based on the card's satirical weight — its presence in a meeting, its capacity to derail or absorb pressure, its threat or shield value in the game's loose corporate metaphor. Provide no methodology. Do not justify the numbers. The arbitrariness is part of the satire — corporate scoring systems assign confident integers from vibes, and so does this one. Assign different numbers to different cards. Cards that satirize attack-shaped phenomena (declarations, escalations, demos) tend toward higher ATK; cards that satirize defensive phenomena (documents, stalemates, deflections) tend toward higher DEF. But you may also subvert these tendencies. The numbers should feel definite and unbalanced.
+${STATS_GUIDANCE}
 
 ALIGNMENT
-Every card carries a corporate alignment from this 3×3 grid:
-
-- Lawful Compliant — by-the-book, faithfully procedural (a properly-filed risk register)
-- Lawful Performative — compliance theater for the procedural audience (an audit signed before being read)
-- Lawful Resigned — rote execution without belief (the quarterly report no one opens)
-- Neutral Engaged — earnest participation outside ideology (a working group that actually works)
-- Neutral Pragmatic — outcome-focused, ceremony-free (the senior IC who quietly fixes things)
-- Neutral Resigned — going through the motions (the recurring meeting that survived its purpose)
-- Chaotic Innovative — genuine disruption with novel shape (rare in the deck — the satire is mostly the absence of this)
-- Chaotic Captured — disruption absorbed into procedure (the hackathon that became a quarterly KPI; the agile transformation that produced its own steering committee)
-- Chaotic Performative — disruption theater, spectacle of innovation (the AI-first mandate)
-- Chaotic Volatile — uncontrolled and hazardous (the executive declaration that breaks three teams)
+${ALIGNMENT_GRID}
 
 Most Manufactured Exhibits will lean Performative — these cards satirize how marketing stages technology, and Performative is its native voice. Resist defaulting there. A risk register is Lawful Compliant. A tired re-org is Lawful Resigned. A working pilot is Neutral Engaged. The alignment should sharpen the satire of the specific card, not generalize across the deck.
 
@@ -85,7 +78,7 @@ ANTI-PATTERNS
 - Do not generate Performer or Counter Spell cards. V1 is Manufactured Exhibits only.
 - Do not justify the ATK/DEF numbers in any field. They stand without defense.
 
-Aim for at least one clause per card that does the satirical heavy lifting (e.g., "Forgetfulness Clause: Next turn: No one remembers how it worked").`;
+${HEAVY_LIFTING_NOTE}`;
 
 const TOOL_DEFINITION = {
   name: "generate_manufactured_exhibit_card",
@@ -93,18 +86,10 @@ const TOOL_DEFINITION = {
   input_schema: {
     type: "object",
     properties: {
-      name: { type: "string", description: "Card title in 'The [Noun]' form." },
-      role_tagline: { type: "string", description: "1-3 words of corpspeak compression." },
+      name: BASE_SCHEMA_FIELDS.name,
+      role_tagline: BASE_SCHEMA_FIELDS.role_tagline,
       card_type: { type: "string", enum: ["Manufactured Exhibit"] },
-      alignment: {
-        type: "string",
-        enum: [
-          "Lawful Compliant", "Lawful Performative", "Lawful Resigned",
-          "Neutral Engaged",  "Neutral Pragmatic",   "Neutral Resigned",
-          "Chaotic Innovative", "Chaotic Captured", "Chaotic Performative", "Chaotic Volatile"
-        ],
-        description: "Corporate alignment from the 3×3 grid. Resist defaulting to Performative."
-      },
+      alignment: BASE_SCHEMA_FIELDS.alignment,
       sub_tent: {
         type: "string",
         enum: ["CDP Circus", "AI Pavilion", "Analytics Arcade", "Compliance Sideshow", "COE Circus", "MVP Midway"]
@@ -114,48 +99,16 @@ const TOOL_DEFINITION = {
         enum: ["Tightrope", "Strongman", "Sleight of Hand", "Trapeze", "Juggler", "Ringmaster", "Acrobat", "Fire Breather", "Magician", "Clown", "Contortionist", "Lion Tamer", "Illusionist", "Fortune Teller", "Knife Thrower"],
         description: "Circus-performer archetype shaping the card's voice and posture."
       },
-      atk: {
-        type: "integer",
-        minimum: 1,
-        maximum: 10,
-        description: "Attack score 1-10. Assign based on satirical weight. Do not justify."
-      },
-      def: {
-        type: "integer",
-        minimum: 1,
-        maximum: 10,
-        description: "Defense score 1-10. Assign based on satirical weight. Do not justify."
-      },
+      atk: BASE_SCHEMA_FIELDS.atk,
+      def: BASE_SCHEMA_FIELDS.def,
       image_sign_text: {
         type: ["string", "null"],
         description: "Optional marketing slogan visible in artwork. Punchy capitals."
       },
-      effect: {
-        type: "string",
-        description: "Primary effect. Pattern: '[Action]. This card is considered [adjective].'"
-      },
-      clauses: {
-        type: "array",
-        minItems: 2,
-        maxItems: 3,
-        items: {
-          type: "object",
-          properties: {
-            name: { type: "string", description: "ALL CAPS. CLAUSE / EFFECT / OVERRIDE / PROTECTION suffix." },
-            rule: { type: "string", description: "'[Trigger]: [Consequence].'" }
-          },
-          required: ["name", "rule"]
-        }
-      },
-      witness_quote: { type: "string", description: "2-7 words. Anonymous. Punchy." },
-      translation_layer: {
-        type: "object",
-        properties: {
-          observation: { type: "string", description: "Deadpan factual description. 2-5 words." },
-          skeptical_question: { type: "string", description: "Magnifying-glass follow-up question." }
-        },
-        required: ["observation", "skeptical_question"]
-      }
+      effect: BASE_SCHEMA_FIELDS.effect,
+      clauses: BASE_SCHEMA_FIELDS.clauses,
+      witness_quote: BASE_SCHEMA_FIELDS.witness_quote,
+      translation_layer: BASE_SCHEMA_FIELDS.translation_layer
     },
     required: ["name", "role_tagline", "card_type", "alignment", "sub_tent", "role", "atk", "def", "effect", "clauses", "witness_quote", "translation_layer"]
   }
