@@ -1,0 +1,32 @@
+{
+  "name": "The Reluctant Boss",
+  "role_tagline": "Delegated Authority",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Lawful Resigned",
+  "sub_tent": "COE Circus",
+  "role": "Lion Tamer",
+  "atk": 4,
+  "def": 6,
+  "image_sign_text": null,
+  "effect": "Accept ownership of a dangerous thing without requesting it. This card is considered accountable.",
+  "clauses": [
+    {
+      "name": "ESCALATION PROTECTION",
+      "rule": "If a decision reaches this card: The decision is returned to the team as an action item."
+    },
+    {
+      "name": "VISIBILITY CLAUSE",
+      "rule": "If this card is observed in a meeting: It is considered engaged."
+    },
+    {
+      "name": "ATTRITION EFFECT",
+      "rule": "After three consecutive quarters: This card exits the role citing personal growth."
+    }
+  ],
+  "witness_quote": "I didn't volunteer for this.",
+  "translation_layer": {
+    "observation": "Manages by not deciding.",
+    "skeptical_question": "Does anyone report to this person willingly?"
+  },
+  "status": "draft"
+}
