@@ -28,5 +28,6 @@
     "observation": "Manages by not deciding.",
     "skeptical_question": "Does anyone report to this person willingly?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-reluctant-boss.png"
 }
