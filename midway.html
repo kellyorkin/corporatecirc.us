@@ -229,7 +229,7 @@
     /* ── Card container ── */
     .card-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 16px;
       min-height: 120px;
     }
@@ -262,113 +262,75 @@
     .midway-card {
       background: #F5ECD6;
       border: 1px solid rgba(42,31,23,0.25);
-      border-top: 3px solid var(--amber);
-      padding: 18px 16px 14px;
       color: #2a1f17;
       position: relative;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.25s, box-shadow 0.25s;
+      aspect-ratio: 5 / 7;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
     }
     .midway-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(212,133,10,0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(212,133,10,0.3), 0 0 0 1px rgba(212,133,10,0.3);
     }
 
     .mc-image {
       display: block;
       width: 100%;
-      height: auto;
-      margin-bottom: 12px;
+      flex: 0 0 55%;
+      object-fit: cover;
       background: rgba(42,31,23,0.05);
     }
 
     .mc-badge {
       position: absolute;
-      top: -1px; right: 10px;
+      top: 0.4rem; right: 0.4rem;
       font-family: 'Cinzel', serif;
-      font-size: 7px;
-      letter-spacing: 0.18em;
+      font-size: 6px;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      padding: 2px 8px;
+      padding: 2px 6px;
       background: #6B1A0F;
       color: #F5ECD6;
+      border-radius: 2px;
+      z-index: 2;
     }
 
+    /* Browse info section */
     .mc-name {
       font-family: 'Cinzel Decorative', serif;
-      font-size: 13px;
+      font-size: 0.68rem;
       color: #2a1f17;
       margin-bottom: 2px;
-      padding-right: 60px;
+      padding: 0.4rem 0.5rem 0;
       line-height: 1.25;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     .mc-tagline {
       font-style: italic;
-      font-size: 11px;
+      font-size: 0.5rem;
       color: #8B3A00;
-      margin-bottom: 8px;
+      padding: 0 0.5rem;
+      margin-bottom: 0.2rem;
     }
     .mc-stats {
       font-family: 'Cinzel', serif;
-      font-size: 10px;
+      font-size: 0.48rem;
       color: #6B1A0F;
-      margin-bottom: 8px;
+      padding: 0 0.5rem 0.4rem;
       letter-spacing: 0.05em;
     }
-    .mc-effect {
-      font-size: 12px;
-      line-height: 1.6;
-      color: #2a1f17;
-      margin-bottom: 8px;
-    }
-    .mc-clause-name {
-      font-family: 'Cinzel', serif;
-      font-size: 8px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #8B3A00;
-      margin-top: 6px;
-      margin-bottom: 2px;
-    }
-    .mc-witness {
-      font-style: italic;
-      font-size: 11px;
-      color: #2a1f17;
-      border-left: 2px solid rgba(212,133,10,0.4);
-      padding-left: 8px;
-      margin: 8px 0;
-      line-height: 1.5;
-    }
-    .mc-translation {
-      border-top: 1px dashed rgba(42,31,23,0.2);
-      padding-top: 8px;
-      margin-top: 8px;
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      font-size: 11px;
-    }
-    .mc-translation-obs { flex: 1; color: #2a1f17; }
-    .mc-translation-q { font-style: italic; color: rgba(42,31,23,0.6); text-align: right; font-size: 10px; }
-    .mc-sign {
-      font-family: 'Cinzel', serif;
-      font-size: 8px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--amber-lo);
-      margin-top: 8px;
-      text-align: center;
-    }
-    .mc-meta {
-      font-family: 'Cinzel', serif;
-      font-size: 8px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      opacity: 0.45;
-      margin-top: 6px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      color: #2a1f17;
+
+    /* Hidden on browse — shown in modal */
+    .mc-effect, .mc-clause-name, .mc-clause-name + div,
+    .mc-witness, .mc-translation, .mc-sign, .mc-meta {
+      display: none;
     }
 
     /* ── Emergent section ── */
@@ -487,7 +449,7 @@
     /* ── Unified card grid ── */
     .all-cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
       gap: 16px;
       margin-bottom: 48px;
     }
@@ -501,7 +463,159 @@
 
     @media (max-width: 600px) {
       .barker { padding: 20px 16px; }
-      .all-cards-grid { grid-template-columns: 1fr; }
+      .all-cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    /* ── Card Modal ── */
+    .midway-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(8,6,4,0.88);
+      z-index: 500;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      backdrop-filter: blur(6px);
+    }
+    .midway-modal-overlay.open { display: flex; }
+    .midway-modal {
+      background: #F5ECD6;
+      border: 2px solid var(--amber);
+      border-radius: 12px;
+      width: 100%;
+      max-width: 440px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.7), 0 0 40px rgba(212,133,10,0.15);
+      position: relative;
+      animation: mmIn 0.2s ease-out;
+      color: #2a1f17;
+    }
+    @keyframes mmIn { from { opacity: 0; transform: scale(0.95) translateY(12px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+    .mm-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      z-index: 10;
+      background: rgba(107,26,15,0.9);
+      border: none;
+      color: #F5ECD6;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      line-height: 1;
+      transition: background 0.2s;
+    }
+    .mm-close:hover { background: var(--amber); color: #2a1f17; }
+    .mm-image { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; border-radius: 12px 12px 0 0; }
+    .mm-body { padding: 1rem 1.2rem 1.2rem; }
+    .mm-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 7px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      background: #6B1A0F;
+      color: #F5ECD6;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      border-radius: 2px;
+    }
+    .mm-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.1rem;
+      color: #2a1f17;
+      line-height: 1.25;
+      margin-bottom: 0.15rem;
+    }
+    .mm-tagline {
+      font-style: italic;
+      font-size: 0.78rem;
+      color: #8B3A00;
+      margin-bottom: 0.4rem;
+    }
+    .mm-stats {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      color: #6B1A0F;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.7rem;
+    }
+    .mm-effect {
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: #2a1f17;
+      margin-bottom: 0.7rem;
+    }
+    .mm-clause-name {
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8B3A00;
+      margin-top: 0.4rem;
+      margin-bottom: 0.1rem;
+    }
+    .mm-clause-rule {
+      font-size: 0.75rem;
+      line-height: 1.55;
+      color: #2a1f17;
+    }
+    .mm-witness {
+      font-style: italic;
+      font-size: 0.78rem;
+      color: #2a1f17;
+      border-left: 2px solid var(--amber);
+      padding-left: 8px;
+      margin: 0.6rem 0;
+      line-height: 1.5;
+    }
+    .mm-translation {
+      border-top: 1px dashed rgba(42,31,23,0.2);
+      padding-top: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .mm-trans-obs { font-size: 0.78rem; color: #2a1f17; margin-bottom: 0.2rem; }
+    .mm-trans-q { font-size: 0.72rem; font-style: italic; color: rgba(42,31,23,0.6); }
+    .mm-sign {
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber-lo);
+      margin-top: 0.6rem;
+      text-align: center;
+    }
+    .mm-meta {
+      font-family: 'Cinzel', serif;
+      font-size: 8px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-top: 0.4rem;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      color: #2a1f17;
+    }
+    .midway-modal::-webkit-scrollbar { width: 4px; }
+    .midway-modal::-webkit-scrollbar-track { background: transparent; }
+    .midway-modal::-webkit-scrollbar-thumb { background: var(--amber-lo); border-radius: 2px; }
+
+    @media (max-width: 768px) {
+      .card-container { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+      .midway-modal-overlay { padding: 1rem; }
+      .midway-modal { max-width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .card-container { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .mc-name { font-size: 0.58rem; }
+      .mc-tagline { display: none; }
     }
   </style>
 </head>
@@ -2955,6 +3069,75 @@
     const observer = new MutationObserver(() => renderShuffled());
     containers.forEach(c => observer.observe(c, { childList: true }));
   }
+
+  // ── Card Modal ─────────────────────────────────────────────
+  const modalOverlay = document.createElement('div');
+  modalOverlay.className = 'midway-modal-overlay';
+  modalOverlay.id = 'midwayModal';
+  modalOverlay.innerHTML = '<div class="midway-modal" id="midwayModalCard"><button class="mm-close" id="mmClose">&times;</button><div id="mmContent"></div></div>';
+  document.body.appendChild(modalOverlay);
+
+  function closeModal() {
+    modalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('mmClose').addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', function(e) { if (e.target === modalOverlay) closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+  function extractCardData(cardEl) {
+    var img = cardEl.querySelector('.mc-image');
+    var badge = cardEl.querySelector('.mc-badge');
+    var name = cardEl.querySelector('.mc-name');
+    var tagline = cardEl.querySelector('.mc-tagline');
+    var stats = cardEl.querySelector('.mc-stats');
+    var effect = cardEl.querySelector('.mc-effect');
+    var witness = cardEl.querySelector('.mc-witness');
+    var sign = cardEl.querySelector('.mc-sign');
+    var meta = cardEl.querySelector('.mc-meta');
+    var transObs = cardEl.querySelector('.mc-translation-obs');
+    var transQ = cardEl.querySelector('.mc-translation-q');
+
+    // Collect clauses
+    var clauseNames = cardEl.querySelectorAll('.mc-clause-name');
+    var clausesHTML = '';
+    clauseNames.forEach(function(cn) {
+      var rule = cn.nextElementSibling;
+      if (rule && !rule.classList.contains('mc-clause-name')) {
+        clausesHTML += '<div class="mm-clause-name">' + cn.textContent + '</div><div class="mm-clause-rule">' + rule.textContent + '</div>';
+      }
+    });
+
+    var html = '';
+    if (img) html += '<img class="mm-image" src="' + img.src + '" alt="' + (img.alt||'') + '">';
+    html += '<div class="mm-body">';
+    if (badge) html += '<div class="mm-badge">' + badge.textContent + '</div>';
+    if (name) html += '<div class="mm-name">' + name.textContent + '</div>';
+    if (tagline) html += '<div class="mm-tagline">' + tagline.textContent + '</div>';
+    if (stats) html += '<div class="mm-stats">' + stats.textContent + '</div>';
+    if (effect) html += '<div class="mm-effect">' + effect.textContent + '</div>';
+    if (clausesHTML) html += clausesHTML;
+    if (witness) html += '<div class="mm-witness">' + witness.textContent + '</div>';
+    if (transObs || transQ) {
+      html += '<div class="mm-translation">';
+      if (transObs) html += '<div class="mm-trans-obs">' + transObs.textContent + '</div>';
+      if (transQ) html += '<div class="mm-trans-q">' + transQ.textContent + '</div>';
+      html += '</div>';
+    }
+    if (sign) html += '<div class="mm-sign">' + sign.textContent + '</div>';
+    if (meta) html += '<div class="mm-meta">' + meta.innerHTML + '</div>';
+    html += '</div>';
+    return html;
+  }
+
+  document.addEventListener('click', function(e) {
+    var card = e.target.closest('.midway-card');
+    if (!card) return;
+    document.getElementById('mmContent').innerHTML = extractCardData(card);
+    modalOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('midwayModalCard').scrollTop = 0;
+  });
 
   // ── Init ──────────────────────────────────────────────────────
   buildMarquee();
