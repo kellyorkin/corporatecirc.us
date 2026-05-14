@@ -28,5 +28,6 @@
     "observation": "Data location unknown.",
     "skeptical_question": "Has anyone actually looked?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-reassurance.png"
 }
