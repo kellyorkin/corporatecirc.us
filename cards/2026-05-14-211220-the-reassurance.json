@@ -1,0 +1,32 @@
+{
+  "name": "The Reassurance",
+  "role_tagline": "Confident Uncertainty",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Resigned",
+  "sub_tent": "Analytics Arcade",
+  "role": "Clown",
+  "atk": 2,
+  "def": 6,
+  "image_sign_text": "IT'S IN THERE. WE PROMISE.",
+  "effect": "Suppress escalation by asserting that the data exists and is retrievable. This card is considered calming.",
+  "clauses": [
+    {
+      "name": "CONTAINMENT CLAUSE",
+      "rule": "If a stakeholder panics: Reassure them that the data is present and accounted for."
+    },
+    {
+      "name": "SEARCH EFFECT",
+      "rule": "If the data is not immediately found: It is considered temporarily mislocated, not missing."
+    },
+    {
+      "name": "DISCOVERY OVERRIDE",
+      "rule": "If the data is never found: The query is considered malformed."
+    }
+  ],
+  "witness_quote": "It's definitely in there somewhere.",
+  "translation_layer": {
+    "observation": "Data location unknown.",
+    "skeptical_question": "Has anyone actually looked?"
+  },
+  "status": "draft"
+}
