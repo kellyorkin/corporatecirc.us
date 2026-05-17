@@ -1,0 +1,32 @@
+{
+  "name": "The Sync",
+  "role_tagline": "Cloud Sovereignty",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Volatile",
+  "sub_tent": "MVP Midway",
+  "role": "Contortionist",
+  "atk": 6,
+  "def": 3,
+  "image_sign_text": "YOUR FILES. EVERYWHERE. PROBABLY.",
+  "effect": "Restore access to a file that was previously accessible. This card is considered seamless.",
+  "clauses": [
+    {
+      "name": "GIVETH CLAUSE",
+      "rule": "If a file is uploaded: The file is considered permanently available."
+    },
+    {
+      "name": "TAKETH AWAY OVERRIDE",
+      "rule": "At any subsequent time: The file is unavailable, moved, or renamed without explanation."
+    },
+    {
+      "name": "RECONCILIATION PROTECTION",
+      "rule": "If the user reports the missing file: The file is found in a location the user did not create."
+    }
+  ],
+  "witness_quote": "It was there yesterday, I swear.",
+  "translation_layer": {
+    "observation": "File location is nondeterministic.",
+    "skeptical_question": "Was it ever really synced?"
+  },
+  "status": "draft"
+}
