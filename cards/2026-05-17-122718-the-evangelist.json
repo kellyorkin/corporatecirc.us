@@ -1,0 +1,32 @@
+{
+  "name": "The Evangelist",
+  "role_tagline": "Prophetic Adoption Driver",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Performative",
+  "sub_tent": "AI Pavilion",
+  "role": "Fire Breather",
+  "atk": 9,
+  "def": 3,
+  "image_sign_text": "THE FUTURE IS NOW. ACT ACCORDINGLY.",
+  "effect": "Declare transformative AI capability across all business units. This card is considered visionary.",
+  "clauses": [
+    {
+      "name": "CONVICTION CLAUSE",
+      "rule": "If challenged on specifics: Restate the vision at increased volume."
+    },
+    {
+      "name": "CONFERENCE EFFECT",
+      "rule": "When this card appears at an external event: Its internal credibility increases by one tier regardless of delivery."
+    },
+    {
+      "name": "ROADMAP OVERRIDE",
+      "rule": "If no working product exists: Replace with a compelling narrative arc considered equivalent for budgeting purposes."
+    }
+  ],
+  "witness_quote": "He really believes it.",
+  "translation_layer": {
+    "observation": "Slides. No demo.",
+    "skeptical_question": "Has he seen the actual model output?"
+  },
+  "status": "draft"
+}
