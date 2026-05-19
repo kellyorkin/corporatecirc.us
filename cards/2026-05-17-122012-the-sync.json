@@ -28,6 +28,6 @@
     "observation": "File location is nondeterministic.",
     "skeptical_question": "Was it ever really synced?"
   },
-  "status": "draft",
+  "status": "published",
   "image_path": "cards/images/the-sync.png"
 }
