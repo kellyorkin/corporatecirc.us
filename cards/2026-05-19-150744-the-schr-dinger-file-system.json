@@ -28,5 +28,6 @@
     "observation": "Nobody knows where it is.",
     "skeptical_question": "Has anyone checked the desktop?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-schr-dinger-file-system.png"
 }
