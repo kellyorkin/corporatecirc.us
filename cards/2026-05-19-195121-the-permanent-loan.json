@@ -28,5 +28,6 @@
     "observation": "Someone else's tool, kept.",
     "skeptical_question": "Is there a ticket for this anywhere?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-permanent-loan.png"
 }
