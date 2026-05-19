@@ -1,0 +1,32 @@
+{
+  "name": "The Schrödinger File System",
+  "role_tagline": "Superposition of Truth",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Resigned",
+  "sub_tent": "Analytics Arcade",
+  "role": "Fortune Teller",
+  "atk": 4,
+  "def": 9,
+  "image_sign_text": "THE FILE IS IN THERE. PROBABLY.",
+  "effect": "Exist in a state of simultaneous presence and absence. This card is considered current.",
+  "clauses": [
+    {
+      "name": "OBSERVATION COLLAPSE CLAUSE",
+      "rule": "When a file is searched for: It is either found in an unexpected location or confirmed deleted by someone who cannot be reached."
+    },
+    {
+      "name": "VERSION UNCERTAINTY EFFECT",
+      "rule": "If multiple versions exist: The correct version is considered the one opened most recently by the most senior stakeholder."
+    },
+    {
+      "name": "RETRIEVAL OVERRIDE",
+      "rule": "When a file is declared missing: A copy surfaces in a folder no one recognized as active."
+    }
+  ],
+  "witness_quote": "It was there last week, I swear.",
+  "translation_layer": {
+    "observation": "Nobody knows where it is.",
+    "skeptical_question": "Has anyone checked the desktop?"
+  },
+  "status": "draft"
+}
