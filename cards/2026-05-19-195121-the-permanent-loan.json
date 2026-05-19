@@ -1,0 +1,32 @@
+{
+  "name": "The Permanent Loan",
+  "role_tagline": "Indefinite Resource Alignment",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "MVP Midway",
+  "role": "Contortionist",
+  "atk": 4,
+  "def": 9,
+  "image_sign_text": "TEMPORARILY PERMANENT",
+  "effect": "Acquire a technology resource on a temporary basis with no defined return condition. This card is considered provisional.",
+  "clauses": [
+    {
+      "name": "RENEWAL CLAUSE",
+      "rule": "At the start of each quarter: The loan is silently extended without documentation."
+    },
+    {
+      "name": "OWNERSHIP AMBIGUITY EFFECT",
+      "rule": "If the original owner requests return: The request is routed to a team that no longer exists."
+    },
+    {
+      "name": "INTEGRATION PROTECTION",
+      "rule": "If the technology becomes load-bearing: Its provisional status is never formally revised."
+    }
+  ],
+  "witness_quote": "We just never gave it back.",
+  "translation_layer": {
+    "observation": "Someone else's tool, kept.",
+    "skeptical_question": "Is there a ticket for this anywhere?"
+  },
+  "status": "draft"
+}
