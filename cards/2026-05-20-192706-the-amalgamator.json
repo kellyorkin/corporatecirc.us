@@ -28,5 +28,6 @@
     "observation": "Several pipes, one label.",
     "skeptical_question": "Which system is actually the source of truth?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-amalgamator.png"
 }
