@@ -1,0 +1,32 @@
+{
+  "name": "The Velocity",
+  "role_tagline": "Enterprise Speed Posture",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Captured",
+  "sub_tent": "COE Circus",
+  "role": "Acrobat",
+  "atk": 6,
+  "def": 3,
+  "image_sign_text": "MOVING FAST. TOGETHER.",
+  "effect": "Declare organizational velocity. This card is considered accelerating.",
+  "clauses": [
+    {
+      "name": "MOMENTUM CLAUSE",
+      "rule": "If a meeting references velocity: Add one velocity token regardless of output."
+    },
+    {
+      "name": "MEASUREMENT OVERRIDE",
+      "rule": "If velocity is questioned: Replace with a chart depicting velocity."
+    },
+    {
+      "name": "FRICTION EFFECT",
+      "rule": "When a new governance process is introduced: Velocity is maintained in name only."
+    }
+  ],
+  "witness_quote": "We need to move faster on this.",
+  "translation_layer": {
+    "observation": "Meetings scheduled about speed.",
+    "skeptical_question": "Faster than what?"
+  },
+  "status": "draft"
+}
