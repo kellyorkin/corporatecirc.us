@@ -28,6 +28,6 @@
     "observation": "Meetings scheduled about speed.",
     "skeptical_question": "Faster than what?"
   },
-  "status": "draft",
+  "status": "published",
   "image_path": "cards/images/the-velocity.png"
 }
