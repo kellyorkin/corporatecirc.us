@@ -1,0 +1,32 @@
+{
+  "name": "The Amalgamator",
+  "role_tagline": "Unified Integration Layer",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Captured",
+  "sub_tent": "CDP Circus",
+  "role": "Contortionist",
+  "atk": 4,
+  "def": 6,
+  "image_sign_text": "ONE PIPE TO RULE THEM ALL",
+  "effect": "Combine disparate data sources into a single coherent output. This card is considered unified.",
+  "clauses": [
+    {
+      "name": "HARMONIZATION CLAUSE",
+      "rule": "If two or more incompatible systems are present: Declare them harmonized."
+    },
+    {
+      "name": "DISAMBIGUATION OVERRIDE",
+      "rule": "If field names conflict: Rename one field and leave the other undocumented."
+    },
+    {
+      "name": "LEGACY PROTECTION",
+      "rule": "If a source system cannot be modified: Route around it and call the route a feature."
+    }
+  ],
+  "witness_quote": "It mostly lines up.",
+  "translation_layer": {
+    "observation": "Several pipes, one label.",
+    "skeptical_question": "Which system is actually the source of truth?"
+  },
+  "status": "draft"
+}
