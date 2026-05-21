@@ -1,0 +1,32 @@
+{
+  "name": "The Quiet Fix",
+  "role_tagline": "Silent Delivery",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "COE Circus",
+  "role": "Contortionist",
+  "atk": 2,
+  "def": 9,
+  "image_sign_text": null,
+  "effect": "Resolve a critical problem without ceremony. This card is considered invisible.",
+  "clauses": [
+    {
+      "name": "INVISIBILITY CLAUSE",
+      "rule": "If this card resolves an issue without a launch email: No one is informed it was broken."
+    },
+    {
+      "name": "ATTRIBUTION OVERRIDE",
+      "rule": "If a stakeholder later claims ownership of the resolution: This card may not contradict them."
+    },
+    {
+      "name": "FORGETFULNESS PROTECTION",
+      "rule": "If this card is decommissioned: The problem it solved is rediscovered within one quarter."
+    }
+  ],
+  "witness_quote": "Oh, that just works now.",
+  "translation_layer": {
+    "observation": "Someone fixed it quietly.",
+    "skeptical_question": "Does anyone know who maintains this?"
+  },
+  "status": "draft"
+}
