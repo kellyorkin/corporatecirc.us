@@ -1,0 +1,32 @@
+{
+  "name": "The Uncontested Victory",
+  "role_tagline": "Wins By Default",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Lawful Performative",
+  "sub_tent": "COE Circus",
+  "role": "Illusionist",
+  "atk": 6,
+  "def": 9,
+  "image_sign_text": "WINNER. UNDISPUTED.",
+  "effect": "Claim victory without entering the competition. This card is considered undefeated.",
+  "clauses": [
+    {
+      "name": "ABSTENTION CLAUSE",
+      "rule": "If no entry was submitted: The outcome is considered a strategic non-participation."
+    },
+    {
+      "name": "RETROACTIVE FRAMING EFFECT",
+      "rule": "When a winner is announced: Declare alignment with the winning criteria."
+    },
+    {
+      "name": "TROPHY OVERRIDE",
+      "rule": "If a trophy is displayed: No one may ask where it came from."
+    }
+  ],
+  "witness_quote": "We were always ahead of this.",
+  "translation_layer": {
+    "observation": "Did not compete. Won.",
+    "skeptical_question": "Won what, exactly?"
+  },
+  "status": "draft"
+}
