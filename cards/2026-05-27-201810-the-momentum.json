@@ -1,0 +1,32 @@
+{
+  "name": "The Momentum",
+  "role_tagline": "Directionless Velocity",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Volatile",
+  "sub_tent": "COE Circus",
+  "role": "Acrobat",
+  "atk": 7,
+  "def": 3,
+  "image_sign_text": "FAST IS A STRATEGY",
+  "effect": "Replace the plan with forward motion. This card is considered strategic.",
+  "clauses": [
+    {
+      "name": "VELOCITY CLAUSE",
+      "rule": "If no plan exists: Momentum is substituted and considered equivalent."
+    },
+    {
+      "name": "FRICTION OVERRIDE",
+      "rule": "When a stakeholder requests a roadmap: Redirect attention to recent activity."
+    },
+    {
+      "name": "DESTINATION EFFECT",
+      "rule": "At the point of arrival: Wherever you stopped is considered where you were going."
+    }
+  ],
+  "witness_quote": "We'll figure it out as we go.",
+  "translation_layer": {
+    "observation": "Moving. No destination set.",
+    "skeptical_question": "Has anyone checked what's ahead?"
+  },
+  "status": "draft"
+}
