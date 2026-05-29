@@ -41,7 +41,7 @@ const ALIGNMENT_GRID = `Every card carries a corporate alignment from this 3×3 
 - Lawful Compliant — by-the-book, faithfully procedural (a properly-filed risk register)
 - Lawful Performative — compliance theater for the procedural audience (an audit signed before being read)
 - Lawful Resigned — rote execution without belief (the quarterly report no one opens)
-- Neutral Engaged — earnest participation outside ideology (a working group that actually works)
+- Neutral Acquisitive — self-serving advancement without ideology (the operator who works the system for personal credit)
 - Neutral Pragmatic — outcome-focused, ceremony-free (the senior IC who quietly fixes things)
 - Neutral Resigned — going through the motions (the recurring meeting that survived its purpose)
 - Chaotic Innovative — genuine disruption with novel shape (rare in the deck — the satire is mostly the absence of this)
@@ -51,7 +51,7 @@ const ALIGNMENT_GRID = `Every card carries a corporate alignment from this 3×3 
 
 const ALIGNMENT_ENUM = [
   "Lawful Compliant", "Lawful Performative", "Lawful Resigned",
-  "Neutral Engaged",  "Neutral Pragmatic",   "Neutral Resigned",
+  "Neutral Acquisitive",  "Neutral Pragmatic",   "Neutral Resigned",
   "Chaotic Innovative", "Chaotic Captured", "Chaotic Performative", "Chaotic Volatile"
 ];
 

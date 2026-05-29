@@ -70,7 +70,7 @@ ${STATS_GUIDANCE}
 ALIGNMENT
 ${ALIGNMENT_GRID}
 
-Most Manufactured Exhibits will lean Performative — these cards satirize how marketing stages technology, and Performative is its native voice. Resist defaulting there. A risk register is Lawful Compliant. A tired re-org is Lawful Resigned. A working pilot is Neutral Engaged. The alignment should sharpen the satire of the specific card, not generalize across the deck.
+Most Manufactured Exhibits will lean Performative — these cards satirize how marketing stages technology, and Performative is its native voice. Resist defaulting there. A risk register is Lawful Compliant. A tired re-org is Lawful Resigned. The exec who sponsors the pilot for the visibility is Neutral Acquisitive. The alignment should sharpen the satire of the specific card, not generalize across the deck.
 
 ANTI-PATTERNS
 - Do not exceed 3 clauses.

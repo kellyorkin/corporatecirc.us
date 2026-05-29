@@ -36,7 +36,7 @@ const ALIGNMENTS = {
   '2026-04-27-210601-the-pivot.json':               'Chaotic Captured',
   '2026-04-27-211123-the-proof-of-concept.json':    'Lawful Performative',
   '2026-04-27-211546-the-feedback-loop.json':       'Chaotic Volatile',
-  '2026-04-27-212235-the-masterpiece.json':         'Neutral Engaged',
+  '2026-04-27-212235-the-masterpiece.json':         'Neutral Performative',
   '2026-04-27-213746-the-unified-profile.json':     'Lawful Performative',
   '2026-04-27-214145-the-design-review.json':       'Lawful Performative',
   '2026-04-27-222012-the-sponsored-moment.json':    'Chaotic Performative',
