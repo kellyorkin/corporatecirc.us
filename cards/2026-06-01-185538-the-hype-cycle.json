@@ -1,0 +1,32 @@
+{
+  "name": "The Hype Cycle",
+  "role_tagline": "Peak Expectations",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Chaotic Performative",
+  "sub_tent": "AI Pavilion",
+  "role": "Fire Breather",
+  "atk": 10,
+  "def": 2,
+  "image_sign_text": "THE FUTURE IS NOW. INVEST ACCORDINGLY.",
+  "effect": "Declare a transformative capability before it exists. This card is considered inevitable.",
+  "clauses": [
+    {
+      "name": "PEAK INFLATION CLAUSE",
+      "rule": "While this card is in play: All adjacent capabilities are considered revolutionary."
+    },
+    {
+      "name": "TROUGH OF DISILLUSIONMENT EFFECT",
+      "rule": "If a deliverable is requested: This card loses all ATK until a new narrative is introduced."
+    },
+    {
+      "name": "NARRATIVE RECOVERY OVERRIDE",
+      "rule": "If a new acronym is introduced: Reset all expectations and replay from Peak Inflation."
+    }
+  ],
+  "witness_quote": "This changes everything. Again.",
+  "translation_layer": {
+    "observation": "Announcement precedes product.",
+    "skeptical_question": "Has anyone shipped this?"
+  },
+  "status": "draft"
+}
