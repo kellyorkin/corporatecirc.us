@@ -28,5 +28,6 @@
     "observation": "Announcement precedes product.",
     "skeptical_question": "Has anyone shipped this?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-hype-cycle.png"
 }
