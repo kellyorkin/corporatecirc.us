@@ -28,5 +28,6 @@
     "observation": "Data moved. Shape changed.",
     "skeptical_question": "What happened to those rows?"
   },
-  "status": "draft"
+  "status": "draft",
+  "image_path": "cards/images/the-pipeline.png"
 }
