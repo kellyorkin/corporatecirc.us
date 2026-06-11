@@ -1,0 +1,32 @@
+{
+  "name": "The Pipeline",
+  "role_tagline": "Seamless Data Movement",
+  "card_type": "Manufactured Exhibit",
+  "alignment": "Neutral Pragmatic",
+  "sub_tent": "Analytics Arcade",
+  "role": "Contortionist",
+  "atk": 4,
+  "def": 6,
+  "image_sign_text": "EXTRACT. TRANSFORM. DELIVER.",
+  "effect": "Move data from one shape to another. This card is considered operational.",
+  "clauses": [
+    {
+      "name": "SILENT FAILURE CLAUSE",
+      "rule": "If a transformation silently drops records: The pipeline is considered complete."
+    },
+    {
+      "name": "LEGACY FORMAT PROTECTION",
+      "rule": "If the source system is older than the team: The transformation logic may not be questioned."
+    },
+    {
+      "name": "MAINTENANCE OVERRIDE",
+      "rule": "When the original author has left the organisation: All documentation is considered sufficient."
+    }
+  ],
+  "witness_quote": "It runs every night. Mostly.",
+  "translation_layer": {
+    "observation": "Data moved. Shape changed.",
+    "skeptical_question": "What happened to those rows?"
+  },
+  "status": "draft"
+}
